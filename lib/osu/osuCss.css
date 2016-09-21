@@ -1,0 +1,275 @@
+body{
+  font-family: Helvetica;
+  background-color: #FBFBF3;
+}
+
+h1{
+  font-size: 3em;
+}
+
+#body{
+  font-size: 1.5em;
+}
+
+#content input{
+  background-color: none;
+}
+
+.btn-primary{
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.btn {
+  border-color: #FFB039;
+  background-color: #FFB039;
+}
+
+.btn-primary :hover{
+  border-color: #FFB039;
+  background-color: #FFB039;
+}
+
+hr.style-one {
+    border: 0;
+    height: 2.75px;
+    width: 90%;
+    background: #333;
+    background-image: linear-gradient(to right, #FBFBF3, #333, #FBFBF3);
+}
+
+#frontPageImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#issueCoverImage{
+  overflow: hidden;
+}
+
+#searchCategories{
+  margin-bottom: .35em;
+  width: 8.5em;
+}
+
+#searchInput{
+  margin-bottom: .35em;
+  width: 18.5em;
+}
+
+#header{
+  width: 100%;
+}
+
+#osuLogo{
+  padding: 0;
+  padding-bottom: 1.75em;
+  display: inline;
+  margin: 0 auto;
+}
+
+
+#osuHeader{
+   margin: 0 auto;
+   width: 70%;
+}
+
+.getInline{
+  /*padding-top: 4em;*/
+  /*width: 35%;*/
+  display: inline-block;
+}
+
+#osuHeader h1{
+  /*display: inline;*/
+  font-size: 3.25em;
+  padding: 0;
+  /*padding-bottom: .25em;*/
+  text-align: center;
+  font-family: 'Forum', cursive;
+  text-transform: uppercase;
+}
+
+#osuHeader h3{
+  /*display: inline;*/
+  margin: 0px;
+  font-size: 1.85em;
+  padding: 0;
+  text-align: center;
+  font-family: 'Forum', cursive;
+  text-transform: uppercase;
+}
+
+#logintop{
+  float: right;
+  margin-right: .35em;
+}
+
+#logintop i{
+  margin-left: .15em;
+  margin-right: .15em;
+}
+
+#logout{
+  float: right;
+  margin-right: .35em;
+
+}
+
+
+@media (max-width: 1185px){
+  #osuLogo{
+    padding: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .getInline{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  #osuHeader{
+    width: 100%;
+  }
+
+  #osuHeader h1{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible;
+    text-align: center;
+  }
+
+  #osuHeader h3{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  ul.menu li.splitter {
+    display:none;
+  }
+  #navbar.navbar.navbar-default{
+    border-style: none;
+  }
+  .center-twitter{
+    margin: 0 auto;
+    width: 43%;
+  }
+  #hide-bottom-menu{
+    display: none;
+  }
+}
+
+#osuFooter{
+    float: right;
+}
+
+#osuFooter img{
+    opacity: 0.5
+}
+
+#socialMediaIcons{
+  float: left;
+  margin-left: .25em;
+  font-size: 1.75em;
+}
+
+#main{
+  background-color: #FBFBF3;
+}
+
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  /*border-bottom: 1px solid;*/
+  border-color: #FF9900;
+}
+
+
+.clear{
+  clear: both;
+}
+
+/*Bootstrap Edits*/
+
+.navbar-default{
+  background-color: #FF9900;
+  border-color: #FF9900;
+}
+
+#navbar{
+  padding-bottom: 0px;
+}
+
+#navbar a{
+  font-size: .95em;
+}
+
+#navbar li :hover{
+  background-color: #ffc164;
+}
+
+.navbar{
+  margin-bottom: 0px;
+  min-height: 0px;
+  font-size: 1.10em;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: black;
+}
+
+.navbar-default ul li :hover {
+    background-color: #ffc164;
+}
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+#navbar.navbar.navbar-default{
+  border-top: solid black 2.5px;
+  border-bottom: solid black 2.5px;
+}
+
+ul.menu li{
+  padding-right: 0px;
+}
+
+ul.menu li.splitter {
+  height: 18px;
+  margin-top: .50em;
+  /*margin: 0 9px;*/
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+}
+.nav>li>a{
+  padding: 8px 11px;
+}
+#hide-bottom-menu{
+  background-color: #FBFBF3;
+}
+.label{
+  color: black;
+}
+
+.center-twitter{
+  margin: 8em auto;
+  width: 43%;
+}
