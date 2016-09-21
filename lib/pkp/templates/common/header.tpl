@@ -20,16 +20,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset={$defaultCharset|escape}" />
+  <meta name="viewport" content="width=device-width">
 	<title>{$pageTitleTranslated}</title>
 	<meta name="description" content="{$metaSearchDescription|escape}" />
 	<meta name="keywords" content="{$metaSearchKeywords|escape}" />
 	<meta name="generator" content="{$applicationName} {$currentVersionString|escape}" />
-	{$metaCustomHeaders}
+	<!-- {$metaCustomHeaders} -->
 	{if $displayFavicon}<link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}" type="{$displayFavicon.mimeType|escape}" />{/if}
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/pkp.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://use.fontawesome.com/515cb1f837.js"></script>
+  <link rel="stylesheet" href="{$baseUrl}/lib/osu/osuCss.css" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Forum" rel="stylesheet">
 
 	<!-- Base Jquery -->
 	{if $allowCDN}<script type="text/javascript" src="//www.google.com/jsapi"></script>
@@ -123,26 +131,70 @@
 <body id="pkp-{$pageTitle|replace:'.':'-'}">
 <div id="container">
 
-<div id="header">
-<div id="headerTitle">
-<h1>
-{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
-	<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
-{/if}
-{if $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
-	<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
-{elseif $displayPageHeaderTitle}
-	{$displayPageHeaderTitle}
-{elseif $alternatePageHeader}
-	{$alternatePageHeader}
-{elseif $siteTitle}
-	{$siteTitle}
-{else}
-	{$applicationName}
-{/if}
-</h1>
-</div>
-</div>
+  <div id="header">
+    <div id="headerTitle">
+      <!-- adding login button on the top right -->
+
+      {if $isUserLoggedIn}
+        <!-- <form  action="{url page="login" op="signOut"}" method="get"> -->
+          <!-- <button type="button" class="btn btn-default navbar-btn" id="logout"><a href="{url page="login" op="signOut"}">{translate key="user.logOut"}</a></button> -->
+          <a id="logout"href="{url page="login" op="signOut"}"><i class="fa fa-sign-out" aria-hidden="true"></i>{translate key="user.logOut"}</a>
+        <!-- </form> -->
+  		{else}
+      <!-- <form  action="{url page="login"}" method="post"> -->
+        <!-- <button  type="button" class="btn btn-default navbar-btn" id="logintop"><a href="{url page="login"}">{translate key="navigation.login"}</a></button> -->
+        <a id="logintop"href="{url page="login"}">{translate key="navigation.login"}<i class="fa fa-sign-in" aria-hidden="true"></i></a>
+      <!-- </form> -->
+  		{/if}{* $isUserLoggedIn *}
+      <div class="clear"></div>
+      <div id="osuHeader">
+          <img class="" id="osuLogo" src="{$baseUrl}/public/osuImages/StateSeal125px.png" />
+          {if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
+          	<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
+          {/if}
+          <div class="getInline">
+              <h3>
+              Oklahoma State
+              <!-- {if $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
+              	<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
+              {elseif $displayPageHeaderTitle}
+              	{$displayPageHeaderTitle}
+              {elseif $alternatePageHeader}
+              	{$alternatePageHeader}
+              {elseif $siteTitle}
+              	{$siteTitle}
+              {else}
+              	{$applicationName}
+              {/if} -->
+            </h3>
+            <h1>Medical Proceedings</h1>
+          </div>
+
+    </div>
+  </div>
+  <!-- ================ search form added navbar moved ================= -->
+
+  <form class="form-inline" action="{url page="search" op="search"}">
+    <div class="form-group">
+      <!-- {translate key="plugins.block.navigation.searchScope"} -->
+      <select id="searchCategories" name="searchField" size="1" class="selectMenu form-control">
+        {html_options_translate options=$articleSearchByOptions}
+      </select>
+      {capture assign="filterInput"}{call_hook name="Templates::Search::SearchResults::FilterInput" filterName="simpleQuery" filterValue="" size=15}{/capture}
+      {if empty($filterInput)}
+        <input id="searchInput" type="text" name="simpleQuery" size="15" maxlength="255" value="" class="textField form-control" placeholder="search"/>
+      {else}
+        {$filterInput}
+      {/if}
+      <input type="submit" value="{translate key="common.search"}" class="button btn btn-default" />
+    </div>
+  </form>
+  <div class="clear"></div>
+
+  {include file="common/navbar.tpl"}
+  <!-- ================ /end search form added and navabar moved================= -->
+  </div>
+
 
 <div id="body">
 
@@ -162,11 +214,13 @@
 {/if}
 
 <div id="main">
-{include file="common/navbar.tpl"}
 
-{include file="common/breadcrumbs.tpl"}
 
-<h2>{$pageTitleTranslated}</h2>
+<!-- {include file="common/breadcrumbs.tpl"} -->
+
+
+
+<!-- <h2>{$pageTitleTranslated}</h2> -->
 
 {if $pageSubtitle && !$pageSubtitleTranslated}{translate|assign:"pageSubtitleTranslated" key=$pageSubtitle}{/if}
 {if $pageSubtitleTranslated}
@@ -174,4 +228,3 @@
 {/if}
 
 <div id="content">
-
