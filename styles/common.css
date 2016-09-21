@@ -46,7 +46,6 @@ a:visited {
 
 a:hover {
 	color: #253;
-	background: #CDC;
 }
 
 
@@ -55,7 +54,7 @@ a:hover {
  */
 
 #header {
-	background-color: #ABA;
+	background-color: #FF9900;
 }
 
 #footer {
@@ -64,6 +63,7 @@ a:hover {
 
 #main {
 	width: 80%;
+	background-color: #fefefe;
 	margin: 0 auto;
 }
 
@@ -472,4 +472,3 @@ ul.tagit input[type="text"] {
 
 
 /* @end */
-
