@@ -9,7 +9,8 @@
  *
  *}
 {if !$currentJournal || $currentJournal->getSetting('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE}
-<div class="block" id="sidebarNavigation">
+{*changed class to hidden*}
+<div class="hidden" id="sidebarNavigation">
 	<span class="blockTitle">{translate key="plugins.block.navigation.journalContent"}</span>
 
 	<form id="simpleSearchForm" action="{url page="search" op="search"}">
