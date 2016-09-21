@@ -8,6 +8,8 @@
  * About the Journal index.
  *
  *}
+ <link rel="stylesheet" href="{$baseUrl}/lib/osu/osuHideSideBar.css" type="text/css" />
+
 {strip}
 {assign var="pageTitle" value="about.aboutTheJournal"}
 {include file="common/header.tpl"}
@@ -74,4 +76,3 @@
 </div>
 
 {include file="common/footer.tpl"}
-
