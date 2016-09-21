@@ -83,8 +83,8 @@ input.button {
 }
 
 input.defaultButton {
-	background-color: #375;
-	color: #FBFBF3;
+	/*background-color: #375;*/
+	/*color: #FBFBF3;*/
 	font-weight: bold;
 }
 
@@ -95,7 +95,7 @@ input.defaultButton {
 
 #container {
 	width: 100% !important;
-	min-width: 730px !important;
+	/*min-width: 730px !important;*/
 	margin: 0px auto;
 	text-align: center;
 }
@@ -140,7 +140,7 @@ input.defaultButton {
 #main h2 {
 	margin: 0em 1em 0.5em 0em;
 	padding-top: 0.5em;
-	font-family: Georgia,'Times New Roman',Times,serif;
+	font-family: Helvetica,'Times New Roman',Times,serif;
 	font-weight: normal;
 }
 
@@ -154,7 +154,6 @@ input.defaultButton {
 #navbar {
 	margin-right: 0;
 	padding-bottom: 0.5em;
-	border-bottom: 2px dotted #000;
 }
 
 #breadcrumb {
@@ -167,20 +166,19 @@ input.defaultButton {
 	padding: 0;
 	padding-top: 0.5em;
 	font-size: 0.7em;
-	border-top: 2px dotted #000;
 }
 
 #content h3 {
 	margin: 0em 1em 0.25em 0em;
 	padding-top: 0.75em;
-	font-family: Georgia,'Times New Roman',Times,serif;
+	font-family: Helvetica,'Times New Roman',Times,serif;
 	font-weight: normal;
 	font-size: 1.8em;
 }
 
 #content h4 {
 	margin: .75em 1em 0.25em 0em;
-	font-family: Georgia,'Times New Roman',Times,serif;
+	font-family: Helvetica,'Times New Roman',Times,serif;
 	font-weight: normal;
 	font-size: 1.5em;
 }
@@ -391,7 +389,7 @@ ul.menu li.current {
 
 ul.menu a {
 	font-size: 0.85em;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	text-decoration: none;
 }
 
