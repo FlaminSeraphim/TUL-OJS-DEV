@@ -3,7 +3,7 @@
 /**
  * @defgroup pages_index
  */
- 
+
 /**
  * @file pages/index/index.php
  *
@@ -12,15 +12,13 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_index
- * @brief Handle site index requests. 
+ * @brief Handle site index requests.
  *
  */
-
-switch ($op) {
-	case 'index':
-		define('HANDLER_CLASS', 'IndexHandler');
-		import('pages.index.IndexHandler');
-		break;
-}
-
+ switch ($op) {
+ 	case 'index':
+  	define('HANDLER_CLASS', 'IndexHandler');
+ 		import('pages.index.IndexHandler');
+ 		break;
+ }
 ?>
