@@ -22,7 +22,8 @@
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" />
-	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/rt.css" type="text/css" />
+  <link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/rt.css" type="text/css" />
+	<link rel="stylesheet" href="{$baseUrl}/lib/osu/osuCss.css" type="text/css" />
 
 	{foreach from=$stylesheets item=cssUrl}
 		<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
@@ -68,9 +69,11 @@
 <div id="container">
 
 <div id="header">
-<div id="headerTitle">
-<h1>{if $currentJournal && $currentJournal->getLocalizedInitials()}{$currentJournal->getLocalizedInitials()}&nbsp;{/if}{translate key="rt.readingTools"}</h1>
-</div>
+  <div id="headerTitle">
+    <div>
+      <h1>{if $currentJournal && $currentJournal->getLocalizedInitials()}{$currentJournal->getLocalizedInitials()}&nbsp;{/if}{translate key="rt.readingTools"}</h1>
+    </div>
+  </div>
 </div>
 
 <div id="body">
@@ -89,4 +92,3 @@
 <h2>{$pageTitleTranslated}</h2>
 
 <div id="content">
-
