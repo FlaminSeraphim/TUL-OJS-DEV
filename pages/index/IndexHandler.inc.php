@@ -14,13 +14,14 @@
  */
 
 import('classes.handler.Handler');
-
 class IndexHandler extends Handler {
 	/**
 	 * Constructor
 	 **/
+
 	function IndexHandler() {
 		parent::Handler();
+
 	}
 
 	/**
@@ -30,6 +31,7 @@ class IndexHandler extends Handler {
 	 * @param $request Request
 	 */
 	function index($args, &$request) {
+
 		$this->validate();
 		$this->setupTemplate();
 
@@ -99,7 +101,10 @@ class IndexHandler extends Handler {
 				$searchInitial?JOURNAL_FIELD_TITLE:null,
 				$searchInitial?'startsWith':null,
 				$searchInitial
+
+
 			);
+
 			$templateMgr->assign_by_ref('journals', $journals);
 			$templateMgr->assign_by_ref('site', $site);
 
