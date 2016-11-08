@@ -13,7 +13,7 @@
 {else}
 	{assign var=pubObject value=$article}
 {/if}
-{include file="article/header.tpl"}
+{include file="common/header.tpl"}
 {/strip}
 
 {if $galley}
