@@ -8,66 +8,73 @@
  * About the Journal / Journal Contact.
  *
  *}
+
 {strip}
 {assign var="pageTitle" value="about.journalContact"}
 {include file="common/header.tpl"}
-{/strip}
-<div id="contact">
-{if !empty($journalSettings.mailingAddress)}
-<div id="mailingAddress">
-<h3>{translate key="common.mailingAddress"}</h3>
-<p>
-	{$journalSettings.mailingAddress|nl2br}
-</p>
-</div>
-{/if}
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/osuHideSideBar.css" type="text/css" />
 
-{if not ($currentJournal->getLocalizedSetting('contactTitle') == '' && $currentJournal->getLocalizedSetting('contactAffiliation') == '' && $currentJournal->getLocalizedSetting('contactMailingAddress') == '' && empty($journalSettings.contactPhone) && empty($journalSettings.contactFax) && empty($journalSettings.contactEmail))}
-<div id="principalContact">
-<h3>{translate key="about.contact.principalContact"}</h3>
-<p>
-	{if !empty($journalSettings.contactName)}
-		<strong>{$journalSettings.contactName|escape}</strong><br />
-	{/if}
+<div class="row">
+  <div class="col-xs-8  col-xs-offset-2">
 
-	{assign var=s value=$currentJournal->getLocalizedSetting('contactTitle')}
-	{if $s}{$s|escape}<br />{/if}
+    {/strip}
+    <div id="contact">
+    {if !empty($journalSettings.mailingAddress)}
+    <div id="mailingAddress">
+    <h3>{translate key="common.mailingAddress"}</h3>
+    <p>
+    	{$journalSettings.mailingAddress|nl2br}
+    </p>
+    </div>
+    {/if}
 
-	{assign var=s value=$currentJournal->getLocalizedSetting('contactAffiliation')}
-	{if $s}{$s|escape}<br />{/if}
+    {if not ($currentJournal->getLocalizedSetting('contactTitle') == '' && $currentJournal->getLocalizedSetting('contactAffiliation') == '' && $currentJournal->getLocalizedSetting('contactMailingAddress') == '' && empty($journalSettings.contactPhone) && empty($journalSettings.contactFax) && empty($journalSettings.contactEmail))}
+    <div id="principalContact">
+    <h3>{translate key="about.contact.principalContact"}</h3>
+    <p>
+    	{if !empty($journalSettings.contactName)}
+    		<strong>{$journalSettings.contactName|escape}</strong><br />
+    	{/if}
 
-	{assign var=s value=$currentJournal->getLocalizedSetting('contactMailingAddress')}
-	{if $s}{$s|nl2br}<br />{/if}
+    	{assign var=s value=$currentJournal->getLocalizedSetting('contactTitle')}
+    	{if $s}{$s|escape}<br />{/if}
 
-	{if !empty($journalSettings.contactPhone)}
-		{translate key="about.contact.phone"}: {$journalSettings.contactPhone|escape}<br />
-	{/if}
-	{if !empty($journalSettings.contactFax)}
-		{translate key="about.contact.fax"}: {$journalSettings.contactFax|escape}<br />
-	{/if}
-	{if !empty($journalSettings.contactEmail)}
-		{translate key="about.contact.email"}: {mailto address=$journalSettings.contactEmail|escape encode="hex"}<br />
-	{/if}
-</p>
-</div>
-{/if}
+    	{assign var=s value=$currentJournal->getLocalizedSetting('contactAffiliation')}
+    	{if $s}{$s|escape}<br />{/if}
 
-{if not (empty($journalSettings.supportName) && empty($journalSettings.supportPhone) && empty($journalSettings.supportEmail))}
-<div id="supportContact">
-<h3>{translate key="about.contact.supportContact"}</h3>
-<p>
-	{if !empty($journalSettings.supportName)}
-		<strong>{$journalSettings.supportName|escape}</strong><br />
-	{/if}
-	{if !empty($journalSettings.supportPhone)}
-		{translate key="about.contact.phone"}: {$journalSettings.supportPhone|escape}<br />
-	{/if}
-	{if !empty($journalSettings.supportEmail)}
-		{translate key="about.contact.email"}: {mailto address=$journalSettings.supportEmail|escape encode="hex"}<br />
-	{/if}
-</p>
-</div>
-{/if}
+    	{assign var=s value=$currentJournal->getLocalizedSetting('contactMailingAddress')}
+    	{if $s}{$s|nl2br}<br />{/if}
+
+    	{if !empty($journalSettings.contactPhone)}
+    		{translate key="about.contact.phone"}: {$journalSettings.contactPhone|escape}<br />
+    	{/if}
+    	{if !empty($journalSettings.contactFax)}
+    		{translate key="about.contact.fax"}: {$journalSettings.contactFax|escape}<br />
+    	{/if}
+    	{if !empty($journalSettings.contactEmail)}
+    		{translate key="about.contact.email"}: {mailto address=$journalSettings.contactEmail|escape encode="hex"}<br />
+    	{/if}
+    </p>
+    </div>
+    {/if}
+
+    {if not (empty($journalSettings.supportName) && empty($journalSettings.supportPhone) && empty($journalSettings.supportEmail))}
+    <div id="supportContact">
+    <h3>{translate key="about.contact.supportContact"}</h3>
+    <p>
+    	{if !empty($journalSettings.supportName)}
+    		<strong>{$journalSettings.supportName|escape}</strong><br />
+    	{/if}
+    	{if !empty($journalSettings.supportPhone)}
+    		{translate key="about.contact.phone"}: {$journalSettings.supportPhone|escape}<br />
+    	{/if}
+    	{if !empty($journalSettings.supportEmail)}
+    		{translate key="about.contact.email"}: {mailto address=$journalSettings.supportEmail|escape encode="hex"}<br />
+    	{/if}
+    </p>
+    </div>
+    {/if}
+    </div>
+  </div>
 </div>
 {include file="common/footer.tpl"}
-
