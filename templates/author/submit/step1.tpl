@@ -10,7 +10,7 @@
  *}
 {assign var="pageTitle" value="author.submit.step1"}
 {include file="author/submit/submitHeader.tpl"}
-
+<div class="separator"></div>
 {if $journalSettings.supportPhone}
 	{assign var="howToKeyName" value="author.submit.howToSubmit"}
 {else}
@@ -19,7 +19,7 @@
 
 <p>{translate key=$howToKeyName supportName=$journalSettings.supportName supportEmail=$journalSettings.supportEmail supportPhone=$journalSettings.supportPhone}</p>
 
-<div class="separator"></div>
+
 
 <form id="submit" method="post" action="{url op="saveSubmit" path=$submitStep}" onsubmit="return checkSubmissionChecklist()">
 {include file="common/formErrors.tpl"}
@@ -39,7 +39,7 @@
 <div id="section">
 
 <h3>{translate key="author.submit.journalSection"}</h3>
-
+<div class="separator"></div>
 {url|assign:"url" page="about"}
 <p>{translate key="author.submit.journalSectionDescription" aboutUrl=$url}</p>
 
@@ -54,7 +54,7 @@
 
 </div>{* section *}
 
-<div class="separator"></div>
+
 
 {/if}{* if count($sectionOptions) == 2 *}
 
@@ -68,6 +68,7 @@
 	<div id="submissionLocale">
 
 	<h3>{translate key="author.submit.submissionLocale"}</h3>
+  	<div class="separator"></div>
 	<p>{translate key="author.submit.submissionLocaleDescription"}</p>
 
 	<table class="data" width="100%">
@@ -77,7 +78,7 @@
 		</tr>
 	</table>
 
-	<div class="separator"></div>
+
 
 	</div>{* submissionLocale *}
 {/if}{* count($supportedSubmissionLocaleNames) == 1 *}
@@ -116,19 +117,18 @@ function checkSubmissionChecklist() {
 			{assign var=notFirstChecklistItem value=1}
 			<div id="checklist">
 			<h3>{translate key="author.submit.submissionChecklist"}</h3>
+      <div class="separator"></div>
 			<p>{translate key="author.submit.submissionChecklistDescription"}</p>
-			<table width="100%" class="data">
+
 		{/if}
-		<tr valign="top">
-			<td width="5%"><input type="checkbox" id="checklist-{$smarty.foreach.checklist.iteration}" name="checklist[]" value="{$checklistId|escape}"{if $articleId || $submissionChecklist} checked="checked"{/if} /></td>
-			<td width="95%"><label for="checklist-{$smarty.foreach.checklist.iteration}">{$checklistItem.content|nl2br}</label></td>
-		</tr>
+		<label for="checklist-{$smarty.foreach.checklist.iteration}"><input class="checkbox-custom" type="checkbox" id="checklist-{$smarty.foreach.checklist.iteration}" name="checklist[]" value="{$checklistId|escape}"{if $articleId || $submissionChecklist} checked="checked"{/if} /> {$checklistItem.content|nl2br}</label> <br>
+
 	{/if}
 {/foreach}
 {if $notFirstChecklistItem}
-	</table>
+
 	</div>{* checklist *}
-	<div class="separator"></div>
+
 {/if}
 
 {/if}{* if count($sectionOptions) <= 1 *}
@@ -136,7 +136,7 @@ function checkSubmissionChecklist() {
 {if $currentJournal->getLocalizedSetting('copyrightNotice') != ''}
 <div id="copyrightNotice">
 <h3>{translate key="about.copyrightNotice"}</h3>
-
+<div class="separator"></div>
 <p>{$currentJournal->getLocalizedSetting('copyrightNotice')|nl2br}</p>
 
 {if $journalSettings.copyrightNoticeAgree}
@@ -149,21 +149,22 @@ function checkSubmissionChecklist() {
 {/if}{* $journalSettings.copyrightNoticeAgree *}
 </div>{* copyrightNotice *}
 
-<div class="separator"></div>
+
 
 {/if}{* $currentJournal->getLocalizedSetting('copyrightNotice') != '' *}
 
 <div id="privacyStatement">
 <h3>{translate key="author.submit.privacyStatement"}</h3>
+<div class="separator"></div>
 <br />
 {$currentJournal->getLocalizedSetting('privacyStatement')|nl2br}
 </div>
 
-<div class="separator"></div>
+
 
 <div id="commentsForEditor">
 <h3>{translate key="author.submit.commentsForEditor"}</h3>
-
+<div class="separator"></div>
 <table width="100%" class="data">
 <tr valign="top">
 	<td width="20%" class="label">{fieldLabel name="commentsToEditor" key="author.submit.comments"}</td>
@@ -172,9 +173,9 @@ function checkSubmissionChecklist() {
 </table>
 </div>{* commentsForEditor *}
 
-<div class="separator"></div>
 
-<p><input type="submit" value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="{if $articleId}confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}'){else}document.location.href='{url page="author" escape=false}'{/if}" /></p>
+
+<p><input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-block " id="regSubmitBtn" /> <input type="button" value="{translate key="common.cancel"}" class="btn btn-danger btn-block cancelBtn" onclick="{if $articleId}confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}'){else}document.location.href='{url page="author" escape=false}'{/if}" /></p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
@@ -183,4 +184,3 @@ function checkSubmissionChecklist() {
 {/if}{* If not accepting submissions *}
 
 {include file="common/footer.tpl"}
-
