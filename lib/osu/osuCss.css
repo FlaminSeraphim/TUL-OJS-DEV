@@ -1,20 +1,66 @@
 body{
   font-family: Helvetica;
   background-color: #FBFBF3;
+  overflow-x: hidden;
 }
-
+#forsmall{
+  display: none;
+}
 h1{
   font-size: 3em;
+}
+li{
+  list-style-type: none;
+}
+a{
+  color: #FFB039;
+}
+a:visited{
+  color: #FFB039;
+}
+#headerTitle a:link{
+  color: #333333;
+}
+
+#headerTitle a:visited{
+  color: #333333;
 }
 
 #body{
   font-size: 1.5em;
 }
 
-#content input{
-  background-color: none;
+#content input[type="text"], #content input[type="password"] {
+  background-color: #FBFBF3;
+  border: none;
+  border-bottom: 1.5px solid #333333;
+  outline: none;
+  width: 100%;
 }
 
+.underlineForm:before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #FF9900;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.underlineForm:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+.loginMarginBot{
+  margin-bottom: 1em;
+}
 .btn-primary{
   border-color: transparent;
   background-color: transparent;
@@ -29,6 +75,13 @@ h1{
   border-color: #FFB039;
   background-color: #FFB039;
 }
+#regSubmitBtn{
+  color: white;
+  border-radius: 16px;
+  background-color: #333333;
+
+}
+
 
 hr.style-one {
     border: 0;
@@ -49,6 +102,7 @@ hr.style-one {
   overflow: hidden;
 }
 
+
 #searchCategories{
   margin-bottom: .35em;
   width: 8.5em;
@@ -56,7 +110,8 @@ hr.style-one {
 
 #searchInput{
   margin-bottom: .35em;
-  width: 18.5em;
+  /*width: 28.5em;*/
+  width: 20em;
 }
 
 #header{
@@ -65,21 +120,28 @@ hr.style-one {
 
 #osuLogo{
   padding: 0;
-  padding-bottom: 1.75em;
-  display: inline;
-  margin: 0 auto;
+  padding-bottom: .1em;
+  margin-top: -35px;
+  /*display: inline;*/
+  /*float: left;*/
+  /*margin: 0 auto;*/
 }
 
 
 #osuHeader{
-   margin: 0 auto;
-   width: 70%;
+   /*margin: 0 auto;*/
+   /*text-align: center;*/
+   /*width: 43em;*/
 }
+
+
 
 .getInline{
   /*padding-top: 4em;*/
   /*width: 35%;*/
-  display: inline-block;
+  /*display: inline-block;*/
+  /*float: left;*/
+  margin-top: 2em;
 }
 
 #osuHeader h1{
@@ -87,27 +149,37 @@ hr.style-one {
   font-size: 3.25em;
   padding: 0;
   /*padding-bottom: .25em;*/
+  margin-left: .35em;
   text-align: center;
   font-family: 'Forum', cursive;
   text-transform: uppercase;
 }
 
-#osuHeader h3{
-  /*display: inline;*/
+#osuHeaderSpan {
+  display: block;
   margin: 0px;
-  font-size: 1.85em;
+  margin-left: 3em;
+  margin-bottom: -20px;
+  font-size: .7em;
   padding: 0;
   text-align: center;
   font-family: 'Forum', cursive;
   text-transform: uppercase;
 }
+#osuHeaderSearchBtn{
+  width: 6em;
+  margin-bottom: .3em;
+}
 
 #logintop{
   float: right;
-  margin-right: .35em;
+
+  margin-top: .35em;
+  margin-right: .75em;
 }
 
 #logintop i{
+  margin-top: .25em;
   margin-left: .15em;
   margin-right: .15em;
 }
@@ -120,14 +192,14 @@ hr.style-one {
 
 
 @media (max-width: 1185px){
-  #osuLogo{
+  /*#osuLogo{
     padding: 0;
-    display: block;
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
   }
   .getInline{
-    display: block;
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -149,11 +221,11 @@ hr.style-one {
     display: block;
     margin-left: auto;
     margin-right: auto;
-  }
+  }*/
   ul.menu li.splitter {
-    display:none;
+    /*display:none;*/
   }
-  #navbar.navbar.navbar-default{
+  /*#navbar.navbar.navbar-default{
     border-style: none;
   }
   .center-twitter{
@@ -162,6 +234,44 @@ hr.style-one {
   }
   #hide-bottom-menu{
     display: none;
+  }*/
+}
+
+@media (max-width: 785px){
+
+  .headerSearch fieldset {
+    margin-left: 0px;
+  }
+  #forsmall{
+    display: block;
+    margin: 0px;
+    /*margin-left: 3em;*/
+    /*margin-bottom: -20px;*/
+    font-size: .7em;
+    padding: 0;
+    text-align: center;
+    font-family: 'Forum', cursive;
+    text-transform: uppercase;
+  }
+  #osuHeaderSpan{
+    display: none;
+  }
+  .row{
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  #hide-bottom-menu{
+    display: none;
+  }
+  ul.menu li.splitter {
+    display:none;
+  }
+  #searchInput{
+    width: 20.5em;
+  }
+  #osuLogo{
+    margin-top: .01em;
   }
 }
 
@@ -174,9 +284,8 @@ hr.style-one {
 }
 
 #socialMediaIcons{
-  float: left;
-  margin-left: .25em;
-  font-size: 1.75em;
+  margin-right: 1em;
+  font-size: 1.6em;
 }
 
 #main{
@@ -184,11 +293,11 @@ hr.style-one {
 }
 
 a:link {
-  color: black;
+  color: #008CBA;
 }
 
-a:visited {
-  color: black;
+a:visited{
+  color: #008CBA;
 }
 
 a:hover {
@@ -199,6 +308,18 @@ a:hover {
 
 .clear{
   clear: both;
+}
+.clearLeft{
+  clear: left;
+}
+.clearRight{
+  clear: right;
+}
+.floatRight{
+  float: right;
+}
+.floatLeft{
+  float: left;
 }
 
 /*Bootstrap Edits*/
@@ -270,6 +391,252 @@ ul.menu li.splitter {
 }
 
 .center-twitter{
-  margin: 8em auto;
-  width: 43%;
+  margin-top: 4em;
+}
+
+.allToc{
+  float: left;
+  padding-left: 3em;
+}
+#issueCoverImage{
+  float:left;
+}
+#issueHeader{
+  display: block;
+}
+
+#tocHeader{
+  float: left;
+  margin-right: 0px;
+  margin-bottom: 0px;
+}
+#articleTocHeader{
+  position: relative;
+  float: left;
+}
+div.separator{
+  width: 100%;
+  border-bottom: 2px solid #000;
+}
+#copyright{
+  font-size: 10px;
+}
+div#metaCitations {
+    margin-bottom: 1em;
+}
+.indexMarginBot{
+  margin-bottom: 1.5em;
+}
+.orcidDesc{
+  display: none;
+}
+/*Searchbar*/
+
+.headerSearch fieldset {
+  position: relative;
+  display: inline-block;
+  margin-left: 2.5em;
+  margin-bottom: .5em;
+  padding: 0 0 0 40px;
+  background: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.headerSearch input, .headerSearch button {
+  position: relative;
+  width: 34em;
+  height: 50px;
+  padding: 0;
+  display: inline-block;
+  float: left;
+}
+
+.headerSearch input {
+  color: #666;
+  z-index: 2;
+  border: 0 none;
+}
+.headerSearch input:focus {
+  outline: 0 none;
+}
+.headerSearch input:focus + button {
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+.headerSearch input:focus + button .fa {
+  -webkit-transform: translate(0px, 0);
+      -ms-transform: translate(0px, 0);
+          transform: translate(0px, 0);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  color: #fff;
+}
+
+.headerSearch button {
+  z-index: 1;
+  width: 50px;
+  border: 0 none;
+  background: #333333;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+  -webkit-transform: translate(-50px, 0);
+      -ms-transform: translate(-50px, 0);
+          transform: translate(-50px, 0);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+.headerSearch .fa-search {
+  font-size: 1.4rem;
+  color: #29abe2;
+  z-index: 3;
+  top: 25%;
+  -webkit-transform: translate(-190px, 0);
+      -ms-transform: translate(-190px, 0);
+          transform: translate(-190px, 0);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition: all 0.1s ease-in-out;
+          transition: all 0.1s ease-in-out;
+}
+#searchCategories{
+  display: none;
+}
+
+@media (max-width: 785px){
+  .headerSearch fieldset {
+    margin-left: 1.5em;
+  }
+
+  .headerSearch input {
+    position: relative;
+    width: 25.85em;
+    height: 50px;
+    padding: 0;
+    display: inline-block;
+    float: left;
+  }
+
+  #forsmall{
+    display: block;
+    margin: 0px;
+    /*margin-left: 3em;*/
+    /*margin-bottom: -20px;*/
+    font-size: .7em;
+    padding: 0;
+    text-align: center;
+    font-family: 'Forum', cursive;
+    text-transform: uppercase;
+  }
+  #osuHeaderSpan{
+    display: none;
+  }
+  .row{
+    margin-right: 0px;
+  }
+
+  #hide-bottom-menu{
+    display: none;
+  }
+  ul.menu li.splitter {
+    display:none;
+  }
+  #searchInput{
+    width: 20.5em;
+  }
+  #osuLogo{
+    margin-top: .01em;
+  }
+}
+
+@media (max-width: 503px){
+  .headerSearch input {
+    position: relative;
+    width: 13.8em;
+    height: 50px;
+    padding: 0;
+    display: inline-block;
+    float: left;
+  }
+
+  .headerSearch button{
+
+  }
+}
+@media (max-width: 335px){
+  .headerSearch fieldset {
+      margin-left: 0em;
+  }
+  .headerSearch input {
+    position: relative;
+    width: 14em;
+    height: 50px;
+    padding: 0;
+    display: inline-block;
+    float: left;
+  }
+}
+
+
+#leftSidebar{
+  text-align: left;
+}
+#leftSidebar ul{
+  padding-left: 0px;
+}
+#leftSidebar li{
+
+  list-style-type: none;
+}
+.noMarginLeft{
+  margin-left: 0px;
+}
+.changeRadius{
+  border-radius: 16px;
+}
+.cancelBtn{
+  border-radius: 16px;
+  background: #d9534f;
+  border-color: #d9534f;
+}
+ul.steplist{
+  font-size: 1.18em;
+  margin-bottom: 1.1em;
+}
+#uploadWidth{
+  width: 8em;
+}
+input#submissionFile{
+  border: none;
+  background-color: #FBFBF3;
+  border-bottom: 1px solid #333333;
+  margin-bottom: .5em;
+  margin-top: .5em;
+}
+.paddingTop{
+  padding-top: 2em;
+}
+input#title {
+    margin-top: 1.5em;
+}
+table.listing td.headseparator {
+    border-top: 1px solid #000;
+    font-size: 0.1em;
+    line-height: 1%;
+}
+/*custom radio buttons and checkboxes*/
+input[type="checkbox"]{
+  width: 2em;
+  transform: scale(1.5);
+}
+textarea.textArea{
+  background-color: #FBFBF3;
+  border: none;
+  border-bottom: 1.5px solid #333333;
+  outline: none;
+  width: 100%;
 }
