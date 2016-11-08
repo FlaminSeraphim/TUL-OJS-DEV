@@ -22,7 +22,7 @@ body {
 	text-align: center;
 }
 
-div {
+#main div {
 	text-align: left;
 }
 
@@ -94,7 +94,7 @@ input.defaultButton {
  */
 
 #container {
-	width: 100% !important;
+	/*width: 100% !important;*/
 	/*min-width: 730px !important;*/
 	margin: 0px auto;
 	text-align: center;
@@ -106,7 +106,7 @@ input.defaultButton {
 }
 
 #headerTitle {
-	text-align: left !important;
+	/*text-align: left !important;*/
 	margin: 0 auto;
 	padding: 0;
 	width: 100%;
@@ -170,6 +170,7 @@ input.defaultButton {
 
 #content h3 {
 	margin: 0em 1em 0.25em 0em;
+
 	padding-top: 0.75em;
 	font-family: Helvetica,'Times New Roman',Times,serif;
 	font-weight: normal;
