@@ -39,6 +39,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Forum" rel="stylesheet">
 
+
 	<!-- Base Jquery -->
 	{if $allowCDN}<script type="text/javascript" src="//www.google.com/jsapi"></script>
 		<script type="text/javascript">{literal}
@@ -143,52 +144,72 @@
   		{else}
       <!-- <form  action="{url page="login"}" method="post"> -->
         <!-- <button  type="button" class="btn btn-default navbar-btn" id="logintop"><a href="{url page="login"}">{translate key="navigation.login"}</a></button> -->
-        <a id="logintop"href="{url page="login"}">{translate key="navigation.login"}<i class="fa fa-sign-in" aria-hidden="true"></i></a>
+        <a id="logintop"href="{url page="login"}">{translate key="navigation.login"}<i class="fa fa-sign-in floatRight" aria-hidden="true"></i></a>
       <!-- </form> -->
   		{/if}{* $isUserLoggedIn *}
+      <div id="socialMediaIcons" class="floatRight">
+        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+        <a href="https://twitter.com/MedProceedings"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+      </div>
       <div class="clear"></div>
-      <div id="osuHeader">
-          <img class="" id="osuLogo" src="{$baseUrl}/public/osuImages/StateSeal125px.png" />
-          {if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
-          	<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
-          {/if}
-          <div class="getInline">
-              <h3>
-              Oklahoma State
-              <!-- {if $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
-              	<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
-              {elseif $displayPageHeaderTitle}
-              	{$displayPageHeaderTitle}
-              {elseif $alternatePageHeader}
-              	{$alternatePageHeader}
-              {elseif $siteTitle}
-              	{$siteTitle}
-              {else}
-              	{$applicationName}
-              {/if} -->
-            </h3>
-            <h1>Medical Proceedings</h1>
-          </div>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div id="osuHeader">
 
-    </div>
+            {if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
+            	<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
+            {/if}
+            <div class="getInline">
+                <!-- <h3 id="osuHeaderH3">
+                Oklahoma State -->
+                <!-- {if $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
+                	<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
+                {elseif $displayPageHeaderTitle}
+                	{$displayPageHeaderTitle}
+                {elseif $alternatePageHeader}
+                	{$alternatePageHeader}
+                {elseif $siteTitle}
+                	{$siteTitle}
+                {else}
+                	{$applicationName}
+                {/if} -->
+              <!-- </h3> -->
+              <h1 id="osuHeaderH1"> <span id="osuHeaderSpan">OKLAHOMA STATE</span> <img class="" id="osuLogo" src="{$baseUrl}/public/osuImages/StateSeal125px.png" /><span id="forsmall">OKLAHOMA STATE</span> MEDICAL PROCEEDINGS</h1>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <form class="form-inline headerSearch" action="{url page="search" op="search"}">
+            <div class="form-group">
+              <!-- {translate key="plugins.block.navigation.searchScope"} -->
+              <select id="searchCategories" name="searchField" size="1" class="selectMenu form-control">
+                {html_options_translate options=$articleSearchByOptions}
+              </select>
+            {capture assign="filterInput"}{call_hook name="Templates::Search::SearchResults::FilterInput" filterName="simpleQuery" filterValue="" size=15}{/capture}
+              {if empty($filterInput)}
+                <!-- <input id="searchInput" type="text" name="simpleQuery" size="15" maxlength="255" value="" class="textField form-control" placeholder="search"/> -->
+                <fieldset>
+                  <input type="search" name="simpleQuery" placeholder="Search Our Medical Journal"/>
+                  <button type="submit" >
+                    <i class="fa fa-search"></i>
+                  </button>
+                </fieldset>
+              {else}
+                {$filterInput}
+              {/if}
+              <!-- <button type="submit" class="btn btn-success">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button> -->
+
+                <!-- <input type="submit" value="<i class="fa fa-search" aria-hidden="true"></i>{translate key="common.search"}" class="button btn btn-default" id="osuHeaderSearchBtn" /> -->
+            </div>
+          </form>
+        </div>
+      </div>
+
   </div>
   <!-- ================ search form added navbar moved ================= -->
 
-  <form class="form-inline" action="{url page="search" op="search"}">
-    <div class="form-group">
-      <!-- {translate key="plugins.block.navigation.searchScope"} -->
-      <select id="searchCategories" name="searchField" size="1" class="selectMenu form-control">
-        {html_options_translate options=$articleSearchByOptions}
-      </select>
-      {capture assign="filterInput"}{call_hook name="Templates::Search::SearchResults::FilterInput" filterName="simpleQuery" filterValue="" size=15}{/capture}
-      {if empty($filterInput)}
-        <input id="searchInput" type="text" name="simpleQuery" size="15" maxlength="255" value="" class="textField form-control" placeholder="search"/>
-      {else}
-        {$filterInput}
-      {/if}
-      <input type="submit" value="{translate key="common.search"}" class="button btn btn-default" />
-    </div>
-  </form>
+
   <div class="clear"></div>
 
   {include file="common/navbar.tpl"}
