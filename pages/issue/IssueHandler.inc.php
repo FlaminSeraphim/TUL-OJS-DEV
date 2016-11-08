@@ -89,7 +89,7 @@ class IssueHandler extends Handler {
 		$issue =& $this->getIssue();
 
 		$templateMgr =& TemplateManager::getManager();
-		$this->_setupIssueTemplate($request, $issue, ($showToc == 'showToc') ? true : false);
+		$this->_setupIssueTemplate($request, $issue, ($showToc == 'showToc') ? true : false ); //default value ? true : false
 		if ($issue) $templateMgr->assign('issueId', $issue->getBestIssueId());
 
 		$templateMgr->assign('pageHierarchy', array(array($request->url(null, 'issue', 'archive'), 'archive.archives')));
@@ -412,7 +412,7 @@ class IssueHandler extends Handler {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Given an issue, set up the template with all the required variables for
 	 * issues/view.tpl to function properly (i.e. current issue and view issue).
@@ -421,7 +421,7 @@ class IssueHandler extends Handler {
 	 * 	the cover page will be displayed. Otherwise table of contents
 	 * 	will be displayed.
 	 */
-	function _setupIssueTemplate($request, $issue, $showToc = false) {
+	function _setupIssueTemplate($request, $issue, $showToc = true) {
 		$journal =& $request->getJournal();
 		$journalId = $journal->getId();
 		$templateMgr =& TemplateManager::getManager();
@@ -440,16 +440,19 @@ class IssueHandler extends Handler {
 			$templateMgr->assign('locale', $locale);
 
 			$coverLocale = $issue->getFileName($locale) ? $locale : $journal->getPrimaryLocale();
-			if (!$showToc && $issue->getFileName($coverLocale) && $issue->getShowCoverPage($coverLocale) && !$issue->getHideCoverPageCover($coverLocale)) {
-				$templateMgr->assign('fileName', $issue->getFileName($coverLocale));
-				$templateMgr->assign('width', $issue->getWidth($coverLocale));
-				$templateMgr->assign('height', $issue->getHeight($coverLocale));
-				$templateMgr->assign('coverPageAltText', $issue->getCoverPageAltText($coverLocale));
-				$templateMgr->assign('originalFileName', $issue->getOriginalFileName($coverLocale));
+			// if (!$showToc && $issue->getFileName($coverLocale) && $issue->getShowCoverPage($coverLocale) && !$issue->getHideCoverPageCover($coverLocale)) {
+			// 	$templateMgr->assign('fileName', $issue->getFileName($coverLocale));
+			// 	$templateMgr->assign('width', $issue->getWidth($coverLocale));
+			// 	$templateMgr->assign('height', $issue->getHeight($coverLocale));
+			// 	$templateMgr->assign('coverPageAltText', $issue->getCoverPageAltText($coverLocale));
+			// 	$templateMgr->assign('originalFileName', $issue->getOriginalFileName($coverLocale));
 				$templateMgr->assign('coverLocale', $coverLocale);
+			//
+			// 	// default value false
+			// 	$showToc = false;
+			//
+			// } else {
 
-				$showToc = false;
-			} else {
 				// Issue galleys
 				$issueGalleyDao =& DAORegistry::getDAO('IssueGalleyDAO');
 				$issueGalleys =& $issueGalleyDao->getGalleysByIssue($issue->getId());
@@ -462,7 +465,7 @@ class IssueHandler extends Handler {
 				$publicFileManager = new PublicFileManager();
 				$templateMgr->assign_by_ref('publishedArticles', $publishedArticles);
 				$showToc = true;
-			}
+			// }
 			$templateMgr->assign('showToc', $showToc);
 			$templateMgr->assign_by_ref('issue', $issue);
 
