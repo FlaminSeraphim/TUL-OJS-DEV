@@ -10,7 +10,7 @@
  *}
 {assign var="pageTitle" value="author.submit.step2"}
 {include file="author/submit/submitHeader.tpl"}
-
+<div class="separator"></div>
 <form method="post" action="{url op="saveSubmit" path=$submitStep}" enctype="multipart/form-data">
 <input type="hidden" name="articleId" value="{$articleId|escape}" />
 {include file="common/formErrors.tpl"}
@@ -25,10 +25,11 @@
 
 <p>{translate key=$howToKeyName supportName=$journalSettings.supportName supportEmail=$journalSettings.supportEmail supportPhone=$journalSettings.supportPhone}</p>
 
-<div class="separator"></div>
+
 
 <div id="submissionFile">
 <h3>{translate key="author.submit.submissionFile"}</h3>
+<div class="separator"></div>
 <table class="data" width="100%">
 {if $submissionFile}
 <tr valign="top">
@@ -55,7 +56,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+
 
 <div id="addSubmissionFile">
 <table class="data" width="100%">
@@ -68,18 +69,15 @@
 		{/if}
 	</td>
 	<td width="70%" class="value">
-		<input type="file" class="uploadField" name="submissionFile" id="submissionFile" /> <input name="uploadSubmissionFile" type="submit" class="button" value="{translate key="common.upload"}" />
+		<input type="file" class="uploadField" name="submissionFile" id="submissionFile" /> <input id="uploadWidth" name="uploadSubmissionFile" type="submit" class="btn changeRadius" value="{translate key="common.upload"}" />
 		{if $currentJournal->getSetting('showEnsuringLink')}<a class="action" href="javascript:openHelp('{get_help_id key="editorial.sectionEditorsRole.review.blindPeerReview" url="true"}')">{translate key="reviewer.article.ensuringBlindReview"}</a>{/if}
 	</td>
 </tr>
 </table>
 </div>
 
-<div class="separator"></div>
-
-<p><input type="submit"{if !$submissionFile} onclick="return confirm('{translate|escape:"jsparam" key="author.submit.noSubmissionConfirm"}')"{/if} value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" /></p>
+<p><input type="submit"{if !$submissionFile} onclick="return confirm('{translate|escape:"jsparam" key="author.submit.noSubmissionConfirm"}')"{/if} value="{translate key="common.saveAndContinue"}" class="btn btn-block " id="regSubmitBtn" /> <input type="button" value="{translate key="common.cancel"}" class="btn btn-danger btn-block cancelBtn" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" /></p>
 
 </form>
 
 {include file="common/footer.tpl"}
-
