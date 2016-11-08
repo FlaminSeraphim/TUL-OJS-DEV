@@ -19,6 +19,8 @@
 {if !$registerLocaleKey}
 	{assign var="registerLocaleKey" value="user.login.registerNewAccount"}
 {/if}
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/osuHideSideBar.css" type="text/css">
+
 
 {if $loginMessage}
 	<span class="instruct">{translate key="$loginMessage"}</span>
@@ -44,36 +46,33 @@
 	<br />
 	<br />
 {/if}
+{if !$implicitAuth || $implicitAuth === $smarty.const.IMPLICIT_AUTH_OPTIONAL}
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 loginMarginBot">
+    <span class="underlineForm"><input type="text" id="loginUsername" name="username" value="{$username|escape}" size="20" maxlength="32" class="textField" placeholder="Username" /></span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 loginMarginBot">
+    <span class="underlineForm"><input type="password" id="loginPassword" name="password" value="{$password|escape}" size="20" class="textField" placeholder="Password" /></span>
 
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    {if $showRemember}
+    <input type="checkbox" id="loginRemember" name="remember" value="1"{if $remember} checked="checked"{/if} /> <label for="loginRemember">{translate key="user.login.rememberUsernameAndPassword"}</label>
+    {/if}{* $showRemember *}
+    <input type="submit" value="{translate key="user.login"}" class="btn btn-block" id="regSubmitBtn" />
+    <ul>
+  		{if !$hideRegisterLink}<li><a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a></li>{/if}
+  		<li><a href="{url page="login" op="lostPassword"}">{translate key="user.login.forgotPassword"}</a></li>
+  	</ul>
+  </div>
+</div>
 <input type="hidden" name="source" value="{$source|strip_unsafe_html|escape}" />
 
-{if !$implicitAuth || $implicitAuth === $smarty.const.IMPLICIT_AUTH_OPTIONAL}
-	<table id="signinTable" class="data">
-	<tr>
-		<td class="label"><label for="loginUsername">{translate key="user.username"}</label></td>
-		<td class="value"><input type="text" id="loginUsername" name="username" value="{$username|escape}" size="20" maxlength="32" class="textField" /></td>
-	</tr>
-	<tr>
-		<td class="label"><label for="loginPassword">{translate key="user.password"}</label></td>
-		<td class="value"><input type="password" id="loginPassword" name="password" value="{$password|escape}" size="20" class="textField" /></td>
-	</tr>
-	{if $showRemember}
-	<tr valign="middle">
-		<td></td>
-		<td class="value"><input type="checkbox" id="loginRemember" name="remember" value="1"{if $remember} checked="checked"{/if} /> <label for="loginRemember">{translate key="user.login.rememberUsernameAndPassword"}</label></td>
-	</tr>
-	{/if}{* $showRemember *}
 
-	<tr>
-		<td></td>
-		<td><input type="submit" value="{translate key="user.login"}" class="button" /></td>
-	</tr>
-	</table>
-
-	<ul>
-		{if !$hideRegisterLink}<li><a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a></li>{/if}
-		<li><a href="{url page="login" op="lostPassword"}">{translate key="user.login.forgotPassword"}</a></li>
-	</ul>
 
 <script type="text/javascript">
 <!--
