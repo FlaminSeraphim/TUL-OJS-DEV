@@ -12,8 +12,13 @@
 {assign var="pageTitle" value="about.history"}
 {include file="common/header.tpl"}
 {/strip}
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/osuHideSideBar.css" type="text/css">
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    {$history}
+  </div>
+</div>
 
-{$history}
+
 
 {include file="common/footer.tpl"}
-
