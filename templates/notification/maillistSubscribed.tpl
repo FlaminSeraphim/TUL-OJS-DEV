@@ -12,13 +12,16 @@
 {assign var="pageTitle" value="notification.mailList"}
 {include file="common/header.tpl"}
 {/strip}
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/osuHideSideBar.css" type="text/css" />
 
-<ul>
-	<li>
-		<span{if $error} class="pkp_form_error"{/if}>
-			{translate key="notification.$status"}
-		</span>
-	</li>
-<ul>
+    <ul>
+    	<li>
+    		<span{if $error} class="pkp_form_error"{/if}>
+    			{translate key="notification.$status"}
+    		</span>
+    	</li>
+    <ul>
+
+
 
 {include file="common/footer.tpl"}
