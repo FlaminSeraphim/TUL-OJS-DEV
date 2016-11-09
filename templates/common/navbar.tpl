@@ -44,11 +44,7 @@
 
     		{/if}{* $categoriesEnabled *}
 
-    		{if !$currentJournal || $currentJournal->getSetting('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE}
-    			<li><a href="{url page="search"}">{translate key="navigation.search"}</a></li>
-          <li class="splitter"></li>
 
-    		{/if}
 
     		{if $currentJournal && $currentJournal->getSetting('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE}
     			<li><a href="{url page="issue" op="current"}">Current Issue</a></li>
@@ -74,10 +70,17 @@
 
     			{/if}
     		{/foreach}
-        <li><a href="{$baseUrl}/index.php/medj/about/contact">Help</a></li>
+
+        <li><a href="{$baseUrl}/index.php/medj/notification/subscribeMailList">Subscribe</a></li>
+
         <li class="splitter"></li>
 
         <li><a href="{$baseUrl}/index.php/medj/about/submissions#copyrightNotice">For Authors</a></li>
+
+        <li class="splitter"></li>
+
+        <li><a href="{$baseUrl}/index.php/medj/about/contact">Help</a></li>
+        
     	</ul>
     </div>
   </div>
