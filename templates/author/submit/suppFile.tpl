@@ -8,9 +8,13 @@
  * Add/edit a supplementary file.
  *
  *}
+
 {assign var="pageTitle" value="author.submit.step4a"}
 {include file="author/submit/submitHeader.tpl"}
-
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/mdColMarginBot.css">
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/suppFile.css">
+<div class="separator"></div>
+<br>
 <p><a href="{url op="submit" path=4 articleId=$articleId}">&lt;&lt; {translate key="author.submit.backToSupplementaryFiles"}</a></p>
 
 <form id="submit" method="post" action="{url op="saveSubmitSuppFile" path=$suppFileId}" enctype="multipart/form-data">
@@ -33,76 +37,89 @@
 {/if}
 <div id="supplementaryFileData">
 <h3>{translate key="author.submit.supplementaryFileData"}</h3>
+<div class="separator"></div>
+<br>
 
 <p>{translate key="author.submit.supplementaryFileDataDescription"}</p>
 
-<table class="data" width="100%">
-<tr valign="top">
-	<td width="20%" class="label">{fieldLabel required="true" name="title" key="common.title"}</td>
-	<td width="80%" class="value"><input type="text" class="textField" name="title[{$formLocale|escape}]" id="title" value="{$title[$formLocale]|escape}" size="60" maxlength="255" /></td>
-</tr>
-<tr valign="top">
-	<td width="20%" class="label">{fieldLabel name="creator" key="author.submit.suppFile.createrOrOwner"}</td>
-	<td width="80%" class="value"><input type="text" name="creator[{$formLocale|escape}]" class="textField" id="creator" value="{$creator[$formLocale]|escape}" size="60" maxlength="255" /></td>
-</tr>
-<tr valign="top">
-	<td width="20%" class="label">{fieldLabel name="subject" key="common.keywords"}</td>
-	<td width="80%" class="value"><input type="text" name="subject[{$formLocale|escape}]" class="textField" id="subject" value="{$subject[$formLocale]|escape}" size="60" maxlength="255" /></td>
-</tr>
-<tr valign="top">
-	<td width="20%" class="label">{fieldLabel name="type" key="common.type"}</td>
-	<td width="80%" class="value"><select name="type" class="selectMenu" id="type" size="1">{html_options_translate output=$typeOptionsOutput values=$typeOptionsValues translateValues="true" selected=$type}</select><br /><label for="typeOther">{translate key="author.submit.suppFile.specifyOtherType"}</label> <input type="text" name="typeOther[{$formLocale|escape}]" id="typeOther" class="textField" value="{$typeOther[$formLocale]|escape}" size="45" maxlength="255" /></td>
-</tr>
-<tr valign="top">
-	<td width="20%" class="label">{fieldLabel name="description" key="author.submit.suppFile.briefDescription"}</td>
-	<td width="80%" class="value"><textarea name="description[{$formLocale|escape}]" class="textArea" id="description" rows="5" cols="60">{$description[$formLocale]|escape}</textarea></td>
-</tr>
-<tr valign="top">
-	<td width="20%" class="label">{fieldLabel name="publisher" key="common.publisher"}</td>
-	<td width="80%" class="value"><input type="text" name="publisher[{$formLocale|escape}]" class="textField" id="publisher" value="{$publisher[$formLocale]|escape}" size="60" maxlength="255" />
-	</td>
-</tr>
-<tr valign="top">
-	<td>&nbsp;</td>
-	<td><span class="instruct">{translate key="author.submit.suppFile.publisherDescription"}</span></td>
-</tr>
-<tr valign="top">
-	<td width="20%" class="label">{fieldLabel name="sponsor" key="author.submit.suppFile.contributorOrSponsor"}</td>
-	<td width="80%" class="value"><input type="text" name="sponsor[{$formLocale|escape}]" class="textField" id="sponsor" value="{$sponsor[$formLocale]|escape}" size="60" maxlength="255" /></td>
-</tr>
-<tr valign="top">
-	<td width="20%" class="label">{fieldLabel name="dateCreated" key="common.date"}</td>
-	<td width="80%" class="value"><input type="text" name="dateCreated" class="textField" id="dateCreated" value="{$dateCreated|escape}" size="11" maxlength="10" /> {translate key="submission.date.yyyymmdd"}</td>
-</tr>
-<tr valign="top">
-	<td>&nbsp;</td>
-	<td><span class="instruct">{translate key="author.submit.suppFile.dateDescription"}</span></td>
-</tr>
-<tr valign="top">
-	<td width="20%" class="label">{fieldLabel name="source" key="common.source"}</td>
-	<td width="80%" class="value"><input type="text" name="source[{$formLocale|escape}]" class="textField" id="source" value="{$source[$formLocale]|escape}" size="60" maxlength="255" /></td>
-</tr>
-<tr valign="top">
-	<td>&nbsp;</td>
-	<td><span class="instruct">{translate key="author.submit.suppFile.sourceDescription"}</span></td>
-</tr>
-<tr valign="top">
-	<td width="20%" class="label">{fieldLabel name="language" key="common.language"}</td>
-	<td width="80%" class="value"><input type="text" name="language" class="textField" id="language" value="{$language|escape}" size="5" maxlength="10" /></td>
-</tr>
-<tr valign="top">
-	<td>&nbsp;</td>
-	<td><span class="instruct">{translate key="author.submit.languageInstructions"}</span></td>
-</tr>
-</table>
+<div class="row">
+  <div class="col-xs-12 col-md-4">
+    {fieldLabel required="true" name="title" key="common.title"}
+  	<input type="text" class="textField" name="title[{$formLocale|escape}]"  value="{$title[$formLocale]|escape}" size="60" maxlength="255" />
+  </div>
+  <div class="col-xs-12 col-md-4">
+    {fieldLabel name="creator" key="author.submit.suppFile.createrOrOwner"}
+    <input type="text" name="creator[{$formLocale|escape}]" class="textField" id="creator" value="{$creator[$formLocale]|escape}" size="60" maxlength="255" />
+  </div>
+  <div class="col-xs-12 col-md-4">
+  	{fieldLabel name="subject" key="common.keywords"}
+  	<input type="text" name="subject[{$formLocale|escape}]" class="textField" id="subject" value="{$subject[$formLocale]|escape}" size="60" maxlength="255" />
+  </div>
 </div>
-<div class="separator"></div>
+<div class="row">
+  <div class="col-xs-12 col-md-4">
+    {fieldLabel name="type" key="common.type"}<br>
+	<select name="type" class="selectMenu" id="type" size="1">{html_options_translate output=$typeOptionsOutput values=$typeOptionsValues translateValues="true" selected=$type}</select><br />
+  </div>
+  <div class="col-xs-12 col-md-4">
+    <label for="typeOther">{translate key="author.submit.suppFile.specifyOtherType"}</label> <input type="text" name="typeOther[{$formLocale|escape}]" id="typeOther" class="textField" value="{$typeOther[$formLocale]|escape}" size="45" maxlength="255" />
+  </div>
+  <div class="col-xs-12 col-md-4">
+    {fieldLabel name="description" key="author.submit.suppFile.briefDescription"}
+  	<textarea name="description[{$formLocale|escape}]" class="textArea" id="" rows="1" cols="60">{$description[$formLocale]|escape}</textarea>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-md-4">
+      {fieldLabel name="publisher" key="common.publisher"}
+    	<input type="text" name="publisher[{$formLocale|escape}]" class="textField" id="publisher" value="{$publisher[$formLocale]|escape}" size="60" maxlength="255" />
+      <span class="instruct">{translate key="author.submit.suppFile.publisherDescription"}</span>
+  </div>
+  <div class="col-xs-12 col-md-4">
+
+    {fieldLabel name="sponsor" key="author.submit.suppFile.contributorOrSponsor"}
+  	<input type="text" name="sponsor[{$formLocale|escape}]" class="textField" id="sponsor" value="{$sponsor[$formLocale]|escape}" size="60" maxlength="255" />
+  </div>
+  <div class="col-xs-12 col-md-4">
+    {fieldLabel name="dateCreated" key="common.date"}
+  	<input type="text" name="dateCreated" class="textField" id="dateCreated" value="{$dateCreated|escape}" size="11" maxlength="10" /> {translate key="submission.date.yyyymmdd"}
+    <span class="instruct">{translate key="author.submit.suppFile.dateDescription"}</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-md-4">
+
+        {fieldLabel name="source" key="common.source"}
+    	<input type="text" name="source[{$formLocale|escape}]" class="textField" id="source" value="{$source[$formLocale]|escape}" size="60" maxlength="255" />
+      <span class="instruct">{translate key="author.submit.suppFile.sourceDescription"}</span>
+  </div>
+  <div class="col-xs-12 col-md-4">
+    {fieldLabel name="language" key="common.language"}
+  	<input type="text" name="language" class="textField" id="language" value="{$language|escape}" size="5" maxlength="10" />
+    <span class="instruct">{translate key="author.submit.languageInstructions"}</span>
+
+  </div>
+  <div class="col-xs-12 col-md-4">
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
 
 {call_hook name="Templates::Author::Submit::SuppFile::AdditionalMetadata"}
 
 <div id="supplementaryFileUpload">
 <h3>{translate key="author.submit.supplementaryFileUpload"}</h3>
-
+<div class="separator"></div>
 <table id="suppFile" class="data" width="100%">
 {if $suppFile && $suppFile->getFileId()}
 <tr valign="top">
@@ -159,13 +176,11 @@
 {/if}
 </table>
 </div>
-<div class="separator"></div>
 
-<p><input type="submit" value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="submit" path="4" articleId=$articleId escape=false}'" /></p>
+<p><input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-block " id="regSubmitBtn" /> <input type="button" value="{translate key="common.cancel"}" class="btn btn-danger btn-block cancelBtn" onclick="document.location.href='{url op="submit" path="4" articleId=$articleId escape=false}'" /></p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 </form>
 
 {include file="common/footer.tpl"}
-
