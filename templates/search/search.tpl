@@ -11,6 +11,8 @@
 {assign var="pageTitle" value="navigation.search"}
 {include file="common/header.tpl"}
 {/strip}
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/osuHideSideBar.css" type="text/css" />
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/osuCenterContent.css" type="text/css" />
 
 <div id="search">
 	<script type="text/javascript">
@@ -196,4 +198,3 @@
 </div>
 
 {include file="common/footer.tpl"}
-
