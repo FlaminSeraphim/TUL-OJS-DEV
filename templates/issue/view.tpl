@@ -8,6 +8,9 @@
  * View issue -- This displays the issue TOC or title page, as appropriate,
  * *without* header or footer HTML (see viewPage.tpl)
  *}
+ <link rel="stylesheet" href="{$baseUrl}/lib/osu/osuHideSideBar.css" type="text/css" />
+ <div class="row">
+   <div class="col-md-8 col-md-offset-2">
 {if $subscriptionRequired && $showGalleyLinks && $showToc}
 	<div id="accessKey">
 		<img src="{$baseUrl}/lib/pkp/templates/images/icons/fulltext_open_medium.gif" alt="{translate key="article.accessLogoOpen.altText"}" />
@@ -30,19 +33,22 @@
 		<li><a href="{$currentUrl}">{translate key="issue.toc"}</a></li>
 	</ul>
 	<br />
-	{if $coverPagePath}<div id="issueCoverImage"><a href="{$currentUrl}"><img src="{$coverPagePath|escape}{$issue->getFileName($coverLocale)|escape}"{if $coverPageAltText != ''} alt="{$coverPageAltText|escape}"{else} alt="{translate key="issue.coverPage.altText"}"{/if}{if $width} width="{$width|escape}"{/if}{if $height} height="{$height|escape}"{/if}/></a></div>{/if}
+	<div id="issueCoverImage"><a href="{$currentUrl}"><img src="{$coverPagePath|escape}{$issue->getFileName($coverLocale)|escape}"{if $coverPageAltText != ''} alt="{$coverPageAltText|escape}"{else} alt="{translate key="issue.coverPage.altText"}"{/if}{if $width} width="{$width|escape}"{/if}{if $height} height="{$height|escape}"{/if}/></a></div>
 	<div id="issueCoverDescription">{$issue->getLocalizedCoverPageDescription()|strip_unsafe_html|nl2br}</div>
 {elseif $issue}
+<div id="issueCoverImage"><a href="{$currentUrl}"><img src="{$coverPagePath|escape}{$issue->getFileName($coverLocale)|escape}"{if $coverPageAltText != ''} alt="{$coverPageAltText|escape}"{else} alt="{translate key="issue.coverPage.altText"}"{/if}{if $width} width="{$width|escape}"{/if}{if $height} height="{$height|escape}"{/if}/></a></div>
+
 	<div id="issueDescription">{$issue->getLocalizedDescription()|strip_unsafe_html|nl2br}</div>
 	{if $issueGalleys}
-		<h3>{translate key="issue.fullIssue"}</h3>
+  <div class="allToc">
+    <h3>{translate key="issue.fullIssue"}</h3>
 		{if (!$subscriptionRequired || $issue->getAccessStatus() == $smarty.const.ISSUE_ACCESS_OPEN || $subscribedUser || $subscribedDomain || ($subscriptionExpiryPartial && $issueExpiryPartial))}
 			{assign var=hasAccess value=1}
 		{else}
 			{assign var=hasAccess value=0}
 		{/if}
-		<table class="tocArticle" width="100%">
-		<tr valign="top">
+		<table class="tocArticle" >
+    <tr valign="top">
 			<td class="tocTitle">{translate key="issue.viewIssueDescription"}</td>
 			<td class="tocGalleys">
 			{if $hasAccess || ($subscriptionRequired && $showGalleyLinks)}
@@ -71,10 +77,17 @@
 			</td>
 		</tr>
 		</table>
-		<br />
+  </div>
+
+
 	{/if}
-	<h3>{translate key="issue.toc"}</h3>
-	{include file="issue/issue.tpl"}
-{else}
-	{translate key="current.noCurrentIssueDesc"}
-{/if}
+
+      <div class="allToc">
+    	<h3 id="tocHeader">{translate key="issue.toc"}</h3>
+      <div class="clear"></div>
+    	{include file="issue/issue.tpl"}
+    {else}
+    	{translate key="current.noCurrentIssueDesc"}
+    {/if}
+    </div>
+  </div>
