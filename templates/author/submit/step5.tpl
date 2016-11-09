@@ -11,6 +11,8 @@
 {assign var="pageTitle" value="author.submit.step5"}
 {include file="author/submit/submitHeader.tpl"}
 
+<div class="separator"></div>
+<br>
 <p>{translate key="author.submit.confirmationDescription" journalTitle=$journal->getLocalizedTitle()}</p>
 
 <form method="post" action="{url op="saveSubmit" path=$submitStep}">
@@ -78,7 +80,7 @@
 					<textarea name="commentsToEditor" id="commentsToEditor" rows="3" cols="40" class="textArea">{$commentsToEditor|escape}</textarea>
 				</td>
 			</tr>
-		</table> 
+		</table>
 	{/if}
 
 	<div class="separator"></div>
@@ -86,9 +88,8 @@
 
 {call_hook name="Templates::Author::Submit::Step5::AdditionalItems"}
 
-<p><input type="submit" value="{translate key="author.submit.finishSubmission"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" /></p>
+<p><input type="submit" value="{translate key="author.submit.finishSubmission"}" class="btn btn-block " id="regSubmitBtn" /> <input type="button" value="{translate key="common.cancel"}" class="btn btn-danger btn-block cancelBtn" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" /></p>
 
 </form>
 
 {include file="common/footer.tpl"}
-
