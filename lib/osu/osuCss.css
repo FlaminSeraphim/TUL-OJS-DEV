@@ -640,3 +640,7 @@ textarea.textArea{
   outline: none;
   width: 100%;
 }
+
+object#pdfObject {
+    height: 60em;
+}
