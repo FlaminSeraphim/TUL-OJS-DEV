@@ -31,7 +31,7 @@
 <div id="osuFooter">
   <img src="{$baseUrl}/public/osuImages/osu_CHS_side.jpg"/>
   <div class="clear"></div>
-  <p> <i class="fa fa-copyright" aria-hidden="true"></i><a id="copyright" href="{$baseUrl}/index.php/medj/about/submissions#copyrightNotice"> Okstate Copy Right</a></p>
+  <p> <i class="fa fa-copyright" aria-hidden="true"></i><a id="copyright" href="{$baseUrl}/index.php/medj/about/submissions#copyrightNotice"> Okstate Copyright</a></p>
 </div>
 
 </div><!-- container -->
