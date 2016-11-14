@@ -644,3 +644,26 @@ textarea.textArea{
 object#pdfObject {
     height: 60em;
 }
+#searchTips{
+  color: #008CBA;
+}
+
+#hideSearchTips{
+  display: none;
+}
+
+.toggleUpArrow{
+  display: none;
+}
+
+.toggleDownArrow{
+
+}
+
+input[type="text"]#query{
+  width: 23em;
+}
+
+#addSearch{
+  margin-top: 1em
+}
