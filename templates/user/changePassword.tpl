@@ -14,37 +14,34 @@
 {include file="common/header.tpl"}
 {/strip}
 
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/osuHideSideBar.css" type="text/css">
+
 <div id="changePassword">
 <form method="post" action="{url op="savePassword"}">
 
 {include file="common/formErrors.tpl"}
 
-{if $implicitAuth}
-<p><span class="instruct">{translate key="user.profile.implicitAuthChangePasswordInstructions"}</span></p>
-{/if}
-<p><span class="instruct">{translate key="user.profile.changePasswordInstructions"}</span></p>
 
-<table class="data" width="100%">
-<tr valign="top">
-	<td width="20%" class="label">{fieldLabel name="oldPassword" key="user.profile.oldPassword"}</td>
-	<td width="80%" class="value"><input type="password" name="oldPassword" id="oldPassword" value="{$oldPassword|escape}" size="20" class="textField" /></td>
-</tr>
-<tr valign="top">
-	<td class="label">{fieldLabel name="password" key="user.profile.newPassword"}</td>
-	<td class="value"><input type="password" name="password" value="{$password|escape}" id="password" size="20" class="textField" /></td>
-</tr>
-<tr valign="top">
-	<td></td>
-	<td><span class="instruct">{translate key="user.register.passwordLengthRestriction" length=$minPasswordLength}</span></td>
-</tr>
-<tr valign="top">
-	<td class="label">{fieldLabel name="password2" key="user.profile.repeatNewPassword"}</td>
-	<td class="value"><input type="password" name="password2" id="password2" value="{$password2|escape}" size="20" class="textField" /></td>
-</tr>
-</table>
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="user" escape=false}'" /></p>
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+      {if $implicitAuth}
+      <p><span class="instruct">{translate key="user.profile.implicitAuthChangePasswordInstructions"}</span></p>
+      {/if}
+      <p><span class="instruct">{translate key="user.profile.changePasswordInstructions"}</span></p>
+    </div>
+
+    <div class="col-md-4 col-md-offset-4 loginMarginBot">
+      <input type="password" name="oldPassword" id="oldPassword" value="{$oldPassword|escape}" size="20" class="textField" placeholder="Old Password" />
+    </div>
+    <div class="col-md-4 col-md-offset-4 loginMarginBot">
+      <input type="password" name="password" value="{$password|escape}" id="password" size="20" class="textField" placeholder="New Password" />
+      <span class="instruct">{translate key="user.register.passwordLengthRestriction" length=$minPasswordLength}</span>
+    </div>
+    <div class="col-md-4 col-md-offset-4 loginMarginBot">
+      <input type="password" name="password2" id="password2" value="{$password2|escape}" size="20" class="textField" placeholder="Repeat New Password" />
+      <input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="user" escape=false}'" />
+    </div>
+  </div>
 </form>
-</div>
 {include file="common/footer.tpl"}
-
