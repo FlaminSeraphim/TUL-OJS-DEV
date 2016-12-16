@@ -13,10 +13,11 @@
 {include file="common/header.tpl"}
 {/strip}
 <link rel="stylesheet" href="{$baseUrl}/lib/osu/osuHideSideBar.css" type="text/css">
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/miniHeader.css" type="text/css">
 <div class="row">
   <div class="col-xs-8 col-xs-offset-2">
 
-    <ul>
+    <ul class="miniHeader">
     	{if $currentJournal->getLocalizedSetting('focusScopeDesc') != ''}<li id="linkFocusScopeDesc"><a href="{url op="editorialPolicies" anchor="focusAndScope"}">{translate key="about.focusAndScope"}</a></li>{/if}
     	<li id="linkEditorialPolicies"><a href="{url op="editorialPolicies" anchor="sectionPolicies"}">{translate key="about.sectionPolicies"}</a></li>
     	{if $currentJournal->getLocalizedSetting('reviewPolicy') != ''}<li id="linkReviewPolicy"><a href="{url op="editorialPolicies" anchor="peerReviewProcess"}">{translate key="about.peerReviewProcess"}</a></li>{/if}
