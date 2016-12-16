@@ -187,12 +187,16 @@
             {capture assign="filterInput"}{call_hook name="Templates::Search::SearchResults::FilterInput" filterName="simpleQuery" filterValue="" size=15}{/capture}
               {if empty($filterInput)}
                 <!-- <input id="searchInput" type="text" name="simpleQuery" size="15" maxlength="255" value="" class="textField form-control" placeholder="search"/> -->
-                <fieldset>
-                  <input type="search" name="simpleQuery" placeholder="Search Our Medical Journal"/>
-                  <button type="submit" >
-                    <i class="fa fa-search"></i>
-                  </button>
-                </fieldset>
+                <div class="searchButton">
+                  <fieldset>
+
+                      <input type="search" name="simpleQuery" placeholder="Search Our Medical Journal"/>
+                      <button type="submit" id="putss">
+                        <i class="fa fa-search"></i>
+                      </button>
+
+                  </fieldset>
+                </div>  
               {else}
                 {$filterInput}
               {/if}
