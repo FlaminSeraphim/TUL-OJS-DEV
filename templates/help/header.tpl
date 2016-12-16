@@ -9,5 +9,9 @@
  *}
 {strip}
 {translate|assign:applicationHelpTranslated key="help.ojsHelp"}
-{include file="core:help/header.tpl"}
+
+
+{include file="common/header.tpl"}
+
+
 {/strip}
