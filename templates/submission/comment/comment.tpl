@@ -74,7 +74,18 @@ window.opener.location.reload();
 	<td class="value"><textarea id="comments" name="comments" rows="10" cols="50" class="textArea">{$comments|escape}</textarea></td>
 </tr>
 </table>
-<p><input type="submit" name="save" value="{translate key="common.save"}" class="button defaultButton" /> <input type="submit" name="saveAndEmail" value="{translate key="common.saveAndEmail"}" class="button" /> <input type="button" value="{translate key="common.close"}" class="button" onclick="window.close()" /></p>
+<div class="row">
+  <div class="col-xs-12">
+    <input type="submit" name="saveAndEmail" value="{translate key="common.saveAndEmail"}" class="btn changeRadius marginTopBot" />
+  </div>
+  <div class="col-xs-12">
+    <input type="submit" name="save" value="{translate key="common.save"}" class="btn btn-block marginBotSm" id="regSubmitBtn" />
+  </div>
+  <div class="col-xs-12">
+    <input type="button" value="{translate key="common.close"}" class="btn btn-danger btn-block cancelBtn" onclick="window.close()" />
+  </div>
+</div>
+
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </div>
@@ -86,4 +97,3 @@ window.opener.location.reload();
 {/if}
 
 {include file="submission/comment/footer.tpl"}
-
