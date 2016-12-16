@@ -94,15 +94,26 @@ window.opener.location.reload();
 </tr>
 </table>
 
-<p><input type="submit" name="save" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.close"}" class="button" onclick="window.close()" /></p>
+
+<div class="row">
+  <div class="col-xs-12">
+    <input type="submit" name="save" value="{translate key="common.save"}" class="btn btn-block marginTopBot" id="regSubmitBtn" />
+  </div>
+  <div class="col-xs-12">
+     <input type="button" value="{translate key="common.close"}" class="btn btn-danger btn-block cancelBtn" onclick="window.close()" />
+  </div>
+  <div class="col-xs-12">
+    {else}
+    <input type="button" value="{translate key="common.close"}" class="btn btn-danger btn-block cancelBtn" style="width: 5em" onclick="window.close()" />
+    {/if}
+  </div>
+</div>
+
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </div>
 </form>
 
-{else}
-<input type="button" value="{translate key="common.close"}" class="button defaultButton" style="width: 5em" onclick="window.close()" />
-{/if}
+
 
 {include file="submission/comment/footer.tpl"}
-
