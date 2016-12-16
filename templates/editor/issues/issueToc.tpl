@@ -120,19 +120,25 @@ $(document).ready(function() {
 
 <div class="separator"></div>
 {/foreach}
+<div class="row">
+  <div class="col-xs-12">
+    <input type="submit" value="{translate key="common.save"}" class="btn btn-block marginTopBot" id="regSubmitBtn" />
+  </div>
+  <div class="col-xs-12">
+    {if $unpublished && !$isLayoutEditor}
+    	{* Unpublished; give the option to publish it. *}
+    	<input type="button" value="{translate key="editor.issues.publishIssue"}" onclick="confirmAction('{url op="publishIssue" path=$issueId}', '{translate|escape:"jsparam" key="editor.issues.confirmPublish"}')" class="btn btn-block changeRadius" />
+    {elseif !$isLayoutEditor}
+    	{* Published; give the option to unpublish it. *}
+    	<input type="button" value="{translate key="editor.issues.unpublishIssue"}" onclick="confirmAction('{url op="unpublishIssue" path=$issueId}', '{translate|escape:"jsparam" key="editor.issues.confirmUnpublish"}')" class="btn btn-danger btn-block cancelBtn" />
+    {/if}
+  </div>
+</div>
 
-<input type="submit" value="{translate key="common.save"}" class="button defaultButton" />
-{if $unpublished && !$isLayoutEditor}
-	{* Unpublished; give the option to publish it. *}
-	<input type="button" value="{translate key="editor.issues.publishIssue"}" onclick="confirmAction('{url op="publishIssue" path=$issueId}', '{translate|escape:"jsparam" key="editor.issues.confirmPublish"}')" class="button" />
-{elseif !$isLayoutEditor}
-	{* Published; give the option to unpublish it. *}
-	<input type="button" value="{translate key="editor.issues.unpublishIssue"}" onclick="confirmAction('{url op="unpublishIssue" path=$issueId}', '{translate|escape:"jsparam" key="editor.issues.confirmUnpublish"}')" class="button" />
-{/if}
+
 
 </form>
 
 {/if}
 
 {include file="common/footer.tpl"}
-

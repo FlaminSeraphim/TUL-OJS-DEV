@@ -46,32 +46,32 @@
 <h3>{translate key="email.recipients"}</h3>
 <table id="recipients" class="data" width="100%">
 <tr valign="top">
-	<td><input type="radio" id="allUsers" name="whichUsers" value="allUsers"/></td>
+	<td class="marginTop"><input type="radio" id="allUsers" name="whichUsers" value="allUsers"/></td>
 	<td class="label">
 		<label for="allUsers">{translate key="editor.notifyUsers.allUsers" count=$allUsersCount|default:0}</label>
 	</td>
 </tr>
 <tr valign="top">
-	<td><input type="radio" id="allReaders" name="whichUsers" value="allReaders"/></td>
+	<td class="marginTop"><input type="radio" id="allReaders" name="whichUsers" value="allReaders"/></td>
 	<td class="label">
 		<label for="allReaders">{translate key="editor.notifyUsers.allReaders" count=$allReadersCount|default:0}</label>
 	</td>
 </tr>
 <tr valign="top">
-	<td><input type="radio" id="allAuthors" name="whichUsers" value="allAuthors"/></td>
+	<td class="marginTop"><input type="radio" id="allAuthors" name="whichUsers" value="allAuthors"/></td>
 	<td class="label">
 		<label for="allAuthors">{translate key="editor.notifyUsers.allAuthors" count=$allAuthorsCount|default:0}</label>
 	</td>
 </tr>
 {if $currentJournal->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_SUBSCRIPTION}
 <tr valign="top">
-	<td><input type="radio" id="allIndividualSubscribers" name="whichUsers" value="allIndividualSubscribers"/></td>
+	<td class="marginTop"><input type="radio" id="allIndividualSubscribers" name="whichUsers" value="allIndividualSubscribers"/></td>
 	<td class="label">
 		<label for="allIndividualSubscribers">{translate key="editor.notifyUsers.allIndividualSubscribers" count=$allIndividualSubscribersCount|default:0}</label>
 	</td>
 </tr>
 <tr valign="top">
-	<td><input type="radio" id="allInstitutionalSubscribers" name="whichUsers" value="allInstitutionalSubscribers"/></td>
+	<td class="marginTop"><input type="radio" id="allInstitutionalSubscribers" name="whichUsers" value="allInstitutionalSubscribers"/></td>
 	<td class="label">
 		<label for="allInstitutionalSubscribers">{translate key="editor.notifyUsers.allInstitutionalSubscribers" count=$allInstitutionalSubscribersCount|default:0}</label>
 	</td>
@@ -132,9 +132,14 @@
 	<td class="value"><textarea name="body" cols="60" rows="15" class="textArea">{$body|escape}</textarea></td>
 </tr>
 </table>
-
-<p><input name="send" type="submit" value="{translate key="email.send"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="history.go(-1)" /></p>
+<div class="row">
+  <div class="col-xs-12">
+    <input name="send" type="submit" value="{translate key="email.send"}" class="btn btn-block marginTopBot" id="regSubmitBtn" />
+  </div>
+  <div class="col-xs-12">
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-danger btn-block cancelBtn" onclick="history.go(-1)" />
+  </div>
+</div>
 </form>
 </div>
 {include file="common/footer.tpl"}
-

@@ -83,8 +83,7 @@ $(document).ready(function() { setupTableDND("#dragTable", "moveIssue"); });
 		<option value="">{translate key="common.none"}</option>
 		{html_options options=$allIssues|truncate:40:"..." selected=$currentIssueId}
 	</select>
-	<input type="submit" value="{translate key="common.record"}" class="button defaultButton" />
+	<input type="submit" value="{translate key="common.record"}" class="btn changeRadius" />
 </form>
 </div>
 {include file="common/footer.tpl"}
-
