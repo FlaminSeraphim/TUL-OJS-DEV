@@ -13,7 +13,6 @@
 {assign var="pageId" value="manager.individualSubscriptions"}
 {include file="common/header.tpl"}
 {/strip}
-
 <ul class="menu">
 	<li><a href="{url op="subscriptionsSummary"}">{translate key="manager.subscriptions.summary"}</a></li>
 	<li class="current"><a href="{url op="subscriptions" path="individual"}">{translate key="manager.individualSubscriptions"}</a></li>
@@ -25,7 +24,7 @@
 
 <form action="#">
 <ul class="filter">
-	<li>{translate key="manager.subscriptions.withStatus"}: <select name="filterStatus" onchange="location.href='{url|escape:"javascript" path="individual" searchField=$searchField searchMatch=$searchMatch search=$search dateSearchField=$dateSearchField dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateFromMonth=$dateFromMonth dateToDay=$dateToDay dateToYear=$dateToYear dateToMonth=$dateToMonth filterStatus="STATUS_ID" escape=false}'.replace('STATUS_ID', this.options[this.selectedIndex].value)" size="1" class="selectMenu">{html_options_translate options=$statusOptions selected=$filterStatus}</select></li>
+	<li>{translate key="manager.subscriptions.withStatus"}: <select name="filterStatus" onchange="location.href='{url|escape:"javascript" path="individual" searchField=$searchField searchMatch=$searchMatch search=$search dateSearchField=$dateSearchField dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateFromMonth=$dateFromMonth dateToDay=$dateToDay dateToYear=$dateToYear dateToMonth=$dateToMonth filterStatus="STATUS_ID" escape=false}'.replace('STATUS_ID', this.options[this.selectedIndex].value)" size="1" class="selectMenu ">{html_options_translate options=$statusOptions selected=$filterStatus}</select></li>
 </ul>
 </form>
 
@@ -46,20 +45,20 @@
 		<option value="is"{if $searchMatch == 'is'} selected="selected"{/if}>{translate key="form.is"}</option>
 		<option value="startsWith"{if $searchMatch == 'startsWith'} selected="selected"{/if}>{translate key="form.startsWith"}</option>
 	</select>
-	<input type="text" size="15" name="search" class="textField" value="{$search|escape}" />
+	<input type="text" size="15" name="search" class="textField marginTop" value="{$search|escape}" placeholder="Search Subscriptions" />
 	<br />
-	<select name="dateSearchField" size="1" class="selectMenu">
+	<select name="dateSearchField" size="1" class="selectMenu marginTopBot">
 		{html_options_translate options=$dateFieldOptions selected=$dateSearchField}
 	</select>
 	{translate key="common.between"}
-	{html_select_date prefix="dateFrom" time=$dateFrom all_extra="class=\"selectMenu\"" year_empty="" month_empty="" day_empty="" start_year="-5" end_year="+5"}
+	{html_select_date prefix="dateFrom" time=$dateFrom all_extra="class=\"selectMenu\"" year_empty="Year" month_empty="Month" day_empty="Day" start_year="-5" end_year="+5"}
 	{translate key="common.and"}
-	{html_select_date prefix="dateTo" time=$dateTo all_extra="class=\"selectMenu\"" year_empty="" month_empty="" day_empty="" start_year="-5" end_year="+5"}
+	{html_select_date prefix="dateTo" time=$dateTo all_extra="class=\"selectMenu\"" year_empty="Year" month_empty="Month" day_empty="Day" start_year="-5" end_year="+5"}
 	<input type="hidden" name="dateToHour" value="23" />
 	<input type="hidden" name="dateToMinute" value="59" />
 	<input type="hidden" name="dateToSecond" value="59" />
 	<br />
-	<input type="submit" value="{translate key="common.search"}" class="button" />
+	<input type="submit" value="{translate key="common.search"}" class="btn changeRadius" />
 </form>
 
 <br />
@@ -117,4 +116,3 @@
 </div>
 
 {include file="common/footer.tpl"}
-
