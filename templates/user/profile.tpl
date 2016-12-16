@@ -34,8 +34,8 @@
 	<td width="80%" class="value">{$username|escape}</td>
 </tr>
 <tr valign="top">
-	<td class="label">{fieldLabel name="salutation" key="user.salutation"}</td>
-	<td class="value"><input type="text" name="salutation" id="salutation" value="{$salutation|escape}" size="20" maxlength="40" class="textField" /></td>
+	<td class="hidden">{fieldLabel name="salutation" key="user.salutation"}</td>
+	<td class="hidden"><input type="text" name="salutation" id="salutation" value="{$salutation|escape}" size="20" maxlength="40" class="textField" /></td>
 </tr>
 <tr valign="top">
 	<td class="label">{fieldLabel name="firstName" required="true" key="user.firstName"}</td>
@@ -64,13 +64,13 @@
 <tr valign="top">
 	<td class="label">{fieldLabel name="affiliation" key="user.affiliation"}</td>
 	<td class="value">
-		<textarea name="affiliation[{$formLocale|escape}]" id="affiliation" rows="5" cols="40" class="textArea">{$affiliation[$formLocale]|escape}</textarea><br />
+		<textarea name="affiliation[{$formLocale|escape}]" id="affiliation" rows="3" cols="40" class="textArea">{$affiliation[$formLocale]|escape}</textarea><br />
 		<span class="instruct">{translate key="user.affiliation.description"}</span>
 	</td>
 </tr>
 <tr valign="top">
 	<td class="label">{fieldLabel name="signature" key="user.signature"}</td>
-	<td class="value"><textarea name="signature[{$formLocale|escape}]" id="signature" rows="5" cols="40" class="textArea">{$signature[$formLocale]|escape}</textarea></td>
+	<td class="value"><textarea name="signature[{$formLocale|escape}]" id="signature" rows="1" cols="40" class="textArea">{$signature[$formLocale]|escape}</textarea></td>
 </tr>
 <tr valign="top">
 	<td class="label">{fieldLabel name="email" required="true" key="user.email"}</td>
@@ -94,7 +94,9 @@
 </tr>
 <tr valign="top">
 	<td class="label">{fieldLabel name="mailingAddress" key="common.mailingAddress"}</td>
-	<td class="value"><textarea name="mailingAddress" id="mailingAddress" rows="3" cols="40" class="textArea">{$mailingAddress|escape}</textarea></td>
+
+	<td class="hidden"><textarea name="mailingAddress" id="mailingAddress" rows="3" cols="40" class="textArea">{$mailingAddress|escape}</textarea></td>
+  <td><input type="text" name="mailingAddress" value="{$mailingAddress|escape}"></input></td>
 </tr>
 <tr valign="top">
 	<td class="label">{fieldLabel name="country" key="common.country"}</td>
@@ -125,21 +127,22 @@
 {if $allowRegReviewer || $isReviewer}
 <tr valign="top">
 	<td class="label">{fieldLabel name="interests" key="user.interests"}</td>
-	<td class="value">
+	<td class="value noUnderline">
 		{include file="form/interestsInput.tpl" FBV_interestsKeywords=$interestsKeywords FBV_interestsTextOnly=$interestsTextOnly}
 	</td>
 </tr>
 {/if}
 <tr valign="top">
 	<td class="label">{fieldLabel name="biography" key="user.biography"}<br />{translate key="user.biography.description"}</td>
-	<td class="value"><textarea name="biography[{$formLocale|escape}]" id="biography" rows="5" cols="40" class="textArea">{$biography[$formLocale]|escape}</textarea></td>
+	<td class="hidden"><textarea name="biography[{$formLocale|escape}]" id="biography" rows="3" cols="40" class="textArea">{$biography[$formLocale]|escape}</textarea></td>
+  <td><input type="text" name="biography[{$formLocale|escape}]" value="{$biography[$formLocale]|escape}" class="loginMarginBot"></td>
 </tr>
 <tr valign="top">
 	<td class="label">
 		{fieldLabel name="profileImage" key="user.profile.form.profileImage"}
 	</td>
 	<td class="value">
-		<input type="file" id="profileImage" name="profileImage" class="uploadField" /> <input type="submit" name="uploadProfileImage" value="{translate key="common.upload"}" class="button" />
+		<input type="file" id="profileImage" name="profileImage" class="uploadField" /> <input type="submit" name="uploadProfileImage" value="{translate key="common.upload"}" class="btn changeRadius" />
 		{if $profileImage}
 			{translate key="common.fileName"}: {$profileImage.name|escape} {$profileImage.dateUploaded|date_format:$datetimeFormatShort} <input type="submit" name="deleteProfileImage" value="{translate key="common.delete"}" class="button" />
 			<br />
@@ -182,10 +185,18 @@
 {/if}
 
 </table>
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="user"}'" /></p>
+<div class="row">
+  <div class="col-xs-12">
+    <input type="submit" value="{translate key="common.save"}" class="btn btn-block loginMarginBot" id="regSubmitBtn" />
+  </div>
+  <div class="col-xs-12">
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-block btn-danger cancelBtn" onclick="document.location.href='{url page="user"}'" />
+  </div>
+
+</div>
+
 </form>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 {include file="common/footer.tpl"}
-
