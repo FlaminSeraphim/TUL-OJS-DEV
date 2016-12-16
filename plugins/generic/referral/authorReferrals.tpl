@@ -91,10 +91,10 @@ function toggleChecked() {
 {/if}
 </table>
 <p>
-	<input type="submit" name="accept" value="{translate key="plugins.generic.referral.status.accept"}" class="button" onclick="return confirm('{translate|escape:"jsparam" key="plugins.generic.referral.status.accept.confirm"}')"/>
-	<input type="submit" name="decline" value="{translate key="plugins.generic.referral.status.decline"}" class="button" onclick="return confirm('{translate|escape:"jsparam" key="plugins.generic.referral.status.decline.confirm"}')"/>
-	<input type="submit" name="delete" value="{translate key="common.delete"}" class="button" onclick="return confirm('{translate|escape:"jsparam" key="plugins.generic.referral.confirmDelete"}')"/>
-	<input type="button" value="{translate key="common.selectAll"}" class="button" onclick="toggleChecked()" />
+	<input type="submit" name="accept" value="{translate key="plugins.generic.referral.status.accept"}" class="btn changeRadius marginTopSm" onclick="return confirm('{translate|escape:"jsparam" key="plugins.generic.referral.status.accept.confirm"}')"/>
+	<input type="submit" name="decline" value="{translate key="plugins.generic.referral.status.decline"}" class="btn changeRadius marginTopSm" onclick="return confirm('{translate|escape:"jsparam" key="plugins.generic.referral.status.decline.confirm"}')"/>
+	<input type="submit" name="delete" value="{translate key="common.delete"}" class="btn changeRadius marginTopSm" onclick="return confirm('{translate|escape:"jsparam" key="plugins.generic.referral.confirmDelete"}')"/>
+	<input type="button" value="{translate key="common.selectAll"}" class="btn changeRadius marginTopSm" onclick="toggleChecked()" />
 </p>
 </form>
 </div>
