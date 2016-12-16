@@ -123,12 +123,14 @@ function moveAuthor(dir, authorIndex) {
 	{if $currentJournal->getSetting('requireAuthorCompetingInterests')}
 		<tr valign="top">
 			<td width="20%" class="label">{fieldLabel name="authors-$authorIndex-competingInterests" key="author.competingInterests" competingInterestGuidelinesUrl=$competingInterestGuidelinesUrl}</td>
-			<td width="80%" class="value"><textarea name="authors[{$authorIndex|escape}][competingInterests][{$formLocale|escape}]" class="textArea" id="authors-{$authorIndex|escape}-competingInterests" rows="5" cols="40">{$author.competingInterests[$formLocale]|escape}</textarea></td>
+			<td width="80%" class="hidden"><textarea name="authors[{$authorIndex|escape}][competingInterests][{$formLocale|escape}]" class="textArea" id="authors-{$authorIndex|escape}-competingInterests" rows="5" cols="40">{$author.competingInterests[$formLocale]|escape}</textarea></td>
+      <td class="value"><input type="text" name="authors[{$authorIndex|escape}][competingInterests][{$formLocale|escape}]" value="{$author.competingInterests[$formLocale]|escape}" class=" marginBotSm"></td>
 		</tr>
 	{/if}{* requireAuthorCompetingInterests *}
 	<tr valign="top">
 		<td class="label">{fieldLabel name="authors-$authorIndex-biography" key="user.biography"}<br />{translate key="user.biography.description"}</td>
-		<td class="value"><textarea name="authors[{$authorIndex|escape}][biography][{$formLocale|escape}]" id="authors-{$authorIndex|escape}-biography" rows="5" cols="40" class="textArea">{$author.biography[$formLocale]|escape}</textarea></td>
+		<td class="hidden"><textarea name="authors[{$authorIndex|escape}][biography][{$formLocale|escape}]" id="authors-{$authorIndex|escape}-biography" rows="5" cols="40" class="textArea">{$author.biography[$formLocale]|escape}</textarea></td>
+    <td class="value"><input type="text" name="authors[{$authorIndex|escape}][biography][{$formLocale|escape}]" value="{$author.biography[$formLocale]|escape}" class="marginBot"></td>
 	</tr>
 
 {call_hook name="Templates::Submission::MetadataEdit::Authors"}
@@ -145,7 +147,7 @@ function moveAuthor(dir, authorIndex) {
 	</tr>
 	<tr valign="top">
 		<td>&nbsp;</td>
-		<td class="value"><input type="submit" name="delAuthor[{$authorIndex|escape}]" value="{translate key="author.submit.deleteAuthor"}" class="button" /></td>
+		<td class="value"><input type="submit" name="delAuthor[{$authorIndex|escape}]" value="{translate key="author.submit.deleteAuthor"}" class="btn changeRadius" /></td>
 	</tr>
 	{/if}
 	{if !$smarty.foreach.authors.last}
@@ -207,7 +209,7 @@ function moveAuthor(dir, authorIndex) {
 	{/foreach}
 </table>
 
-<p><input type="submit" class="button" name="addAuthor" value="{translate key="author.submit.addAuthor"}" /></p>
+<p><input type="submit" class="btn changeRadius" name="addAuthor" value="{translate key="author.submit.addAuthor"}" /></p>
 </div>
 
 <div class="separator"></div>
@@ -419,7 +421,7 @@ function moveAuthor(dir, authorIndex) {
 <table width="100%" class="data">
 <tr valign="top">
 	<td width="20%" class="label">{fieldLabel name="citations" key="submission.citations"}</td>
-	<td width="80%" class="value"><textarea name="citations" id="citations" class="textArea" rows="15" cols="60">{$citations|escape}</textarea></td>
+	<td width="80%" class="value"><textarea name="citations" id="citations" class="textArea" rows="7" cols="60">{$citations|escape}</textarea></td>
 </tr>
 </table>
 </div>
@@ -481,11 +483,19 @@ function moveAuthor(dir, authorIndex) {
 
 {/if}{* $isEditor *}
 
-<p><input type="submit" value="{translate key="submission.saveMetadata"}" class="button defaultButton"/> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="history.go(-1)" /></p>
+
+<div class="row">
+  <div class="col-xs-12">
+    <input type="submit" value="{translate key="submission.saveMetadata"}" class="btn btn-block marginTopBot" id="regSubmitBtn"/>
+  </div>
+  <div class="col-xs-12">
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-danger btn-block cancelBtn" onclick="history.go(-1)" />
+  </div>
+</div>
+
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 </form>
 
 {include file="common/footer.tpl"}
-
