@@ -66,8 +66,7 @@
 
 
   <div class="row">
-    <div class="col-xs-12 col-md-8 col-md-offset-1">
-
+     <div class="col-xs-12 col-lg-3 col-lg-offset-1">
       {if $journalDescription}
       	<div id="journalDescription">{$journalDescription}</div>
       {/if}
@@ -97,6 +96,7 @@
       	</div>
       {/if}
 
+
       {if $issue && $currentJournal->getSetting('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE}
       	{* Display the table of contents or cover page of the current issue. *}
       	<br />
@@ -104,18 +104,23 @@
       	{include file="issue/currentIssue.tpl"}
       {/if}
 
+
+
+
       <!-- {include file="issue/issue.tpl"} -->
 
 
 
 
-    </div>
-    <div class="col-xs-12 col-md-2 ">
+
+    <div class="col-xs-4 col-lg-2 ">
       <div class="center-twitter">
         <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/MedProceedings">Tweets by MedProceedings</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
       </div>
     </div>
-  </div>
+<!-- end of row div  -->
+</div>
+
 
 
 {include file="common/footer.tpl"}
