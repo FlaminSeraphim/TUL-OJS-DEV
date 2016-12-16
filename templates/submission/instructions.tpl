@@ -20,7 +20,8 @@
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" />
-	<link rel="stylesheet" href="{$baseUrl}/styles/help.css" type="text/css" />
+  <link rel="stylesheet" href="{$baseUrl}/styles/help.css" type="text/css" />
+	<link rel="stylesheet" href="{$baseUrl}/lib/osu/instructions.css" type="text/css" />
 
 	{foreach from=$stylesheets item=cssUrl}
 		<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
@@ -47,18 +48,23 @@
 <div id="container">
 <div id="body">
 
-	<div id="main" style="width: 650px;">
+	<!-- <div id="main" style="width: 650px;">
 
-		<br />
+		<br /> -->
 
-		<div class="thickSeparator"></div>
-
-		<h2>{translate key=$pageTitle}</h2>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <h2>{translate key=$pageTitle}</h2>
 
 		<div id="content">
 			<p>{$instructions|nl2br}</p>
-			<p><input type="button" onclick="window.close()" value="{translate key="common.close"}" class="button defaultButton" /></p>
 		</div>
+
+  </div>
+  <div class="col-xs-8 col-xs-offset-2">
+    <input type="button" onclick="window.close()" value="{translate key="common.close"}" class="btn btn-block " id="regSubmitBtn" />
+  </div>
+</div>
 
 	</div>
 
@@ -66,4 +72,3 @@
 </div>
 </body>
 </html>
-
