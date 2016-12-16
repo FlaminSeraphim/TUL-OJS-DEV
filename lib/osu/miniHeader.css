@@ -1,0 +1,9 @@
+.miniHeader li{
+  display: inline;
+  margin-right: 1em;
+  padding-left: 0px;
+}
+
+.miniHeader{
+  padding-left: 0px;
+}
