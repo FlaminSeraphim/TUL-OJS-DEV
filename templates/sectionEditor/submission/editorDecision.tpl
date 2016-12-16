@@ -20,7 +20,7 @@
 			<select name="decision" size="1" class="selectMenu"{if not $allowRecommendation} disabled="disabled"{/if}>
 				{html_options_translate options=$editorDecisionOptions selected=$lastDecision}
 			</select>
-			<input type="submit" onclick="return confirm('{translate|escape:"jsparam" key="editor.submissionReview.confirmDecision"}')" name="submit" value="{translate key="editor.article.recordDecision"}" {if not $allowRecommendation}disabled="disabled"{/if} class="button" />
+			<input type="submit" onclick="return confirm('{translate|escape:"jsparam" key="editor.submissionReview.confirmDecision"}')" name="submit" value="{translate key="editor.article.recordDecision"}" {if not $allowRecommendation}disabled="disabled"{/if} class="btn changeRadius" />
 			{if not $allowRecommendation}&nbsp;&nbsp;{translate key="editor.article.cannotRecord"}{/if}
 		</form>
 	</td>
@@ -86,7 +86,7 @@
 			<td width="20%">&nbsp;</td>
 			<td width="80%">
 				{translate key="editor.article.resubmitFileForPeerReview"}
-				<input type="submit" name="resubmit" {if !($editorRevisionExists or $authorRevisionExists or $reviewVersionExists)}disabled="disabled" {/if}value="{translate key="form.resubmit"}" class="button" />
+				<input type="submit" name="resubmit" {if !($editorRevisionExists or $authorRevisionExists or $reviewVersionExists)}disabled="disabled" {/if}value="{translate key="form.resubmit"}" class="btn changeRadius" />
 			</td>
 		</tr>
 	{elseif $lastDecision == SUBMISSION_EDITOR_DECISION_ACCEPT}
@@ -94,7 +94,7 @@
 			<td width="20%">&nbsp;</td>
 			<td width="80%">
 				{if !($editorRevisionExists or $authorRevisionExists or $reviewVersionExists) or !$submission->getMostRecentEditorDecisionComment()}{assign var=copyeditingUnavailable value=1}{else}{assign var=copyeditingUnavailable value=0}{/if}
-				<input type="submit" {if $copyeditingUnavailable}disabled="disabled" {/if}name="setCopyeditFile" value="{translate key="editor.submissionReview.sendToCopyediting"}" class="button" />
+				<input type="submit" {if $copyeditingUnavailable}disabled="disabled" {/if}name="setCopyeditFile" value="{translate key="editor.submissionReview.sendToCopyediting"}" class="btn changeRadius" />
 				{if $copyeditingUnavailable}
 					<br />
 					<span class="instruct">{translate key="editor.submissionReview.cannotSendToCopyediting"}</span>
@@ -165,7 +165,7 @@
 		<td class="label">&nbsp;</td>
 		<td class="value">
 			<input type="file" name="upload" class="uploadField" />
-			<input type="submit" name="submit" value="{translate key="common.upload"}" class="button" />
+			<input type="submit" name="submit" value="{translate key="common.upload"}" class="btn changeRadius marginTopSm" />
 		</td>
 	</tr>
 
@@ -173,4 +173,3 @@
 
 </form>
 </div>
-

@@ -66,7 +66,7 @@
 				{translate key="editor.article.uploadReviewVersion"}
 				<input type="hidden" name="articleId" value="{$submission->getId()}" />
 				<input type="file" name="upload" class="uploadField" />
-				<input type="submit" name="submit" value="{translate key="common.upload"}" class="button" />
+				<input type="submit" name="submit" value="{translate key="common.upload"}" class="btn changeRadius marginTopSm" />
 			</form>
 		</td>
 	</tr>
@@ -87,7 +87,7 @@
 				&nbsp;&nbsp;
 				<label for="show">{translate key="editor.article.showSuppFile"}</label>
 				<input type="checkbox" name="show" id="show" value="1"{if $suppFile->getShowReviewers()==1} checked="checked"{/if}/>
-				<input type="submit" name="submit" value="{translate key="common.record"}" class="button" />
+				<input type="submit" name="submit" value="{translate key="common.record"}" class="btn changeRadius" />
 				</form>
 			</td>
 		</tr>
@@ -262,7 +262,7 @@
 								<input type="hidden" name="fileId" value="{$reviewerFile->getFileId()}" />
 								<input type="hidden" name="revision" value="{$reviewerFile->getRevision()}" />
 								{translate key="editor.article.showAuthor"} <input type="checkbox" name="viewable" value="1"{if $reviewerFile->getViewable()} checked="checked"{/if} />
-								<input type="submit" value="{translate key="common.record"}" class="button" />
+								<input type="submit" value="{translate key="common.record"}" class="btn changeRadius" />
 							</form>
 						</td>
 					</tr>
@@ -288,7 +288,7 @@
 					<input type="hidden" name="articleId" value="{$submission->getId()}" />
 					<input type="hidden" name="reviewId" value="{$reviewAssignment->getId()}"/>
 					<input type="file" name="upload" class="uploadField" />
-					<input type="submit" name="submit" value="{translate key="common.upload"}" class="button" />
+					<input type="submit" name="submit" value="{translate key="common.upload"}" class="btn changeRadius" />
 				</form>
 				{if $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()}
 					<a class="action" href="{url op="enterReviewerRecommendation" articleId=$submission->getId() reviewId=$reviewAssignment->getId()}">{translate key="editor.article.recommendation"}</a>
@@ -307,7 +307,7 @@
 				<select name="quality" size="1" class="selectMenu">
 					{html_options_translate options=$reviewerRatingOptions selected=$reviewAssignment->getQuality()}
 				</select>&nbsp;&nbsp;
-				<input type="submit" value="{translate key="common.record"}" class="button" />
+				<input type="submit" value="{translate key="common.record"}" class="btn changeRadius" />
 				{if $reviewAssignment->getDateRated()}
 					&nbsp;&nbsp;{$reviewAssignment->getDateRated()|date_format:$dateFormatShort}
 				{/if}
@@ -327,4 +327,3 @@
 {/if}
 {/foreach}
 </div>
-
