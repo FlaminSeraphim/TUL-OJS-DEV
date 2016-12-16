@@ -8,9 +8,9 @@
  * Common footer for help pages.
  *
  *}
-{call_hook name="Templates::Help::Footer::PageFooter"}
+ 
+ {include file="common/footer.tpl"}
 </div>
 </div>
 </body>
 </html>
-
