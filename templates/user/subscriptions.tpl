@@ -8,7 +8,7 @@
  * User subscriptions management page.
  *
  *}
- 
+
 {strip}
 {assign var="pageTitle" value="user.subscriptions.mySubscriptions"}
 {include file="common/header.tpl"}
