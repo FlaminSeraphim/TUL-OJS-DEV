@@ -40,7 +40,7 @@
     </div>
     <div class="col-md-4 col-md-offset-4 loginMarginBot">
       <input type="password" name="password2" id="password2" value="{$password2|escape}" size="20" class="textField" placeholder="Repeat New Password" />
-      <input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="user" escape=false}'" />
+      <input type="submit" value="{translate key="common.save"}" class="btn btn-block marginTopBot " id="regSubmitBtn"  /> <input type="button" value="{translate key="common.cancel"}" class="btn btn-danger btn-block cancelBtn" onclick="document.location.href='{url page="user" escape=false}'" />
     </div>
   </div>
 </form>
