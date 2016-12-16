@@ -8,6 +8,7 @@
  * Article View -- Comments component.
  *
  *}
+
 {if $comments}
 <div class="separator"></div>
 <div id="commentsOnArticle">
@@ -53,4 +54,3 @@
 	{/if}
 	<a class="action" href="{url page="comment" op="add" path=$article->getId()|to_array:$galleyId}" target="_parent">{translate key="rt.addComment"}</a>
 {/if}
-

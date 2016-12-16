@@ -12,7 +12,8 @@
 {assign var="pageTitle" value="about.submissions"}
 {include file="common/header.tpl"}
 {/strip}
-<link rel="stylesheet" href="{$baseUrl}/lib/osu/osuHideSideBar.css" type="text/css" />
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/osuHideSideBar.css" type="text/css">
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/miniHeader.css" type="text/css" />
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
 
@@ -21,7 +22,7 @@
     	{assign var="authorFees" value=1}
     {/if}
 
-    <ul>
+    <ul class="miniHeader">
     	<li id="linkDisableUserReg"><a href="{url page="about" op="submissions" anchor="onlineSubmissions"}">{translate key="about.onlineSubmissions"}</a></li>
     	{if $currentJournal->getLocalizedSetting('authorGuidelines') != ''}<li id="linkAuthorGuidelines"><a href="{url page="about" op="submissions" anchor="authorGuidelines"}">{translate key="about.authorGuidelines"}</a></li>{/if}
     	{if $currentJournal->getLocalizedSetting('copyrightNotice') != ''}<li id="linkCopyrightNotice"><a href="{url page="about" op="submissions" anchor="copyrightNotice"}">{translate key="about.copyrightNotice"}</a></li>{/if}

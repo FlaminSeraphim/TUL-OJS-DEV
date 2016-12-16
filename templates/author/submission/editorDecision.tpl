@@ -76,7 +76,7 @@
 			<form method="post" action="{url op="uploadRevisedVersion"}" enctype="multipart/form-data">
 				<input type="hidden" name="articleId" value="{$submission->getId()}" />
 				<input type="file" name="upload" class="uploadField" />
-				<input type="submit" name="submit" value="{translate key="common.upload"}" class="button" />
+				<input type="submit" name="submit" value="{translate key="common.upload"}" class="btn changeRadius marginTopSm" />
 			</form>
 
 		</td>

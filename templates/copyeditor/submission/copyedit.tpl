@@ -63,7 +63,7 @@
 				<input type="hidden" name="articleId" value="{$submission->getId()}" />
 				<input type="hidden" name="copyeditStage" value="initial" />
 				<input type="file" name="upload"{if not $initialCopyeditSignoff->getDateNotified() or $initialCopyeditSignoff->getDateCompleted()} disabled="disabled"{/if} class="uploadField" />
-				<input type="submit" class="button" value="{translate key="common.upload"}"{if not $initialCopyeditSignoff->getDateNotified() or $initialCopyeditSignoff->getDateCompleted()} disabled="disabled"{/if} />
+				<input type="submit" class="btn changeRadius marginTopSm" value="{translate key="common.upload"}"{if not $initialCopyeditSignoff->getDateNotified() or $initialCopyeditSignoff->getDateCompleted()} disabled="disabled"{/if} />
 			</form>
 		</td>
 	</tr>
@@ -123,7 +123,7 @@
 				<input type="hidden" name="articleId" value="{$submission->getId()}" />
 				<input type="hidden" name="copyeditStage" value="final" />
 				<input type="file" name="upload"{if not $finalCopyeditSignoff->getDateNotified() or $finalCopyeditSignoff->getDateCompleted()} disabled="disabled"{/if} class="uploadField">
-				<input type="submit" class="button" value="{translate key="common.upload"}"{if not $finalCopyeditSignoff->getDateNotified() or $finalCopyeditSignoff->getDateCompleted()} disabled="disabled"{/if} />
+				<input type="submit" class="btn changeRadius marginTopSm" value="{translate key="common.upload"}"{if not $finalCopyeditSignoff->getDateNotified() or $finalCopyeditSignoff->getDateCompleted()} disabled="disabled"{/if} />
 			</form>
 		</td>
 	</tr>

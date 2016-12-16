@@ -37,4 +37,3 @@
 {include file="submission/metadata/metadata.tpl"}
 
 {include file="common/footer.tpl"}
-

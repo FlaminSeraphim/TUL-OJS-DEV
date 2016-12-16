@@ -40,7 +40,6 @@
 	</h4>
 	</div>
 	<p>
-
 	{if $parent}
 		{assign var=parentId value=$parent->getCommentId()}
 		{url|assign:"url" page="comment" op="view" path=$articleId|to_array:$parentId}
@@ -153,4 +152,3 @@
 {/if}
 </div>
 {include file="common/footer.tpl"}
-

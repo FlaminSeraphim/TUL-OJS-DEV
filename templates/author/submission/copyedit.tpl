@@ -84,7 +84,7 @@
 				<input type="hidden" name="articleId" value="{$submission->getId()}" />
 				<input type="hidden" name="copyeditStage" value="author" />
 				<input type="file" name="upload"{if not $copyeditAuthorSignoff->getDateNotified() or $copyeditAuthorSignoff->getDateCompleted()} disabled="disabled"{/if} class="uploadField" />
-				<input type="submit" class="button" value="{translate key="common.upload"}"{if not $copyeditAuthorSignoff->getDateNotified() or $copyeditAuthorSignoff->getDateCompleted()} disabled="disabled"{/if} />
+				<input type="submit" class="btn changeRadius marginTopSm" value="{translate key="common.upload"}"{if not $copyeditAuthorSignoff->getDateNotified() or $copyeditAuthorSignoff->getDateCompleted()} disabled="disabled"{/if} />
 			</form>
 		</td>
 	</tr>
