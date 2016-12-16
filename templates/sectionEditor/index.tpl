@@ -58,20 +58,20 @@ function sortSearch(heading, direction) {
 		<option value="is"{if $searchMatch == 'is'} selected="selected"{/if}>{translate key="form.is"}</option>
 		<option value="startsWith"{if $searchMatch == 'startsWith'} selected="selected"{/if}>{translate key="form.startsWith"}</option>
 	</select>
-	<input type="text" size="15" name="search" class="textField" value="{$search|escape}" />
+	<input type="text" size="15" name="search" class="textField marginTopBot" value="{$search|escape}" placeholder="Search" />
 	<br />
 	<select name="dateSearchField" size="1" class="selectMenu">
 		{html_options_translate options=$dateFieldOptions selected=$dateSearchField}
 	</select>
 	{translate key="common.between"}
-	{html_select_date prefix="dateFrom" time=$dateFrom all_extra="class=\"selectMenu\"" year_empty="" month_empty="" day_empty="" start_year="-5" end_year="+1"}
+	{html_select_date prefix="dateFrom" time=$dateFrom all_extra="class=\"selectMenu\"" year_empty="Year" month_empty="Month" day_empty="Day" start_year="-5" end_year="+1"}
 	{translate key="common.and"}
-	{html_select_date prefix="dateTo" time=$dateTo all_extra="class=\"selectMenu\"" year_empty="" month_empty="" day_empty="" start_year="-5" end_year="+1"}
+	{html_select_date prefix="dateTo" time=$dateTo all_extra="class=\"selectMenu\"" year_empty="Year" month_empty="Month" day_empty="Day" start_year="-5" end_year="+1"}
 	<input type="hidden" name="dateToHour" value="23" />
 	<input type="hidden" name="dateToMinute" value="59" />
 	<input type="hidden" name="dateToSecond" value="59" />
 	<br />
-	<input type="submit" value="{translate key="common.search"}" class="button" />
+	<input type="submit" value="{translate key="common.search"}" class="btn changeRadius marginTopSm" />
 </form>
 &nbsp;
 
@@ -92,4 +92,3 @@ function sortSearch(heading, direction) {
 {/if}
 
 {include file="common/footer.tpl"}
-
