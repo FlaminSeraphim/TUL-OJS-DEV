@@ -46,11 +46,24 @@
 {/if}
 </table>
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> {if !$isPeerReviewComment}<input type="submit" name="saveAndEmail" value="{translate key="common.saveAndEmail"}" class="button" /> {/if}<input type="button" value="{translate key="common.cancel"}" class="button" onclick="history.go(-1);" /></p>
+<div class="row">
+  <div class="col-xs-12">
+    {if !$isPeerReviewComment}<input type="submit" name="saveAndEmail" value="{translate key="common.saveAndEmail"}" class="btn changeRadius marginTopSm" /> {/if}
+  </div>
+  <div class="col-xs-12">
+    <input type="submit" name="save" value="{translate key="common.save"}" class="btn btn-block marginTopBot" id="regSubmitBtn" />
+    
+  </div>
+  <div class="col-xs-12">
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-danger btn-block cancelBtn" onclick="history.go(-1);" />
+  </div>
+</div>
+
+
+ </p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </div>
 </form>
 
 {include file="submission/comment/footer.tpl"}
-
