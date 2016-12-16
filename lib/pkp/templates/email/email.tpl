@@ -107,9 +107,9 @@ function deleteAttachment(fileId) {
 <tr valign="top">
 	<td></td>
 	<td class="value">
-		<input type="submit" name="blankTo" class="button" value="{translate key="email.addToRecipient"}"/>
-		<input type="submit" name="blankCc" class="button" value="{translate key="email.addCcRecipient"}"/>
-		<input type="submit" name="blankBcc" class="button" value="{translate key="email.addBccRecipient"}"/>
+		<input type="submit" name="blankTo" class="btn changeRadius" value="{translate key="email.addToRecipient"}"/>
+		<input type="submit" name="blankCc" class="btn changeRadius" value="{translate key="email.addCcRecipient"}"/>
+		<input type="submit" name="blankBcc" class="btn changeRadius" value="{translate key="email.addBccRecipient"}"/>
 		{if $senderEmail}
 			<br />
 			<input type="checkbox" name="bccSender" id="bccSender" value="1"{if $bccSender} checked{/if} />&nbsp;&nbsp;<label for="bccSender">{translate key="email.bccSender" address=$senderEmail|escape}</label>
@@ -138,7 +138,7 @@ function deleteAttachment(fileId) {
 
 		{if $attachmentNum != 1}<br />{/if}
 
-		<input type="file" name="newAttachment" class="pkp_form_uploadField" /> <input name="addAttachment" type="submit" class="button" value="{translate key="common.upload"}" />
+		<input type="file" name="newAttachment" class="pkp_form_uploadField " /> <input name="addAttachment" type="submit" class="btn changeRadius marginTopSm" value="{translate key="common.upload"}" />
 	</td>
 </tr>
 {/if}
@@ -155,7 +155,19 @@ function deleteAttachment(fileId) {
 </tr>
 </table>
 
-<p><input name="send" type="submit" value="{translate key="email.send"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="history.go(-1)" />{if !$disableSkipButton} <input name="send[skip]" type="submit" value="{translate key="email.skip"}" class="button" />{/if}</p>
+
+<div class="row">
+  <div class="col-xs-12">
+    <input name="send" type="submit" value="{translate key="email.send"}" class="btn btn-block marginTopBot" id="regSubmitBtn" />
+  </div>
+  <div class="col-xs-12">
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-danger btn-block cancelBtn marginBot" onclick="history.go(-1)" />
+  </div>
+  <div class="col-xs-12">
+    {if !$disableSkipButton} <input name="send[skip]" type="submit" value="{translate key="email.skip"}" class="btn btn-danger btn-block cancelBtn" />{/if}
+  </div>
+</div>
+
 </form>
 
 {include file="common/footer.tpl"}
