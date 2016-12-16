@@ -55,7 +55,7 @@ function toggleChecked() {
 			<option value="is"{if $searchMatch == 'is'} selected="selected"{/if}>{translate key="form.is"}</option>
 			<option value="startsWith"{if $searchMatch == 'startsWith'} selected="selected"{/if}>{translate key="form.startsWith"}</option>
 		</select>
-		<input type="text" size="15" name="search" class="textField" value="{$search|escape}" />&nbsp;<input type="submit" value="{translate key="common.search"}" class="button" />
+		<input type="text" size="15" name="search" class="textField" value="{$search|escape}" />&nbsp;<input type="submit" value="{translate key="common.search"}" class="btn changeRadius" />
 	</form>
 
 	<p>{foreach from=$alphaList item=letter}<a href="{url op="enrollSearch" searchInitial=$letter roleId=$roleId}">{if $letter == $searchInitial}<strong>{$letter|escape}</strong>{else}{$letter|escape}{/if}</a> {/foreach}<a href="{url op="enrollSearch" roleId=$roleId}">{if $searchInitial==''}<strong>{translate key="common.all"}</strong>{else}{translate key="common.all"}{/if}</a></p>
@@ -157,7 +157,7 @@ function toggleChecked() {
 </table>
 </div>
 
-<input type="submit" value="{translate key="manager.people.enrollSelected"}" class="button defaultButton" /> <input type="button" value="{translate key="common.selectAll"}" class="button" onclick="toggleChecked()" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="manager" escape=false}'" />
+<input type="submit" value="{translate key="manager.people.enrollSelected"}" class="btn changeRadius" /> <input type="button" value="{translate key="common.selectAll"}" class="btn changeRadius" onclick="toggleChecked()" /> <input type="button" value="{translate key="common.cancel"}" class="btn changeRadius" onclick="document.location.href='{url page="manager" escape=false}'" />
 
 </form>
 
@@ -167,4 +167,3 @@ function toggleChecked() {
 {/if}
 
 {include file="common/footer.tpl"}
-

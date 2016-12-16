@@ -214,7 +214,7 @@ function confirmSubmissionCheck() {
 			{else}
 				<form action="{url op="saveCompetingInterests" reviewId=$reviewId}" method="post">
 					<textarea {if $cannotChangeCI}disabled="disabled" {/if}name="competingInterests" class="textArea" id="competingInterests" rows="5" cols="40">{$reviewAssignment->getCompetingInterests()|escape}</textarea><br />
-					<input {if $cannotChangeCI}disabled="disabled" {/if}class="button defaultButton" type="submit" value="{translate key="common.save"}" />
+					<input {if $cannotChangeCI}disabled="disabled" {/if}class="btn changeRadius" type="submit" value="{translate key="common.save"}" />
 				</form>
 			{/if}
 		</td>
@@ -307,7 +307,7 @@ function confirmSubmissionCheck() {
 			<form method="post" action="{url op="uploadReviewerVersion"}" enctype="multipart/form-data">
 				<input type="hidden" name="reviewId" value="{$reviewId|escape}" />
 				<input type="file" name="upload" {if not $confirmedStatus or $declined or $submission->getCancelled()}disabled="disabled"{/if} class="uploadField" />
-				<input type="submit" name="submit" value="{translate key="common.upload"}" {if not $confirmedStatus or $declined or $submission->getCancelled()}disabled="disabled"{/if} class="button" />
+				<input type="submit" name="submit" value="{translate key="common.upload"}" {if not $confirmedStatus or $declined or $submission->getCancelled()}disabled="disabled"{/if} class="btn changeRadius marginTopSm" />
 			</form>
 
 			{if $currentJournal->getSetting('showEnsuringLink')}
@@ -342,7 +342,7 @@ function confirmSubmissionCheck() {
 					<select name="recommendation" {if not $confirmedStatus or $declined or $submission->getCancelled() or (!$reviewFormResponseExists and !$reviewAssignment->getMostRecentPeerReviewComment() and !$uploadedFileExists)}disabled="disabled"{/if} class="selectMenu">
 						{html_options_translate options=$reviewerRecommendationOptions selected=''}
 					</select>&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="submit" name="submit" onclick="return confirmSubmissionCheck()" class="button" value="{translate key="reviewer.article.submitReview"}" {if not $confirmedStatus or $declined or $submission->getCancelled() or (!$reviewFormResponseExists and !$reviewAssignment->getMostRecentPeerReviewComment() and !$uploadedFileExists)}disabled="disabled"{/if} />
+					<input type="submit" name="submit" onclick="return confirmSubmissionCheck()" class="btn changeRadius" value="{translate key="reviewer.article.submitReview"}" {if not $confirmedStatus or $declined or $submission->getCancelled() or (!$reviewFormResponseExists and !$reviewAssignment->getMostRecentPeerReviewComment() and !$uploadedFileExists)}disabled="disabled"{/if} />
 					</form>
 				{/if}
 				</td>
@@ -361,5 +361,3 @@ function confirmSubmissionCheck() {
 {/if}
 
 {include file="common/footer.tpl"}
-
-

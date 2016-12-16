@@ -43,9 +43,15 @@
 	<br />
 {/foreach}
 
-<p><input type="submit" value="{translate key="form.submit"}" class="button defaultButton" />  <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="notification" escape=false}'" /></p>
+<div class="row">
+  <div class="col-xs-12">
+    <input type="submit" value="{translate key="form.submit"}" class="btn btn-block marginTopBot" id="regSubmitBtn" />
+  </div>
+  <div class="col-xs-12">
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-danger btn-block cancelBtn" onclick="document.location.href='{url page="notification" escape=false}'" />
+  </div>
+</div>
 
 </form>
 
 {include file="common/footer.tpl"}
-
