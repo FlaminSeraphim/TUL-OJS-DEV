@@ -8,48 +8,50 @@
  * Help table of contents.
  *
  *}
+
+
 <div style="padding-top: 0.5em;">
-	<form action="{url op="search"}" method="post" style="display: inline">
-	<input type="text" name="keyword" size="16" maxlength="60" value="{$helpSearchKeyword|escape}" class="textField" />&nbsp;<input type="submit" value="{translate key="common.search"}" class="button" />
-	</form>
+  <div class="row">
+    <div class="col-xs-12 col-md-4">
+      <form action="{url op="search"}" method="post" style="display: inline">
+    	<input type="text" name="keyword" value="{$helpSearchKeyword|escape}" class="textField" />&nbsp;
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <input type="submit" value="{translate key="common.search"}" class="btn changeRadius marginTopSm" />
+      </form>
+    </div>
+  </div>
+
 </div>
 
-{if !empty($helpSearchResult) && !empty($helpSearchKeyword)}
-<br />
 
-<div><a href="{url op="search" anchor="result-$helpSearchResult"|escape keyword=$helpSearchKeyword|escape}">{translate key="help.searchReturnResults"}</a></div>
-{/if}
+<script type="text/javascript">
+{literal}
+$("#helpDropdown").click(function(){
+  $("#toggleHelp").toggleClass('hidden');
+  $(".toggleUpArrow").toggle();
+  $(".toggleDownArrow").toggle();
+});
+  {/literal}
+</script>
 
-<br />
 
-<div><a href="{url op="toc"}">{translate key="help.toc"}</a></div>
+<!-- scrapped code we don't need but afraid to delete. -->
+      <!-- {if !empty($helpSearchResult) && !empty($helpSearchKeyword)}
+      <br />
 
-<br />
+      <div><a href="{url op="search" anchor="result-$helpSearchResult"|escape keyword=$helpSearchKeyword|escape}">{translate key="help.searchReturnResults"}</a></div>
+      {/if}
 
-{if $toc->getParentTopicId() && $toc->getParentTopicId() != $topic->getId()}
-<div id="helpContents">
-{translate key="help.contents"}&nbsp;<a href="{url op="view" path=$toc->getParentTopicId()|explode:"/"}">{translate key="help.upALevel"}</a>
-</div>
-<br />
-{/if}
+      <br />
 
-<div id="helpToc" class="block">
-	<span class="blockTitle">{$toc->getTitle()}</span>
-	<ul>
-		{foreach from=$toc->getTopics() item=currTopic}
-			{if $currTopic->getId() == $topic->getId()}
-			<li><a href="{url op="view" path=$currTopic->getId()|explode:"/"}" class="current">{$currTopic->getTitle()}</a>
-			{if $subToc}
-			<ul>
-			{foreach from=$subToc->getTopics() item=currSubTopic}
-				<li><a href="{url op="view" path=$currSubTopic->getId()|explode:"/"}">{$currSubTopic->getTitle()}</a></li>
-			{/foreach}
-			</ul>
-			{/if}
-			</li>
-			{else}
-			<li><a href="{url op="view" path=$currTopic->getId()|explode:"/"}">{$currTopic->getTitle()}</a></li>
-			{/if}
-		{/foreach}
-	</ul>
-</div>
+      <div><a href="{url op="toc"}">{translate key="help.toc"}</a></div>
+
+      <br />
+
+      {if $toc->getParentTopicId() && $toc->getParentTopicId() != $topic->getId()}
+      <div id="helpContents">
+      {translate key="help.contents"}&nbsp;<a href="{url op="view" path=$toc->getParentTopicId()|explode:"/"}">{translate key="help.upALevel"}</a>
+      </div>
+      <br />
+      {/if} -->
