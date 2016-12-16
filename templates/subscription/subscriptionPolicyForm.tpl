@@ -79,7 +79,8 @@
 	</tr>
 	<tr valign="top">
 		<td width="20%" class="label">{fieldLabel name="subscriptionMailingAddress" key="common.mailingAddress"}</td>
-		<td width="80%" class="value"><textarea name="subscriptionMailingAddress" id="subscriptionMailingAddress" rows="6" cols="40" class="textArea">{$subscriptionMailingAddress|escape}</textarea></td>
+		<td width="80%" class="hidden"><textarea name="subscriptionMailingAddress" id="subscriptionMailingAddress" rows="6" cols="40" class="textArea">{$subscriptionMailingAddress|escape}</textarea></td>
+    <td><input type="text" name="subscriptionMailingAddress" value="{$subscriptionMailingAddress|escape}"></td>
 	</tr>
 </table>
 </div>
@@ -230,12 +231,19 @@
 
 <div class="separator"></div>
 
+<div class="row">
+  <div class="col-xs-12">
+      <input type="submit" value="{translate key="common.save"}" class="btn btn-block marginTopBot" id="regSubmitBtn" />
+  </div>
+  <div class="col-xs-12">
+     <input type="button" value="{translate key="common.cancel"}" class="btn btn-danger btn-block cancelBtn" onclick="document.location.href='{url op="subscriptionPolicies" escape=false}'" />
+  </div>
+</div>
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="subscriptionPolicies" escape=false}'" /></p>
+<p></p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 </form>
 
 {include file="common/footer.tpl"}
-
