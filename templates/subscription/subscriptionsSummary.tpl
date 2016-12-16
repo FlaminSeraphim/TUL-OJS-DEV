@@ -13,14 +13,13 @@
 {assign var="pageId" value="manager.subscriptions.summary"}
 {include file="common/header.tpl"}
 {/strip}
-
 <ul class="menu">
 	<li class="current"><a href="{url op="subscriptionsSummary"}">{translate key="manager.subscriptions.summary"}</a></li>
-	<li><a href="{url op="subscriptions" path="individual"}">{translate key="manager.individualSubscriptions"}</a></li>
-	<li><a href="{url op="subscriptions" path="institutional"}">{translate key="manager.institutionalSubscriptions"}</a></li>
-	<li><a href="{url op="subscriptionTypes"}">{translate key="manager.subscriptionTypes"}</a></li>
-	<li><a href="{url op="subscriptionPolicies"}">{translate key="manager.subscriptionPolicies"}</a></li>
-	<li><a href="{url op="payments"}">{translate key="manager.payments"}</a></li>
+	<li><a href="{url op="subscriptions" path="individual"}">    {translate key="manager.individualSubscriptions"}</a></li>
+	<li><a href="{url op="subscriptions" path="institutional"}">    {translate key="manager.institutionalSubscriptions"}</a></li>
+	<li><a href="{url op="subscriptionTypes"}">    {translate key="manager.subscriptionTypes"}</a></li>
+	<li><a href="{url op="subscriptionPolicies"}">    {translate key="manager.subscriptionPolicies"}</a></li>
+	<li><a href="{url op="payments"}">    {translate key="manager.payments"}</a></li>
 </ul>
 
 <h3>{translate key="manager.individualSubscriptions"}</h3>
@@ -40,4 +39,3 @@
 <a href="{url op="selectSubscriber" path="institutional"}" class="action">{translate key="manager.subscriptions.create"}</a>
 
 {include file="common/footer.tpl"}
-
