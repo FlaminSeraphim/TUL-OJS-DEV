@@ -177,11 +177,20 @@
 {/if}
 <br />
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="submissionEditing" path=$articleId escape=false}'" /></p>
+
+
+<div class="row">
+  <div class="col-xs-12">
+    <input type="submit" value="{translate key="common.save"}" class="btn btn-block marginBot" id="regSubmitBtn" />
+  </div>
+  <div class="col-xs-12">
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-danger btn-block cancelBtn" onclick="document.location.href='{url op="submissionEditing" path=$articleId escape=false}'" />
+  </div>
+</div>
+
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 </form>
 </div>
 {include file="common/footer.tpl"}
-
