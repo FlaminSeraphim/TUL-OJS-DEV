@@ -188,11 +188,17 @@
 <div class="separator"></div>
 
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="history.go(-1)" /></p>
+<div class="row">
+  <div class="col-xs-12">
+    <input type="submit" value="{translate key="common.save"}" class="btn btn-block marginTopBot " id="regSubmitBtn" />
+  </div>
+  <div class="col-xs-12">
+    <input type="button" value="{translate key="common.cancel"}" class="btn btn-danger btn-block cancelBtn" onclick="history.go(-1)" />
+  </div>
+</div>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 </form>
 
 {include file="common/footer.tpl"}
-
