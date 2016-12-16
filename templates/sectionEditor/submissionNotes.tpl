@@ -94,7 +94,7 @@
 	</tr>
 </table>
 <br />
-<input type="button" class="button" value="{translate key="submission.notes.deleteNote"}" onclick="confirmAction('{url op="removeSubmissionNote" articleId=$articleNote->getArticleId() noteId=$articleNote->getId() fileId=$articleNote->getFileId()}', '{translate|escape:"jsparam" key="submission.notes.confirmDelete"}')" />&nbsp;<input type="submit" class="button defaultButton" value="{translate key="submission.notes.updateNote"}" />
+<input type="button" class="btn changeRadius" value="{translate key="submission.notes.deleteNote"}" onclick="confirmAction('{url op="removeSubmissionNote" articleId=$articleNote->getArticleId() noteId=$articleNote->getId() fileId=$articleNote->getFileId()}', '{translate|escape:"jsparam" key="submission.notes.confirmDelete"}')" />&nbsp;<input type="submit" class="button defaultButton" value="{translate key="submission.notes.updateNote"}" />
 </form>
 
 {elseif $noteViewType == "add"}
@@ -116,7 +116,12 @@
 	</tr>
 	</table>
 	<br />
-	<input type="submit" class="button defaultButton" value="{translate key="submission.notes.createNewNote"}" />
+  <div class="row">
+    <div class="col-xs-12">
+      <input type="submit" class="btn btn-block " id="regSubmitBtn"value="{translate key="submission.notes.createNewNote"}" />
+    </div>
+  </div>
+
 	</form>
 {else}
 <h3>{translate key="submission.notes"}</h3>
@@ -169,4 +174,3 @@
 {/if}
 </div>
 {include file="common/footer.tpl"}
-
