@@ -68,6 +68,14 @@ a:visited{
 
 .btn {
   border-color: #FFB039;
+  background-color: #FBFBF3;
+  border-width: medium;
+  color: #FFB039;
+
+}
+
+.btn:hover{
+  color: #333;
   background-color: #FFB039;
 }
 
@@ -75,12 +83,15 @@ a:visited{
   border-color: #FFB039;
   background-color: #FFB039;
 }
+
 #regSubmitBtn{
   color: white;
   border-radius: 16px;
   background-color: #333333;
+  border-width: 0px;
 
 }
+
 
 
 hr.style-one {
@@ -189,52 +200,10 @@ hr.style-one {
   margin-right: .35em;
 
 }
-
-
-@media (max-width: 1185px){
-  /*#osuLogo{
-    padding: 0;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
+@media (max-width: 1300px) and (min-width: 1200px) {
+  .allToc{
+    margin-left: 1.5em;
   }
-  .getInline{
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  }
-
-  #osuHeader{
-    width: 100%;
-  }
-
-  #osuHeader h1{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: visible;
-    text-align: center;
-  }
-
-  #osuHeader h3{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }*/
-  ul.menu li.splitter {
-    /*display:none;*/
-  }
-  /*#navbar.navbar.navbar-default{
-    border-style: none;
-  }
-  .center-twitter{
-    margin: 0 auto;
-    width: 43%;
-  }
-  #hide-bottom-menu{
-    display: none;
-  }*/
 }
 
 @media (max-width: 785px){
@@ -388,6 +357,7 @@ ul.menu li.splitter {
 }
 .label{
   color: black;
+  font-size: 100%;
 }
 
 .center-twitter{
@@ -396,7 +366,6 @@ ul.menu li.splitter {
 
 .allToc{
   float: left;
-  padding-left: 3em;
 }
 #issueCoverImage{
   float:left;
@@ -457,17 +426,18 @@ div#metaCitations {
   z-index: 2;
   border: 0 none;
 }
-.headerSearch input:focus {
+.headerSearch input:focus, .headerSearch button {
   outline: 0 none;
 }
-.headerSearch input:focus + button {
+
+.headerSearch .searchButton *:hover button {
   -webkit-transform: translate(0, 0);
       -ms-transform: translate(0, 0);
-          transform: translate(0, 0);
+          transform: translate(0px, 0);
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
-.headerSearch input:focus + button .fa {
+.headerSearch .searchButton *:hover button .fa {
   -webkit-transform: translate(0px, 0);
       -ms-transform: translate(0px, 0);
           transform: translate(0px, 0);
@@ -478,14 +448,14 @@ div#metaCitations {
 
 .headerSearch button {
   z-index: 1;
-  width: 50px;
+  width: 70px;
   border: 0 none;
   background: #333333;
   cursor: pointer;
   border-radius: 0 5px 5px 0;
-  -webkit-transform: translate(-50px, 0);
-      -ms-transform: translate(-50px, 0);
-          transform: translate(-50px, 0);
+  -webkit-transform: translate(-70px, 0);
+      -ms-transform: translate(-70px, 0);
+          transform: translate(-70px, 0);
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
@@ -495,9 +465,9 @@ div#metaCitations {
   color: #29abe2;
   z-index: 3;
   top: 25%;
-  -webkit-transform: translate(-190px, 0);
-      -ms-transform: translate(-190px, 0);
-          transform: translate(-190px, 0);
+  -webkit-transform: translate(-70px, 0);
+      -ms-transform: translate(-70px, 0);
+          transform: translate(-70px, 0);
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
   -webkit-transition: all 0.1s ease-in-out;
@@ -570,6 +540,7 @@ div#metaCitations {
 @media (max-width: 335px){
   .headerSearch fieldset {
       margin-left: 0em;
+      padding-left: 20px;
   }
   .headerSearch input {
     position: relative;
@@ -602,6 +573,14 @@ div#metaCitations {
   border-radius: 16px;
   background: #d9534f;
   border-color: #d9534f;
+  color: white;
+  border-width: 0px;
+}
+
+.cancelBtn:hover{
+  background-color: #d9534f;
+  color: white;
+  border-color: #d9534f;
 }
 ul.steplist{
   font-size: 1.18em;
@@ -629,7 +608,7 @@ table.listing td.headseparator {
     line-height: 1%;
 }
 /*custom radio buttons and checkboxes*/
-input[type="checkbox"]{
+input[type="checkbox"], input[type="radio"]{
   width: 2em;
   transform: scale(1.5);
 }
@@ -666,4 +645,58 @@ input[type="text"]#query{
 
 #addSearch{
   margin-top: 1em
+}
+
+#content input[type="text"].ui-widget-content.ui-autocomplete-input {
+  border: none;
+}
+
+#content ul.menu li{
+  padding-right: 1.25em;
+}
+
+.marginTopBot{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.marginTop{
+  margin-top: 1em;
+}
+
+.marginTopSm{
+  margin-top: .5em;
+}
+
+.marginLeftSm{
+  margin-left: .5em;
+}
+
+.marginBot{
+  margin-bottom: 1em;
+}
+
+.marginBotSm{
+  margin-bottom: .5em;
+}
+
+input.textField, select.selectMenu, textarea.textArea, input.uploadField{
+  border-bottom: 2px solid #333333;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: #FBFBF3;
+
+}
+
+ul.menu a{
+  font-size: 1em;
+}
+
+ul.menu li.current{
+  font-weight: 900;
+}
+
+table.listing td.endseparator{
+  border-top: 1px solid #000;
 }
