@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-18 08:37:58
+<?php /* Smarty version 2.6.26, created on 2017-08-22 15:12:54
          compiled from user/index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'url', 'user/index.tpl', 18, false),array('function', 'translate', 'user/index.tpl', 18, false),array('function', 'call_hook', 'user/index.tpl', 19, false),array('modifier', 'escape', 'user/index.tpl', 26, false),array('modifier', 'assign', 'user/index.tpl', 178, false),array('modifier', 'date_format', 'user/index.tpl', 233, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'url', 'user/index.tpl', 18, false),array('function', 'translate', 'user/index.tpl', 18, false),array('function', 'call_hook', 'user/index.tpl', 19, false),array('modifier', 'escape', 'user/index.tpl', 26, false),array('modifier', 'assign', 'user/index.tpl', 178, false),array('modifier', 'date_format', 'user/index.tpl', 235, false),)), $this); ?>
 <?php echo ''; ?><?php $this->assign('pageTitle', "user.userHome"); ?><?php echo ''; ?><?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "common/header.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
@@ -284,7 +284,10 @@ unset($_smarty_tpl_vars);
 			<?php endforeach; endif; unset($_from); ?>
 		</ul>
 		</div>
-	<?php endif; ?><?php endif; ?>
+	<?php endif; ?><?php endif; ?><h3><a href='http://okstatemedicalproceedings.com/index.php/OSMP/pages/view/allhelpvideos'>Need Help? Here are some videos to help.</a></h3>
+<h3><a href="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('journal' => $this->_tpl_vars['journalPath'],'page' => 'author','op' => 'submit'), $this);?>
+" >Click Here to start a new submission</a></h3>
+
 <div id="myAccount">
 <h3><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "user.myAccount"), $this);?>
 </h3>

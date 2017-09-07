@@ -32,7 +32,8 @@ function confirmSubmissionCheck() {
 {/literal}
 </script>
 <div id="submissionToBeReviewed">
-<h3>{translate key="reviewer.article.submissionToBeReviewed"}</h3>
+<h3>{translate key="reviewer.article.submissionToBeReviewed"} <br> <a href="#reviewerGuidelines">Reviewer Guidelines</a></h3>
+<p><i class="fa fa-exclamation fa-2x" aria-hidden="true"></i>   Make sure to Accept the review in step 1. Leave your comments in step 5,  and give us your recommendation on step 7.</p>
 
 <table width="100%" class="data">
 <tr valign="top">
@@ -112,13 +113,17 @@ function confirmSubmissionCheck() {
 
 <table width="100%" class="data">
 <tr valign="top">
+  <td width="3%"><i class="fa fa-exclamation fa-2x" aria-hidden="true"></i></td>
+  <td>Required Accept or Decline to review</td>
+</tr>
+<tr valign="top" class="redborderleft">
 	{assign var=editAssignments value=$submission->getEditAssignments}
 	{* FIXME: Should be able to assign primary editorial contact *}
 	{if $editAssignments[0]}{assign var=firstEditAssignment value=$editAssignments[0]}{/if}
-	<td width="3%">{$currentStep|escape}.{assign var="currentStep" value=$currentStep+1}</td>
+	<td width="3%"> {$currentStep|escape}.{assign var="currentStep" value=$currentStep+1}</td>
 	<td width="97%"><span class="instruct">{translate key="reviewer.article.notifyEditorA"}{if $firstEditAssignment}, {$firstEditAssignment->getEditorFullName()|escape},{/if} {translate key="reviewer.article.notifyEditorB"}</span></td>
 </tr>
-<tr valign="top">
+<tr valign="top" class="redborderleft">
 	<td>&nbsp;</td>
 	<td>
 		{translate key="submission.response"}&nbsp;&nbsp;&nbsp;&nbsp;
@@ -246,13 +251,18 @@ function confirmSubmissionCheck() {
 		<td colspan="2">&nbsp;</td>
 	</tr>
 {else}{* $reviewAssignment->getReviewFormId() *}
-	<tr valign="top">
+  <tr valign="top">
+    <td width="3%"><i class="fa fa-exclamation fa-2x" aria-hidden="true"></i></td>
+    <td>Required Click Review</td>
+  </tr>
+	<tr valign="top" class="redborderleft">
 		<td>{$currentStep|escape}.{assign var="currentStep" value=$currentStep+1}</td>
 		<td><span class="instruct">{translate key="reviewer.article.enterReviewA"}</span></td>
 	</tr>
-	<tr valign="top">
+	<tr valign="top" class="redborderleft">
 		<td>&nbsp;</td>
 		<td>
+      <!-- This is the review comment area -->
 			{if $confirmedStatus and not $declined}
 				<a href="javascript:openComments('{url op="viewPeerReviewComments" path=$articleId|to_array:$reviewId}');" class="icon">
 					{translate key="submission.logType.review"}
@@ -321,7 +331,12 @@ function confirmSubmissionCheck() {
 <tr>
 	<td colspan="2">&nbsp;</td>
 </tr>
+<tr>
 <tr valign="top">
+    <td width="3%"><i class="fa fa-exclamation fa-2x" aria-hidden="true"></i></td>
+    <td>Required Choose recommendation</td>
+</tr>
+<tr valign="top" class="redborderleft">
 	<td>{$currentStep|escape}.{assign var="currentStep" value=$currentStep+1}</td>
 	<td><span class="instruct">{translate key="reviewer.article.selectRecommendation"}</span></td>
 </tr>

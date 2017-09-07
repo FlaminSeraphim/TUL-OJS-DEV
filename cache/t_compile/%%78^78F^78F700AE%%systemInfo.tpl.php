@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-25 14:53:28
+<?php /* Smarty version 2.6.26, created on 2017-08-17 09:06:26
          compiled from admin/systemInfo.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'admin/systemInfo.tpl', 16, false),array('function', 'url', 'admin/systemInfo.tpl', 29, false),array('modifier', 'date_format', 'admin/systemInfo.tpl', 19, false),array('modifier', 'escape', 'admin/systemInfo.tpl', 22, false),)), $this); ?>

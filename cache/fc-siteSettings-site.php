@@ -1,7 +1,7 @@
 <?php return array (
   'contactEmail' => 
   array (
-    'en_US' => 'cody.frieden@okstate.edu',
+    'en_US' => 'compliance.tulsa@okstate.edu',
   ),
   'contactName' => 
   array (
@@ -16,7 +16,7 @@
   'siteTheme' => '',
   'title' => 
   array (
-    'en_US' => 'Medical Journal',
+    'en_US' => 'Open Journal Systems',
   ),
   'useAlphalist' => false,
   'usePaging' => false,

@@ -12,6 +12,7 @@
 {include file="help/header.tpl"}
 {/strip}
 
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/help.css" type="text/css" />
 
 {include file="help/toc.tpl"}
 

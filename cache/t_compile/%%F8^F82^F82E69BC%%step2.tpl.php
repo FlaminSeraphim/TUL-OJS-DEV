@@ -1,14 +1,14 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-25 09:49:36
+<?php /* Smarty version 2.6.26, created on 2017-06-20 09:18:29
          compiled from author/submit/step2.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'url', 'author/submit/step2.tpl', 14, false),array('function', 'translate', 'author/submit/step2.tpl', 18, false),array('function', 'fieldLabel', 'author/submit/step2.tpl', 65, false),array('function', 'get_help_id', 'author/submit/step2.tpl', 72, false),array('modifier', 'escape', 'author/submit/step2.tpl', 15, false),array('modifier', 'to_array', 'author/submit/step2.tpl', 36, false),array('modifier', 'date_format', 'author/submit/step2.tpl', 48, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'url', 'author/submit/step2.tpl', 14, false),array('function', 'translate', 'author/submit/step2.tpl', 18, false),array('function', 'fieldLabel', 'author/submit/step2.tpl', 66, false),array('function', 'get_help_id', 'author/submit/step2.tpl', 73, false),array('modifier', 'escape', 'author/submit/step2.tpl', 15, false),array('modifier', 'to_array', 'author/submit/step2.tpl', 37, false),array('modifier', 'date_format', 'author/submit/step2.tpl', 49, false),)), $this); ?>
 <?php $this->assign('pageTitle', "author.submit.step2"); ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "author/submit/submitHeader.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
-
+<div class="separator"></div>
 <form method="post" action="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('op' => 'saveSubmit','path' => $this->_tpl_vars['submitStep']), $this);?>
 " enctype="multipart/form-data">
 <input type="hidden" name="articleId" value="<?php echo ((is_array($_tmp=$this->_tpl_vars['articleId'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
@@ -31,11 +31,12 @@ unset($_smarty_tpl_vars);
 <p><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => $this->_tpl_vars['howToKeyName'],'supportName' => $this->_tpl_vars['journalSettings']['supportName'],'supportEmail' => $this->_tpl_vars['journalSettings']['supportEmail'],'supportPhone' => $this->_tpl_vars['journalSettings']['supportPhone']), $this);?>
 </p>
 
-<div class="separator"></div>
+
 
 <div id="submissionFile">
 <h3><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "author.submit.submissionFile"), $this);?>
 </h3>
+<div class="separator"></div>
 <table class="data" width="100%">
 <?php if ($this->_tpl_vars['submissionFile']): ?>
 <tr valign="top">
@@ -72,7 +73,7 @@ unset($_smarty_tpl_vars);
 </table>
 </div>
 
-<div class="separator"></div>
+
 
 <div id="addSubmissionFile">
 <table class="data" width="100%">
@@ -87,7 +88,7 @@ unset($_smarty_tpl_vars);
 		<?php endif; ?>
 	</td>
 	<td width="70%" class="value">
-		<input type="file" class="uploadField" name="submissionFile" id="submissionFile" /> <input name="uploadSubmissionFile" type="submit" class="button" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.upload"), $this);?>
+		<input type="file" class="uploadField" name="submissionFile" id="submissionFile" /> <input id="uploadWidth" name="uploadSubmissionFile" type="submit" class="btn changeRadius" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.upload"), $this);?>
 " />
 		<?php if ($this->_tpl_vars['currentJournal']->getSetting('showEnsuringLink')): ?><a class="action" href="javascript:openHelp('<?php echo $this->_plugins['function']['get_help_id'][0][0]->smartyGetHelpId(array('key' => "editorial.sectionEditorsRole.review.blindPeerReview",'url' => 'true'), $this);?>
 ')"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "reviewer.article.ensuringBlindReview"), $this);?>
@@ -97,12 +98,10 @@ unset($_smarty_tpl_vars);
 </table>
 </div>
 
-<div class="separator"></div>
-
 <p><input type="submit"<?php if (! $this->_tpl_vars['submissionFile']): ?> onclick="return confirm('<?php echo ((is_array($_tmp=$this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "author.submit.noSubmissionConfirm"), $this))) ? $this->_run_mod_handler('escape', true, $_tmp, 'jsparam') : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp, 'jsparam'));?>
 ')"<?php endif; ?> value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.saveAndContinue"), $this);?>
-" class="button defaultButton" /> <input type="button" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.cancel"), $this);?>
-" class="button" onclick="confirmAction('<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'author'), $this);?>
+" class="btn btn-block " id="regSubmitBtn" /> <input type="button" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.cancel"), $this);?>
+" class="btn btn-danger btn-block cancelBtn" onclick="confirmAction('<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'author'), $this);?>
 ', '<?php echo ((is_array($_tmp=$this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "author.submit.cancelSubmission"), $this))) ? $this->_run_mod_handler('escape', true, $_tmp, 'jsparam') : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp, 'jsparam'));?>
 ')" /></p>
 

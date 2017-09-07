@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-17 14:17:13
+<?php /* Smarty version 2.6.26, created on 2017-07-28 08:14:49
          compiled from core:common/header.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'core:common/header.tpl', 11, false),array('function', 'call_hook', 'core:common/header.tpl', 53, false),array('function', 'url', 'core:common/header.tpl', 102, false),array('modifier', 'assign', 'core:common/header.tpl', 11, false),array('modifier', 'replace', 'core:common/header.tpl', 20, false),array('modifier', 'escape', 'core:common/header.tpl', 22, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'core:common/header.tpl', 11, false),array('function', 'call_hook', 'core:common/header.tpl', 64, false),array('function', 'url', 'core:common/header.tpl', 113, false),array('function', 'html_options_translate', 'core:common/header.tpl', 190, false),array('modifier', 'assign', 'core:common/header.tpl', 11, false),array('modifier', 'replace', 'core:common/header.tpl', 20, false),array('modifier', 'escape', 'core:common/header.tpl', 22, false),)), $this); ?>
 <?php echo ''; ?><?php if (! $this->_tpl_vars['pageTitleTranslated']): ?><?php echo ''; ?><?php echo ((is_array($_tmp=$this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => $this->_tpl_vars['pageTitle']), $this))) ? $this->_run_mod_handler('assign', true, $_tmp, 'pageTitleTranslated') : $this->_plugins['modifier']['assign'][0][0]->smartyAssign($_tmp, 'pageTitleTranslated'));?><?php echo ''; ?><?php endif; ?><?php echo ''; ?><?php if ($this->_tpl_vars['pageCrumbTitle']): ?><?php echo ''; ?><?php echo ((is_array($_tmp=$this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => $this->_tpl_vars['pageCrumbTitle']), $this))) ? $this->_run_mod_handler('assign', true, $_tmp, 'pageCrumbTitleTranslated') : $this->_plugins['modifier']['assign'][0][0]->smartyAssign($_tmp, 'pageCrumbTitleTranslated'));?><?php echo ''; ?><?php elseif (! $this->_tpl_vars['pageCrumbTitleTranslated']): ?><?php echo ''; ?><?php $this->assign('pageCrumbTitleTranslated', $this->_tpl_vars['pageTitleTranslated']); ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -12,6 +12,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'translate',
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=<?php echo ((is_array($_tmp=$this->_tpl_vars['defaultCharset'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
 " />
+  <meta name="viewport" content="width=device-width">
 	<title><?php echo $this->_tpl_vars['pageTitleTranslated']; ?>
 </title>
 	<meta name="description" content="<?php echo ((is_array($_tmp=$this->_tpl_vars['metaSearchDescription'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
@@ -21,12 +22,11 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'translate',
 	<meta name="generator" content="<?php echo $this->_tpl_vars['applicationName']; ?>
  <?php echo ((is_array($_tmp=$this->_tpl_vars['currentVersionString'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
 " />
-	<?php echo $this->_tpl_vars['metaCustomHeaders']; ?>
-
-	<?php if ($this->_tpl_vars['displayFavicon']): ?><link rel="icon" href="<?php echo $this->_tpl_vars['faviconDir']; ?>
-/<?php echo ((is_array($_tmp=$this->_tpl_vars['displayFavicon']['uploadName'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'url') : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp, 'url')); ?>
-" type="<?php echo ((is_array($_tmp=$this->_tpl_vars['displayFavicon']['mimeType'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
-" /><?php endif; ?>
+	<!-- <?php echo $this->_tpl_vars['metaCustomHeaders']; ?>
+ -->
+	<link rel="icon" href="<?php echo $this->_tpl_vars['baseUrl']; ?>
+/public/osuImages/StateSeal125px.png" type="<?php echo ((is_array($_tmp=$this->_tpl_vars['displayFavicon']['mimeType'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
+" />
 	<link rel="stylesheet" href="<?php echo $this->_tpl_vars['baseUrl']; ?>
 /lib/pkp/styles/pkp.css" type="text/css" />
 	<link rel="stylesheet" href="<?php echo $this->_tpl_vars['baseUrl']; ?>
@@ -35,6 +35,19 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'translate',
 /styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="<?php echo $this->_tpl_vars['baseUrl']; ?>
 /styles/compiled.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="<?php echo $this->_tpl_vars['baseUrl']; ?>
+/lib/osu/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+  <script src="https://use.fontawesome.com/515cb1f837.js"></script>
+  <link rel="stylesheet" href="<?php echo $this->_tpl_vars['baseUrl']; ?>
+/lib/osu/osuCss.css" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+  <script src="<?php echo $this->_tpl_vars['baseUrl']; ?>
+/lib/osu/bootstrap-3.3.7/dist/js/bootstrap.min.js" ></script>
+  <link href="https://fonts.googleapis.com/css?family=Forum" rel="stylesheet">
+
 
 	<!-- Base Jquery -->
 	<?php if ($this->_tpl_vars['allowCDN']): ?><script type="text/javascript" src="//www.google.com/jsapi"></script>
@@ -42,7 +55,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'translate',
 			<!--
 			// Provide a local fallback if the CDN cannot be reached
 			if (typeof google == \'undefined\') {
-				document.write(unescape("%3Cscript src=\''; ?>
+			  document.write(unescape("%3Cscript src=\''; ?>
 <?php echo $this->_tpl_vars['baseUrl']; ?>
 <?php echo '/lib/pkp/js/lib/jquery/jquery.min.js\' type=\'text/javascript\'%3E%3C/script%3E"));
 				document.write(unescape("%3Cscript src=\''; ?>
@@ -170,42 +183,134 @@ unset($_smarty_tpl_vars);
 ">
 <div id="container">
 
-<div id="header">
-<div id="headerTitle">
-<h1>
-<?php if ($this->_tpl_vars['displayPageHeaderLogo'] && is_array ( $this->_tpl_vars['displayPageHeaderLogo'] )): ?>
-	<img src="<?php echo $this->_tpl_vars['publicFilesDir']; ?>
+  <div id="header">
+    <div id="headerTitle">
+      <!-- adding login button on the top right -->
+
+      <?php if ($this->_tpl_vars['isUserLoggedIn']): ?>
+        <!-- <form  action="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'login','op' => 'signOut'), $this);?>
+" method="get"> -->
+          <!-- <button type="button" class="btn btn-default navbar-btn" id="logout"><a href="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'login','op' => 'signOut'), $this);?>
+"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "user.logOut"), $this);?>
+</a></button> -->
+          <a id="logout"href="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'login','op' => 'signOut'), $this);?>
+"><i class="fa fa-sign-out" aria-hidden="true"></i><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "user.logOut"), $this);?>
+</a>
+        <!-- </form> -->
+  		<?php else: ?>
+      <!-- <form  action="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'login'), $this);?>
+" method="post"> -->
+        <!-- <button  type="button" class="btn btn-default navbar-btn" id="logintop"><a href="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'login'), $this);?>
+"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "navigation.login"), $this);?>
+</a></button> -->
+        <a id="logintop"href="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'login'), $this);?>
+"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "navigation.login"), $this);?>
+<i class="fa fa-sign-in floatRight" aria-hidden="true"></i></a>
+      <!-- </form> -->
+  		<?php endif; ?>      <div id="socialMediaIcons" class="floatRight">
+        <!-- <i class="fa fa-facebook-official" aria-hidden="true"></i> -->
+        <a href="https://twitter.com/MedProceedings"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+      <?php if ($this->_tpl_vars['isUserLoggedIn']): ?>
+        <a href="<?php if ($this->_tpl_vars['hasOtherJournals']): ?><?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('journal' => 'index','page' => 'user'), $this);?>
+<?php else: ?><?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'user'), $this);?>
+<?php endif; ?>"><i class="fa fa-home" aria-hidden="true"></i></a>
+      <?php endif; ?>      </div>
+      <div class="clear"></div>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div id="osuHeader">
+
+            <?php if ($this->_tpl_vars['displayPageHeaderLogo'] && is_array ( $this->_tpl_vars['displayPageHeaderLogo'] )): ?>
+            	<img src="<?php echo $this->_tpl_vars['publicFilesDir']; ?>
 /<?php echo ((is_array($_tmp=$this->_tpl_vars['displayPageHeaderLogo']['uploadName'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'url') : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp, 'url')); ?>
 " width="<?php echo ((is_array($_tmp=$this->_tpl_vars['displayPageHeaderLogo']['width'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
 " height="<?php echo ((is_array($_tmp=$this->_tpl_vars['displayPageHeaderLogo']['height'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
 " <?php if ($this->_tpl_vars['displayPageHeaderLogoAltText'] != ''): ?>alt="<?php echo ((is_array($_tmp=$this->_tpl_vars['displayPageHeaderLogoAltText'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
 "<?php else: ?>alt="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.pageHeaderLogo.altText"), $this);?>
 "<?php endif; ?> />
-<?php endif; ?>
-<?php if ($this->_tpl_vars['displayPageHeaderTitle'] && is_array ( $this->_tpl_vars['displayPageHeaderTitle'] )): ?>
-	<img src="<?php echo $this->_tpl_vars['publicFilesDir']; ?>
+            <?php endif; ?>
+            <div class="getInline">
+                <!-- <h3 id="osuHeaderH3">
+                Oklahoma State -->
+                <!-- <?php if ($this->_tpl_vars['displayPageHeaderTitle'] && is_array ( $this->_tpl_vars['displayPageHeaderTitle'] )): ?>
+                	<img src="<?php echo $this->_tpl_vars['publicFilesDir']; ?>
 /<?php echo ((is_array($_tmp=$this->_tpl_vars['displayPageHeaderTitle']['uploadName'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'url') : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp, 'url')); ?>
 " width="<?php echo ((is_array($_tmp=$this->_tpl_vars['displayPageHeaderTitle']['width'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
 " height="<?php echo ((is_array($_tmp=$this->_tpl_vars['displayPageHeaderTitle']['height'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
 " <?php if ($this->_tpl_vars['displayPageHeaderTitleAltText'] != ''): ?>alt="<?php echo ((is_array($_tmp=$this->_tpl_vars['displayPageHeaderTitleAltText'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
 "<?php else: ?>alt="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.pageHeader.altText"), $this);?>
 "<?php endif; ?> />
-<?php elseif ($this->_tpl_vars['displayPageHeaderTitle']): ?>
-	<?php echo $this->_tpl_vars['displayPageHeaderTitle']; ?>
+                <?php elseif ($this->_tpl_vars['displayPageHeaderTitle']): ?>
+                	<?php echo $this->_tpl_vars['displayPageHeaderTitle']; ?>
 
-<?php elseif ($this->_tpl_vars['alternatePageHeader']): ?>
-	<?php echo $this->_tpl_vars['alternatePageHeader']; ?>
+                <?php elseif ($this->_tpl_vars['alternatePageHeader']): ?>
+                	<?php echo $this->_tpl_vars['alternatePageHeader']; ?>
 
-<?php elseif ($this->_tpl_vars['siteTitle']): ?>
-	<?php echo $this->_tpl_vars['siteTitle']; ?>
+                <?php elseif ($this->_tpl_vars['siteTitle']): ?>
+                	<?php echo $this->_tpl_vars['siteTitle']; ?>
 
-<?php else: ?>
-	<?php echo $this->_tpl_vars['applicationName']; ?>
+                <?php else: ?>
+                	<?php echo $this->_tpl_vars['applicationName']; ?>
 
-<?php endif; ?>
-</h1>
-</div>
-</div>
+                <?php endif; ?> -->
+              <!-- </h3> -->
+              <h1 id="osuHeaderH1"> <span id="osuHeaderSpan">OKLAHOMA STATE</span> <img class="" id="osuLogo" src="<?php echo $this->_tpl_vars['baseUrl']; ?>
+/public/osuImages/StateSeal125px.png" /><span id="forsmall">OKLAHOMA STATE</span> MEDICAL PROCEEDINGS</h1>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <form class="form-inline headerSearch" action="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'search','op' => 'search'), $this);?>
+">
+            <div class="form-group">
+              <!-- <?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "plugins.block.navigation.searchScope"), $this);?>
+ -->
+              <select id="searchCategories" name="searchField" size="1" class="selectMenu form-control">
+                <?php echo $this->_plugins['function']['html_options_translate'][0][0]->smartyHtmlOptionsTranslate(array('options' => $this->_tpl_vars['articleSearchByOptions']), $this);?>
+
+              </select>
+            <?php ob_start(); ?><?php echo $this->_plugins['function']['call_hook'][0][0]->smartyCallHook(array('name' => "Templates::Search::SearchResults::FilterInput",'filterName' => 'simpleQuery','filterValue' => "",'size' => 15), $this);?>
+<?php $this->_smarty_vars['capture']['default'] = ob_get_contents();  $this->assign('filterInput', ob_get_contents());ob_end_clean(); ?>
+              <?php if (empty ( $this->_tpl_vars['filterInput'] )): ?>
+                <!-- <input id="searchInput" type="text" name="simpleQuery" size="15" maxlength="255" value="" class="textField form-control" placeholder="search"/> -->
+                <div class="searchButton">
+                  <fieldset>
+
+                      <input type="search" name="simpleQuery" placeholder="Search Our Medical Journal"/>
+                      <button type="submit" id="putss">
+                        <i class="fa fa-search"></i>
+                      </button>
+
+                  </fieldset>
+                </div>
+              <?php else: ?>
+                <?php echo $this->_tpl_vars['filterInput']; ?>
+
+              <?php endif; ?>
+              <!-- <button type="submit" class="btn btn-success">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button> -->
+
+                <!-- <input type="submit" value="<i class="fa fa-search" aria-hidden="true"></i><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.search"), $this);?>
+" class="button btn btn-default" id="osuHeaderSearchBtn" /> -->
+            </div>
+          </form>
+        </div>
+      </div>
+
+  </div>
+  <!-- ================ search form added navbar moved ================= -->
+
+
+  <div class="clear"></div>
+
+  <?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "common/navbar.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
+  <!-- ================ /end search form added and navabar moved================= -->
+  </div>
+
 
 <div id="body">
 
@@ -227,20 +332,18 @@ unset($_smarty_tpl_vars);
 <?php endif; ?>
 
 <div id="main">
-<?php $_smarty_tpl_vars = $this->_tpl_vars;
-$this->_smarty_include(array('smarty_include_tpl_file' => "common/navbar.tpl", 'smarty_include_vars' => array()));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?>
 
-<?php $_smarty_tpl_vars = $this->_tpl_vars;
+
+<!-- <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "common/breadcrumbs.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
- ?>
+ ?> -->
 
-<h2><?php echo $this->_tpl_vars['pageTitleTranslated']; ?>
-</h2>
+
+
+<!-- <h2><?php echo $this->_tpl_vars['pageTitleTranslated']; ?>
+</h2> -->
 
 <?php if ($this->_tpl_vars['pageSubtitle'] && ! $this->_tpl_vars['pageSubtitleTranslated']): ?><?php echo ((is_array($_tmp=$this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => $this->_tpl_vars['pageSubtitle']), $this))) ? $this->_run_mod_handler('assign', true, $_tmp, 'pageSubtitleTranslated') : $this->_plugins['modifier']['assign'][0][0]->smartyAssign($_tmp, 'pageSubtitleTranslated'));?>
 <?php endif; ?>

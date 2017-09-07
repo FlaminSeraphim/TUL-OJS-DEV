@@ -26,17 +26,19 @@
 	<meta name="keywords" content="{$metaSearchKeywords|escape}" />
 	<meta name="generator" content="{$applicationName} {$currentVersionString|escape}" />
 	<!-- {$metaCustomHeaders} -->
-	{if $displayFavicon}<link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}" type="{$displayFavicon.mimeType|escape}" />{/if}
+	<link rel="icon" href="{$baseUrl}/public/osuImages/StateSeal125px.png" type="{$displayFavicon.mimeType|escape}" />
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/pkp.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="{$baseUrl}/lib/osu/bootstrap-3.3.7/dist/css/bootstrap.min.css">
   <script src="https://use.fontawesome.com/515cb1f837.js"></script>
   <link rel="stylesheet" href="{$baseUrl}/lib/osu/osuCss.css" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+  <script src="{$baseUrl}/lib/osu/bootstrap-3.3.7/dist/js/bootstrap.min.js" ></script>
   <link href="https://fonts.googleapis.com/css?family=Forum" rel="stylesheet">
 
 
@@ -46,7 +48,7 @@
 			<!--
 			// Provide a local fallback if the CDN cannot be reached
 			if (typeof google == 'undefined') {
-				document.write(unescape("%3Cscript src='{/literal}{$baseUrl}{literal}/lib/pkp/js/lib/jquery/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+			  document.write(unescape("%3Cscript src='{/literal}{$baseUrl}{literal}/lib/pkp/js/lib/jquery/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
 				document.write(unescape("%3Cscript src='{/literal}{$baseUrl}{literal}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js' type='text/javascript'%3E%3C/script%3E"));
 			} else {
 				google.load("jquery", "{/literal}{$smarty.const.CDN_JQUERY_VERSION}{literal}");
@@ -148,8 +150,11 @@
       <!-- </form> -->
   		{/if}{* $isUserLoggedIn *}
       <div id="socialMediaIcons" class="floatRight">
-        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+        <!-- <i class="fa fa-facebook-official" aria-hidden="true"></i> -->
         <a href="https://twitter.com/MedProceedings"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+      {if $isUserLoggedIn}
+        <a href="{if $hasOtherJournals}{url journal="index" page="user"}{else}{url page="user"}{/if}"><i class="fa fa-home" aria-hidden="true"></i></a>
+      {/if}{* $isUserLoggedIn *}
       </div>
       <div class="clear"></div>
       <div class="row">
@@ -196,7 +201,7 @@
                       </button>
 
                   </fieldset>
-                </div>  
+                </div>
               {else}
                 {$filterInput}
               {/if}

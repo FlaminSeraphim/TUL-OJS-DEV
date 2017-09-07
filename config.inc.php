@@ -29,7 +29,7 @@
 installed = On
 
 ; The canonical URL to the OJS installation (excluding the trailing slash)
-base_url = "http://10.20.0.124/ojs"
+base_url = "http://192.234.12.161/ojs"
 
 ; Path to the registry directory (containing various settings files)
 ; Although the files in this directory generally do not contain any
@@ -299,8 +299,8 @@ allowed_html = "<a href|target> <em> <strong> <cite> <code> <ul> <ol> <li> <dl> 
  smtp = On
 
 ; SMTP server settings
-; smtp_server = smtp.osu-tulsa.okstate.edu
-; smtp_port = 25
+smtp_server = localhost
+smtp_port = 25
 
 ; Force the default envelope sender (if present)
 ; This is useful if setting up a site-wide noreply address

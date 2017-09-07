@@ -11,6 +11,7 @@
 {assign var="pageTitle" value="author.submit.step3"}
 {include file="author/submit/submitHeader.tpl"}
 <link rel="stylesheet" href="{$baseUrl}/lib/osu/mdColMarginBot.css">
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/submissionsstep3.css">
 
 {url|assign:"competingInterestGuidelinesUrl" page="information" op="competingInterestGuidelines"}
 
@@ -100,13 +101,13 @@ function moveAuthor(dir, authorIndex) {
   </div>
 
   <div class="row indexMarginBot">
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-6 hidden">
       {fieldLabel name="authors-$authorIndex-orcid" key="user.orcid"}
-    	<input type="text" class="textField orcid" name="authors[{$authorIndex|escape}][orcid]" id="authors-{$authorIndex|escape}-orcid" value="{$author.orcid|escape}" size="30" maxlength="90" /><br /><div class="orcidDesc">{translate key="user.orcid.description"}
+    	<input type="text" class="textField orcid" name="authors[{$authorIndex|escape}][orcid]" id="authors-{$authorIndex|escape}-orcid" value="{$author.orcid|escape}" size="30" maxlength="90" placeholder="(Click Here for more info)" /><br /><div class="orcidDesc">{translate key="user.orcid.description"}
       </div>
 
     </div>
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-6">
 
       <!-- {fieldLabel name="authors-$authorIndex-url" key="user.url"}</td>
       <input type="text" name="authors[{$authorIndex|escape}][url]" id="authors-{$authorIndex|escape}-url" value="{$author.url|escape}" size="30" maxlength="255" class="textField" /></td> -->
@@ -115,27 +116,31 @@ function moveAuthor(dir, authorIndex) {
       		<textarea name="authors[{$authorIndex|escape}][affiliation][{$formLocale|escape}]" class="textArea" id="authors-{$authorIndex|escape}-affiliation" rows="1" cols="40" placeholder="{translate key="user.affiliation.description"}">{$author.affiliation[$formLocale]|escape}</textarea><br />
       		<!-- <span class="instruct">{translate key="user.affiliation.description"}</span> -->
     </div>
-    <div class="col-xs-12 col-md-4">
 
-      {fieldLabel name="authors-$authorIndex-biography" key="user.biography"}
+
+      <!-- {fieldLabel name="authors-$authorIndex-biography" key="user.biography"} -->
     	<!-- <textarea name="authors[{$authorIndex|escape}][biography][{$formLocale|escape}]" class="textArea" id="authors-{$authorIndex|escape}-biography" rows="1" ></textarea> -->
-      <textarea name="authors[{$authorIndex|escape}][biography][{$formLocale|escape}]" class="textArea" rows="1"></textarea>
-    </div>
+      <!-- <textarea name="authors[{$authorIndex|escape}][biography][{$formLocale|escape}]" class="textArea" rows="1"></textarea> -->
+
   </div>
 
   <div class="row">
-    <div class="col-xs-12 col-md-6 paddingTop">
+    <!-- <div class="col-xs-12 col-md-6 paddingTop">
       <label><input type="checkbox" name="name" id="questionOne" value=""> Question 1</label> <br>
       <label><input type="checkbox" name="name" id="questionTwo"value=""> Question 1</label> <br>
       <label><input type="checkbox" name="name" id="questionThree" value=""> Question 1</label>
-    </div>
+    </div> -->
     <div class="col-xs-12 col-md-6">
+      <h3>Competing Interests Form</h3>
+      <h5>* If you do not sign a competing interest form you are stating that you have no competing interests.</h5>
       {if $currentJournal->getSetting('requireAuthorCompetingInterests')}
 
       	{fieldLabel name="authors-$authorIndex-competingInterests" key="author.competingInterests" competingInterestGuidelinesUrl=$competingInterestGuidelinesUrl}
-      		<textarea name="authors[{$authorIndex|escape}][competingInterests][{$formLocale|escape}]" class="textArea unhideCompetingInterests" id="authors-{$authorIndex|escape}-competingInterests" rows="1">{$author.competingInterests[$formLocale]|escape}</textarea>
+      		<!-- <textarea name="authors[{$authorIndex|escape}][competingInterests][{$formLocale|escape}]" class="textArea unhideCompetingInterests" id="authors-{$authorIndex|escape}-competingInterests" rows="1">{$author.competingInterests[$formLocale]|escape}</textarea> -->
 
       {/if}{* requireAuthorCompetingInterests *}
+      <p>If you have any competing interests please go to the link provided click file/download as then select pdf. <b>Sign it and upload it in the next section (step 4) as a supplementary document. The document must best uploaded with this naming convention (your first name) (your last name) Competing Interest ie. John Smith Competing Interest</b> You can find the document <a href="https://drive.google.com/file/d/0B4dWRxepxyq1STN3c3Y0RjhUZXM/view?usp=sharing" target="_blank">HERE</a>.</p>
+
     </div>
   </div>
   <div class="row">
@@ -156,7 +161,7 @@ function moveAuthor(dir, authorIndex) {
     </div>
     <div class="col-xs-12 col-md-8">
       {if $section->getAbstractsNotRequired()==0}{fieldLabel name="abstract" key="article.abstract" required="true"}{else}{fieldLabel name="abstract" key="article.abstract"}{/if}
-      <textarea name="abstract[{$formLocale|escape}]" id="" class="textArea" rows="2" cols="60" placeholder="Summary of Article">{$abstract[$formLocale]|escape}</textarea>
+      <textarea name="abstract[{$formLocale|escape}]" id="" class="textArea" rows="2" cols="60" placeholder="You can copy and paste the abstract from your manuscript here.">{$abstract[$formLocale]|escape}</textarea>
 
     </div>
 
@@ -168,7 +173,7 @@ function moveAuthor(dir, authorIndex) {
       	<div id="indexing">
       		<h3>{translate key="submission.indexing"}</h3>
           <div class="separator"></div>
-      		{if $currentJournal->getSetting('metaDiscipline') || $currentJournal->getSetting('metaSubjectClass') || $currentJournal->getSetting('metaSubject') || $currentJournal->getSetting('metaCoverage') || $currentJournal->getSetting('metaType')}<p>{translate key="author.submit.submissionIndexingDescription"}</p>{/if}
+      		{if $currentJournal->getSetting('metaDiscipline') || $currentJournal->getSetting('metaSubjectClass') || $currentJournal->getSetting('metaSubject') || $currentJournal->getSetting('metaCoverage') || $currentJournal->getSetting('metaType')}<p>{translate key="author.submit.submissionIndexingDescription"} Provide keywords that describe your article. Keywords that if someone googled that keyword your article would be a good search result.</p>{/if}
 
       		{if $currentJournal->getSetting('metaDiscipline')}
 
@@ -259,11 +264,11 @@ function moveAuthor(dir, authorIndex) {
   </div>
   <div class="row indexMarginBot">
     <div class="col-xs-12 col-md-4">
-        <span class="instruct">{translate key="author.submit.languageInstructions"}</span>
+        <span class="hidden">{translate key="author.submit.languageInstructions"}</span>
     </div>
     <div class="col-md-8">
-      {fieldLabel name="language" key="article.language"}
-        <input type="text" class="textField" name="language" id="language" value="{$language|escape}" size="5" maxlength="10" />
+      <!-- {fieldLabel name="language" key="article.language"} -->
+        <input type="text" class="hidden" name="language" id="language" value="{$language|escape}" size="5" maxlength="10" />
     </div>
   </div>
 
@@ -340,7 +345,7 @@ function moveAuthor(dir, authorIndex) {
 
 
 
-		<textarea name="authors[0][affiliation][{$formLocale|escape}]" class="textArea" id="authors-0-affiliation" rows="1" placeholder="{translate key="user.affiliation.description"}" ></textarea>
+		<textarea name="authors[0][affiliation][{$formLocale|escape}]" class="textArea" id="authors-0-affiliation" rows="1" placeholder="{translate key="user.affiliation.description"})" ></textarea>
 		<!-- <span class="instruct">{translate key="user.affiliation.description"}</span> -->
 
 
@@ -392,7 +397,7 @@ function moveAuthor(dir, authorIndex) {
 
 
 	{fieldLabel name="citations" key="submission.citations"}
-	<textarea name="citations" id="citations" class="textArea" rows="5" cols="60">{$citations|escape}</textarea>
+	<textarea name="citations" id="citations" class="textArea" rows="5" cols="60" placeholder="You can copy and paste the references and citations from your article here.">{$citations|escape}</textarea>
 
 
 </div>

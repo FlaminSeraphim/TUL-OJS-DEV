@@ -79,6 +79,7 @@
         		<!-- <td class="instruct">{translate key="user.register.usernameRestriction"}</td> -->
         	<!-- </tr> -->
         	{/if}{* !$existingUser *}
+          <label class="important" for="password">Password</label> <input type="text" class="required hds" >
 
       </div>
       <div class="col-xs-12 col-md-4">
@@ -269,25 +270,25 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-md-4">
+      <div class="col-xs-12 col-md-6 hidden">
         <!-- <tr valign="top"> -->
           <!-- <td class="label">{fieldLabel name="orcid" key="user.orcid"}</td> -->
-          <!-- <td class="value">--><span class="underlineForm"><input type="text" id="orcid" name="orcid" value="{$orcid|escape}" size="40" maxlength="255" class="textField" placeholder="ORCID ID" /><span id="orcidDesc">{translate key="user.orcid.description"}</span></span><!-- </td>-->
+          <!-- <td class="value">--><span class="underlineForm"><input type="text" id="orcid" name="orcid" value="{$orcid|escape}" size="40" maxlength="255" class="textField" placeholder="ORCID ID (Click Here for more info)" /><span id="orcidDesc">{translate key="user.orcid.description"}</span></span><!-- </td>-->
         <!-- </tr> -->
       </div>
-      <div class="col-xs-12 col-md-4">
+      <div class="col-xs-12 col-md-6">
         <!-- <tr valign="top"> -->
     			<!-- <td class="label">{fieldLabel name="phone" key="user.phone"}</td> -->
     			<!-- <td class="value">--><span class="underlineForm"><input type="text" name="phone" id="phone" value="{$phone|escape}" size="15" maxlength="24" class="textField" placeholder="Phone" /></span><!-- </td>-->
     		<!-- </tr> -->
       </div>
-      <div class="col-xs-12 col-md-4">
+
         <!-- <tr valign="top"> -->
     			<!-- <td class="label">{fieldLabel name="biography" key="user.biography"}<br />{translate key="user.biography.description"}</td> -->
-    			<!-- <td class="value">--><span class="underlineForm"><input type="text" name="biography[{$formLocale|escape}]" placeholder="Biography Statement"></span>
+    			<!-- <td class="value"><span class="underlineForm"><input type="text" name="biography[{$formLocale|escape}]" placeholder="Biography Statement"></span>-->
           <!-- <textarea name="biography[{$formLocale|escape}]" id="biography" rows="5" cols="40" class="textArea" placeholder="Bio Statement" >{$biography[$formLocale]|escape}</textarea></td>-->
     		<!-- </tr> -->
-      </div>
+
     </div>
     <div class="row">
       <div class="col-xs-12 col-md-12" id="regCheckBoxes">
@@ -453,6 +454,12 @@ $("#orcid").focusin(function(){
 })
 $("#orcid").focusout(function(){
   $("#orcidDesc").toggle();
+})
+$("#registerForm").submit(function(){
+  if($('.required').val() !== ''){
+    console.log('yo');
+    return false;
+  }
 })
 {/literal}
 </script>

@@ -71,16 +71,20 @@
     			{/if}
     		{/foreach}
 
-        <li><a href="{$baseUrl}/index.php/medj/notification/subscribeMailList">Subscribe</a></li>
+        <li><a href="{$baseUrl}/index.php/OSMP/notification/subscribeMailList">Subscribe</a></li>
 
         <li class="splitter"></li>
 
-        <li><a href="{$baseUrl}/index.php/medj/about/submissions#copyrightNotice">For Authors</a></li>
+        <li><a href="{$baseUrl}/index.php/OSMP/about/submissions">For Authors</a></li>
 
         <li class="splitter"></li>
 
-        <li><a href="{$baseUrl}/index.php/medj/about/contact">Help</a></li>
-        
+        <li><a href="{$baseUrl}/index.php/OSMP/about/contact">Contact Us</a></li>
+
+        <li class="splitter"></li>
+
+        <li><a href="{$baseUrl}/index.php/index/help">Help</a></li>
+
     	</ul>
     </div>
   </div>

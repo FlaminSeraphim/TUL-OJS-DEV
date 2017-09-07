@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-29 10:35:41
+<?php /* Smarty version 2.6.26, created on 2017-06-12 14:09:43
          compiled from file:/var/www/html/ojs/plugins/blocks/information/block.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'file:/var/www/html/ojs/plugins/blocks/information/block.tpl', 13, false),array('function', 'url', 'file:/var/www/html/ojs/plugins/blocks/information/block.tpl', 15, false),)), $this); ?>

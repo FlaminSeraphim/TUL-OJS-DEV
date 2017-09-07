@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-25 09:25:56
+<?php /* Smarty version 2.6.26, created on 2017-06-12 14:15:21
          compiled from user/registerSite.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('block', 'iterate', 'user/registerSite.tpl', 16, false),array('function', 'translate', 'user/registerSite.tpl', 18, false),array('function', 'url', 'user/registerSite.tpl', 22, false),array('modifier', 'escape', 'user/registerSite.tpl', 22, false),)), $this); ?>

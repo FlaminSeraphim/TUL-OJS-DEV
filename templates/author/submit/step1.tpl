@@ -8,6 +8,9 @@
  * Step 1 of author article submission.
  *
  *}
+
+ <link rel="stylesheet" href="{$baseUrl}/lib/osu/submissionsstep1.css" type="text/css" />
+
 {assign var="pageTitle" value="author.submit.step1"}
 {include file="author/submit/submitHeader.tpl"}
 <div class="separator"></div>
@@ -135,10 +138,12 @@ function checkSubmissionChecklist() {
 
 {if $currentJournal->getLocalizedSetting('copyrightNotice') != ''}
 <div id="copyrightNotice">
-<h3>{translate key="about.copyrightNotice"}</h3>
-<div class="separator"></div>
-<p>{$currentJournal->getLocalizedSetting('copyrightNotice')|nl2br}</p>
+<h3 id="hideSection1">{translate key="about.copyrightNotice"} (click arrow for more details) <i class="fa fa-arrow-circle-down toggleDownArrow1" aria-hidden="true"></i> <i class="fa fa-arrow-circle-up toggleUpArrow1 hidden" aria-hidden="true"></i></h3>
 
+<div class="separator"></div>
+<div id="section1" class="hidden">
+<p>{$currentJournal->getLocalizedSetting('copyrightNotice')|nl2br}</p>
+</div>
 {if $journalSettings.copyrightNoticeAgree}
 <table width="100%" class="data">
 	<tr valign="top">
@@ -182,5 +187,32 @@ function checkSubmissionChecklist() {
 </form>
 
 {/if}{* If not accepting submissions *}
+
+<script type="text/javascript">
+var sectionCounterNum = {$sectionCounter}
+{literal}
+//console.log(sectionCounterNum);
+// for(i = 0; i <= sectionCounterNum; i++){
+//   var hide = "#hideSection" + i;
+//   var section = "#section" + i;
+//   console.log(hide + " " + section);
+//   $(hide).on("click", section, function(sect){
+//     $(section).toggleClass("hidden");
+//     $(".toggleUpArrow" + i).toggle();
+//     $(".toggleDownArrow" + i).toggle();
+//   });
+// }
+// $("#hideSection2").on("click", function(){
+//   $("#section2").toggleClass("hidden");
+//
+// })
+$("#hideSection1").click(function(){
+  $("#section1").toggleClass("hidden");
+  $(".toggleUpArrow1").toggleClass("hidden");
+  $(".toggleDownArrow1").toggleClass("hidden");
+ })
+
+{/literal}
+</script>
 
 {include file="common/footer.tpl"}

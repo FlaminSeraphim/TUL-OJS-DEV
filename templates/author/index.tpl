@@ -22,7 +22,7 @@
 
 {include file="author/$pageToDisplay.tpl"}
 <div id="submitStart">
-<h4>{translate key="author.submit.startHereTitle"}</h4>
+<h4 id="authorSubmit">{translate key="author.submit.startHereTitle"}</h4>
 {url|assign:"submitUrl" op="submit"}
 {translate submitUrl=$submitUrl key="author.submit.startHereLink"}<br />
 </div>
@@ -30,4 +30,3 @@
 {call_hook name="Templates::Author::Index::AdditionalItems"}
 
 {include file="common/footer.tpl"}
-

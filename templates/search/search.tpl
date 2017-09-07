@@ -121,7 +121,7 @@
                 {if !$currentJournal}
                   <a href="{url journal=$journal->getPath()}">{$journal->getLocalizedTitle()|escape}</a> <br>
                 {/if}
-                <a href="{url journal=$journal->getPath() page="issue" op="view" path=$issue->getBestIssueId($journal)}">{$issue->getIssueIdentification()|escape}</a> <br>
+                <a href="{url journal=$journal->getPath() page="issue" op="view" path=$issue->getBestIssueId($journal)}">{$issue->getIssueIdentification()|escape}</a>
                 {$article->getLocalizedTitle()|strip_unsafe_html}
                   {if $publishedArticle->getAccessStatus() == $smarty.const.ARTICLE_ACCESS_OPEN|| $issueAvailable}
                     {assign var=hasAccess value=1}
@@ -144,9 +144,10 @@
                   {/if}
                   {if $hasAccess}
                     {foreach from=$publishedArticle->getGalleys() item=galley name=galleyList}
-                      &nbsp;<a href="{url journal=$journal->getPath() page="article" op="view" path=$publishedArticle->getBestArticleId($journal)|to_array:$galley->getBestGalleyId($journal)}" class="file">{$galley->getGalleyLabel()|escape}</a> <br>
+                      <a href="{url journal=$journal->getPath() page="article" op="view" path=$publishedArticle->getBestArticleId($journal)|to_array:$galley->getBestGalleyId($journal)}" class="file">{$galley->getGalleyLabel()|escape}</a>
                     {/foreach}
                   {/if}
+                  <br>
                   {call_hook name="Templates::Search::SearchResults::AdditionalArticleLinks" articleId=$publishedArticle->getId()}
 
                   {foreach from=$article->getAuthors() item=authorItem name=authorList}

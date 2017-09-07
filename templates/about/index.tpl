@@ -33,7 +33,7 @@
 <h3>{translate key="about.policies"}</h3>
 <ul>
 	{if $currentJournal->getLocalizedSetting('focusScopeDesc') != ''}<li><a href="{url op="editorialPolicies" anchor="focusAndScope"}">{translate key="about.focusAndScope"}</a></li>{/if}
-	<li><a href="{url op="editorialPolicies" anchor="sectionPolicies"}">{translate key="about.sectionPolicies"}</a></li>
+	<li><a href="{url op="editorialPolicies" anchor="sectionPolicies"}">Section Specific Policies</a></li>
 	{if $currentJournal->getLocalizedSetting('reviewPolicy') != ''}<li><a href="{url op="editorialPolicies" anchor="peerReviewProcess"}">{translate key="about.peerReviewProcess"}</a></li>{/if}
 	{if $currentJournal->getLocalizedSetting('pubFreqPolicy') != ''}<li><a href="{url op="editorialPolicies" anchor="publicationFrequency"}">{translate key="about.publicationFrequency"}</a></li>{/if}
 	{if $currentJournal->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN && $currentJournal->getLocalizedSetting('openAccessPolicy') != ''}<li><a href="{url op="editorialPolicies" anchor="openAccessPolicy"}">{translate key="about.openAccessPolicy"}</a></li>{/if}

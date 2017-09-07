@@ -3,21 +3,45 @@ body{
   background-color: #FBFBF3;
   overflow-x: hidden;
 }
+
 #forsmall{
   display: none;
 }
+
 h1{
   font-size: 3em;
 }
+
 li{
   list-style-type: none;
 }
+
 a{
   color: #FFB039;
 }
+
 a:visited{
   color: #FFB039;
 }
+
+p#blurb{
+  position: absolute;
+  background-color: white;
+  padding: 1em;
+  font-size: 1.55em;
+  margin: 2.5% 50% 0 13%;
+  background-color: rgba(250, 250, 250, 0.7);
+  z-index: 1;
+  border: 1px solid black;
+  box-shadow: 5px 5px 5px #444040;
+  font-family: 'Forum', cursive;
+  font-weight: bold;
+  }
+
+div#frontPageImage {
+  box-shadow: 10px 8px 7px 0px #444040;
+}
+
 #headerTitle a:link{
   color: #333333;
 }
@@ -53,14 +77,17 @@ a:visited{
   transition: all 0.3s ease-in-out 0s;
 }
 
+
 .underlineForm:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
+
 .loginMarginBot{
   margin-bottom: 1em;
 }
+
 .btn-primary{
   border-color: transparent;
   background-color: transparent;
@@ -92,8 +119,6 @@ a:visited{
 
 }
 
-
-
 hr.style-one {
     border: 0;
     height: 2.75px;
@@ -112,7 +137,6 @@ hr.style-one {
 #issueCoverImage{
   overflow: hidden;
 }
-
 
 #searchCategories{
   margin-bottom: .35em;
@@ -138,14 +162,11 @@ hr.style-one {
   /*margin: 0 auto;*/
 }
 
-
 #osuHeader{
    /*margin: 0 auto;*/
    /*text-align: center;*/
    /*width: 43em;*/
 }
-
-
 
 .getInline{
   /*padding-top: 4em;*/
@@ -177,6 +198,7 @@ hr.style-one {
   font-family: 'Forum', cursive;
   text-transform: uppercase;
 }
+
 #osuHeaderSearchBtn{
   width: 6em;
   margin-bottom: .3em;
@@ -200,6 +222,12 @@ hr.style-one {
   margin-right: .35em;
 
 }
+@media (min-width: 1685px){
+  div#frontPageImage {
+    box-shadow: none;
+  }
+}
+
 @media (max-width: 1300px) and (min-width: 1200px) {
   .allToc{
     margin-left: 1.5em;
@@ -207,7 +235,6 @@ hr.style-one {
 }
 
 @media (max-width: 785px){
-
   .headerSearch fieldset {
     margin-left: 0px;
   }
@@ -242,6 +269,11 @@ hr.style-one {
   #osuLogo{
     margin-top: .01em;
   }
+
+  p#blurb{
+    font-size: 1em;
+  }
+
 }
 
 #osuFooter{
@@ -261,6 +293,10 @@ hr.style-one {
   background-color: #FBFBF3;
 }
 
+div#copyrightNotice *{
+    background-color: #FBFBF3;
+}
+
 a:link {
   color: #008CBA;
 }
@@ -274,19 +310,22 @@ a:hover {
   border-color: #FF9900;
 }
 
-
 .clear{
   clear: both;
 }
+
 .clearLeft{
   clear: left;
 }
+
 .clearRight{
   clear: right;
 }
+
 .floatRight{
   float: right;
 }
+
 .floatLeft{
   float: left;
 }
@@ -303,7 +342,7 @@ a:hover {
 }
 
 #navbar a{
-  font-size: .95em;
+  font-size: .81em;
 }
 
 #navbar li :hover{
@@ -349,12 +388,15 @@ ul.menu li.splitter {
   border-right: 1px solid black;
   border-left: 1px solid black;
 }
+
 .nav>li>a{
   padding: 8px 11px;
 }
+
 #hide-bottom-menu{
   background-color: #FBFBF3;
 }
+
 .label{
   color: black;
   font-size: 100%;
@@ -367,9 +409,11 @@ ul.menu li.splitter {
 .allToc{
   float: left;
 }
+
 #issueCoverImage{
   float:left;
 }
+
 #issueHeader{
   display: block;
 }
@@ -379,28 +423,34 @@ ul.menu li.splitter {
   margin-right: 0px;
   margin-bottom: 0px;
 }
+
 #articleTocHeader{
   position: relative;
   float: left;
 }
+
 div.separator{
   width: 100%;
   border-bottom: 2px solid #000;
 }
+
 #copyright{
   font-size: 10px;
 }
+
 div#metaCitations {
     margin-bottom: 1em;
 }
+
 .indexMarginBot{
   margin-bottom: 1.5em;
 }
+
 .orcidDesc{
   display: none;
 }
-/*Searchbar*/
 
+/*Searchbar*/
 .headerSearch fieldset {
   position: relative;
   display: inline-block;
@@ -426,6 +476,7 @@ div#metaCitations {
   z-index: 2;
   border: 0 none;
 }
+
 .headerSearch input:focus, .headerSearch button {
   outline: 0 none;
 }
@@ -437,6 +488,7 @@ div#metaCitations {
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
+
 .headerSearch .searchButton *:hover button .fa {
   -webkit-transform: translate(0px, 0);
       -ms-transform: translate(0px, 0);
@@ -473,6 +525,7 @@ div#metaCitations {
   -webkit-transition: all 0.1s ease-in-out;
           transition: all 0.1s ease-in-out;
 }
+
 #searchCategories{
   display: none;
 }
@@ -502,9 +555,11 @@ div#metaCitations {
     font-family: 'Forum', cursive;
     text-transform: uppercase;
   }
+
   #osuHeaderSpan{
     display: none;
   }
+
   .row{
     margin-right: 0px;
   }
@@ -512,18 +567,30 @@ div#metaCitations {
   #hide-bottom-menu{
     display: none;
   }
+
   ul.menu li.splitter {
     display:none;
   }
+
   #searchInput{
     width: 20.5em;
   }
+
   #osuLogo{
     margin-top: .01em;
   }
+
+}
+
+@media (max-width: 575px){
+  p#blurb{
+      font-size: .55em;
+    }
+
 }
 
 @media (max-width: 503px){
+
   .headerSearch input {
     position: relative;
     width: 13.8em;
@@ -536,12 +603,16 @@ div#metaCitations {
   .headerSearch button{
 
   }
+
 }
+
 @media (max-width: 335px){
+
   .headerSearch fieldset {
       margin-left: 0em;
       padding-left: 20px;
   }
+
   .headerSearch input {
     position: relative;
     width: 14em;
@@ -550,25 +621,30 @@ div#metaCitations {
     display: inline-block;
     float: left;
   }
+
 }
 
 
 #leftSidebar{
   text-align: left;
 }
+
 #leftSidebar ul{
   padding-left: 0px;
 }
-#leftSidebar li{
 
+#leftSidebar li{
   list-style-type: none;
 }
+
 .noMarginLeft{
   margin-left: 0px;
 }
+
 .changeRadius{
   border-radius: 16px;
 }
+
 .cancelBtn{
   border-radius: 16px;
   background: #d9534f;
@@ -582,13 +658,16 @@ div#metaCitations {
   color: white;
   border-color: #d9534f;
 }
+
 ul.steplist{
   font-size: 1.18em;
   margin-bottom: 1.1em;
 }
+
 #uploadWidth{
   width: 8em;
 }
+
 input#submissionFile{
   border: none;
   background-color: #FBFBF3;
@@ -596,22 +675,27 @@ input#submissionFile{
   margin-bottom: .5em;
   margin-top: .5em;
 }
+
 .paddingTop{
   padding-top: 2em;
 }
+
 input#title {
     margin-top: 1.5em;
 }
+
 table.listing td.headseparator {
     border-top: 1px solid #000;
     font-size: 0.1em;
     line-height: 1%;
 }
+
 /*custom radio buttons and checkboxes*/
 input[type="checkbox"], input[type="radio"]{
   width: 2em;
   transform: scale(1.5);
 }
+
 textarea.textArea{
   background-color: #FBFBF3;
   border: none;
@@ -623,19 +707,28 @@ textarea.textArea{
 object#pdfObject {
     height: 60em;
 }
-#searchTips{
+
+#searchTips {
   color: #008CBA;
 }
 
-#hideSearchTips{
+#hideSearchTips {
   display: none;
+}
+
+h4#authorSubmit {
+  color: #FF9900;
+}
+
+div#submitStart {
+  font-size: 1.25em;
 }
 
 .toggleUpArrow{
   display: none;
 }
 
-.toggleDownArrow{
+.toggleDownArrow {
 
 }
 
@@ -699,4 +792,47 @@ ul.menu li.current{
 
 table.listing td.endseparator{
   border-top: 1px solid #000;
+}
+
+.make-bigger-and-orange {
+  font-size: 1.5em;
+  color: #FF9900;
+}
+
+.portrait {
+  border: 4px solid #ff9900;
+  border-radius: 100px;
+  margin: 2em;
+}
+
+.editorialTeam {
+  font-family: 'Forum', cursive;
+  font-size: 3em;
+  margin: auto;
+  width: 6.5em;
+}
+
+#main h2, #main h4, #main h3 {
+  font-family: 'Forum', cursive;
+}
+
+.important {
+  display: none;
+}
+
+.hds {
+  display: none;
+}
+
+tr.redborderleft {
+    border-left: 5px solid red;
+}
+
+a.icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.color-it-orange{
+  color: #FFB039;
 }

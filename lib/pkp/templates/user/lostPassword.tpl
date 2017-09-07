@@ -30,7 +30,7 @@
 </tr>
 </table>
 
-<p><input type="submit" value="{translate key="user.login.resetPassword"}" class="button defaultButton" /></p>
+<p><input type="submit" value="{translate key="user.login.resetPassword"}" class="btn btn-block" id="regSubmitBtn"/></p>
 
 {if !$hideRegisterLink}
 	<ul><li><a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a></li></ul>

@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-29 10:55:15
+<?php /* Smarty version 2.6.26, created on 2017-06-12 14:09:38
          compiled from file:/var/www/html/ojs/plugins/blocks/navigation/block.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'file:/var/www/html/ojs/plugins/blocks/navigation/block.tpl', 13, false),array('function', 'url', 'file:/var/www/html/ojs/plugins/blocks/navigation/block.tpl', 15, false),array('function', 'call_hook', 'file:/var/www/html/ojs/plugins/blocks/navigation/block.tpl', 19, false),array('function', 'html_options_translate', 'file:/var/www/html/ojs/plugins/blocks/navigation/block.tpl', 33, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'file:/var/www/html/ojs/plugins/blocks/navigation/block.tpl', 14, false),array('function', 'url', 'file:/var/www/html/ojs/plugins/blocks/navigation/block.tpl', 16, false),array('function', 'call_hook', 'file:/var/www/html/ojs/plugins/blocks/navigation/block.tpl', 20, false),array('function', 'html_options_translate', 'file:/var/www/html/ojs/plugins/blocks/navigation/block.tpl', 34, false),)), $this); ?>
 <?php if (! $this->_tpl_vars['currentJournal'] || $this->_tpl_vars['currentJournal']->getSetting('publishingMode') != @PUBLISHING_MODE_NONE): ?>
-<div class="block" id="sidebarNavigation">
+<div class="hidden" id="sidebarNavigation">
 	<span class="blockTitle"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "plugins.block.navigation.journalContent"), $this);?>
 </span>
 

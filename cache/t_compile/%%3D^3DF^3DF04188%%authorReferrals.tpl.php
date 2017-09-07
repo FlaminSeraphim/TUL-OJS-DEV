@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-25 09:50:11
+<?php /* Smarty version 2.6.26, created on 2017-06-15 08:46:25
          compiled from file:/var/www/html/ojs/plugins/generic/referral/authorReferrals.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'file:/var/www/html/ojs/plugins/generic/referral/authorReferrals.tpl', 27, false),array('function', 'url', 'file:/var/www/html/ojs/plugins/generic/referral/authorReferrals.tpl', 30, false),array('function', 'page_info', 'file:/var/www/html/ojs/plugins/generic/referral/authorReferrals.tpl', 88, false),array('function', 'page_links', 'file:/var/www/html/ojs/plugins/generic/referral/authorReferrals.tpl', 89, false),array('block', 'iterate', 'file:/var/www/html/ojs/plugins/generic/referral/authorReferrals.tpl', 51, false),array('modifier', 'date_format', 'file:/var/www/html/ojs/plugins/generic/referral/authorReferrals.tpl', 55, false),array('modifier', 'escape', 'file:/var/www/html/ojs/plugins/generic/referral/authorReferrals.tpl', 56, false),array('modifier', 'truncate', 'file:/var/www/html/ojs/plugins/generic/referral/authorReferrals.tpl', 57, false),array('modifier', 'strip_unsafe_html', 'file:/var/www/html/ojs/plugins/generic/referral/authorReferrals.tpl', 58, false),array('modifier', 'default', 'file:/var/www/html/ojs/plugins/generic/referral/authorReferrals.tpl', 59, false),)), $this); ?>
@@ -122,16 +122,16 @@ function toggleChecked() {
 </table>
 <p>
 	<input type="submit" name="accept" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "plugins.generic.referral.status.accept"), $this);?>
-" class="button" onclick="return confirm('<?php echo ((is_array($_tmp=$this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "plugins.generic.referral.status.accept.confirm"), $this))) ? $this->_run_mod_handler('escape', true, $_tmp, 'jsparam') : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp, 'jsparam'));?>
+" class="btn changeRadius marginTopSm" onclick="return confirm('<?php echo ((is_array($_tmp=$this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "plugins.generic.referral.status.accept.confirm"), $this))) ? $this->_run_mod_handler('escape', true, $_tmp, 'jsparam') : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp, 'jsparam'));?>
 ')"/>
 	<input type="submit" name="decline" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "plugins.generic.referral.status.decline"), $this);?>
-" class="button" onclick="return confirm('<?php echo ((is_array($_tmp=$this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "plugins.generic.referral.status.decline.confirm"), $this))) ? $this->_run_mod_handler('escape', true, $_tmp, 'jsparam') : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp, 'jsparam'));?>
+" class="btn changeRadius marginTopSm" onclick="return confirm('<?php echo ((is_array($_tmp=$this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "plugins.generic.referral.status.decline.confirm"), $this))) ? $this->_run_mod_handler('escape', true, $_tmp, 'jsparam') : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp, 'jsparam'));?>
 ')"/>
 	<input type="submit" name="delete" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.delete"), $this);?>
-" class="button" onclick="return confirm('<?php echo ((is_array($_tmp=$this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "plugins.generic.referral.confirmDelete"), $this))) ? $this->_run_mod_handler('escape', true, $_tmp, 'jsparam') : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp, 'jsparam'));?>
+" class="btn changeRadius marginTopSm" onclick="return confirm('<?php echo ((is_array($_tmp=$this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "plugins.generic.referral.confirmDelete"), $this))) ? $this->_run_mod_handler('escape', true, $_tmp, 'jsparam') : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp, 'jsparam'));?>
 ')"/>
 	<input type="button" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.selectAll"), $this);?>
-" class="button" onclick="toggleChecked()" />
+" class="btn changeRadius marginTopSm" onclick="toggleChecked()" />
 </p>
 </form>
 </div>

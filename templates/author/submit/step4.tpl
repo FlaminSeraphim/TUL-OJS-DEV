@@ -61,7 +61,7 @@ function confirmForgottenUpload() {
 </tr>
 {/foreach}
 </table>
-<h3>Upload Supplementary File</h3>
+<h3>Upload Supplementary File &amp Competing Interest Form</h3>
 <div class="separator"></div>
 
 <table class="data" width="100%">

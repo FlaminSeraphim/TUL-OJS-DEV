@@ -1,0 +1,8 @@
+label{
+  margin-left: 35px;
+}
+
+
+input[type="checkbox"].checkbox-custom{
+  margin-left: -35px;
+}

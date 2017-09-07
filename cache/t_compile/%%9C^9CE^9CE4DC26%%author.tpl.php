@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-25 09:50:11
+<?php /* Smarty version 2.6.26, created on 2017-06-15 08:46:25
          compiled from file:/var/www/html/ojs/plugins/blocks/role/author.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'file:/var/www/html/ojs/plugins/blocks/role/author.tpl', 12, false),array('function', 'url', 'file:/var/www/html/ojs/plugins/blocks/role/author.tpl', 15, false),)), $this); ?>

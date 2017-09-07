@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-18 08:50:22
+<?php /* Smarty version 2.6.26, created on 2017-08-10 10:11:59
          compiled from manager/setup/settingsSaved.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'manager/setup/settingsSaved.tpl', 14, false),array('function', 'url', 'manager/setup/settingsSaved.tpl', 17, false),)), $this); ?>

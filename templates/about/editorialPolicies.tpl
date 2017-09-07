@@ -46,35 +46,43 @@
     {/if}
 
     <div id="sectionPolicies"><h3>{translate key="about.sectionPolicies"}</h3>
-    {foreach from=$sections item=section}{if !$section->getHideAbout()}
-    	<h4>{$section->getLocalizedTitle()}</h4>
-    	{if strlen($section->getLocalizedPolicy()) > 0}
-    		<p>{$section->getLocalizedPolicy()|nl2br}</p>
-    	{/if}
+      {assign var="liCounter" value="0"}
+      {foreach from=$sections item=section}{if !$section->getHideAbout()}
+      {assign var="sectionCounter" value=$sectionCounter+1}
+    	<h4 id="hideSection{$sectionCounter}">{$section->getLocalizedTitle()} <i class="fa fa-arrow-circle-down toggleDownArrow{$sectionCounter}" aria-hidden="true"></i> <i class="fa fa-arrow-circle-up toggleUpArrow{$sectionCounter} hidden" aria-hidden="true"></i></h4>
+        <div id="section{$sectionCounter}" class="hidden">
+          {if strlen($section->getLocalizedPolicy()) > 0}
+        		<p>{$section->getLocalizedPolicy()|nl2br}</p>
+            <a href="{url journal=$journalPath page="author" op="submit"}" class="make-bigger-and-orange">Click Here to start a new submission</a>
+        	{/if}
 
-    	{assign var="hasEditors" value=0}
-    	{foreach from=$sectionEditorEntriesBySection item=sectionEditorEntries key=key}
-    		{if $key == $section->getId()}
-    			{foreach from=$sectionEditorEntries item=sectionEditorEntry}
-    				{assign var=sectionEditor value=$sectionEditorEntry.user}
-    				{if 0 == $hasEditors++}
-    				{translate key="user.role.editors"}
-    				<ul>
-    				{/if}
-    				<li>{$sectionEditor->getFirstName()|escape} {$sectionEditor->getLastName()|escape}{if $sectionEditor->getLocalizedAffiliation()}, {$sectionEditor->getLocalizedAffiliation()|escape}{/if}</li>
-    			{/foreach}
-    		{/if}
-    	{/foreach}
-    	{if $hasEditors}</ul>{/if}
 
-    	<table width="60%">
-    		<tr>
-    			<td width="33%">{if !$section->getEditorRestricted()}{icon name="checked"}{else}{icon name="unchecked"}{/if} {translate key="manager.sections.open"}</td>
-    			<td width="33%">{if $section->getMetaIndexed()}{icon name="checked"}{else}{icon name="unchecked"}{/if} {translate key="manager.sections.indexed"}</td>
-    			<td width="34%">{if $section->getMetaReviewed()}{icon name="checked"}{else}{icon name="unchecked"}{/if} {translate key="manager.sections.reviewed"}</td>
-    		</tr>
-    	</table>
-    {/if}{/foreach}
+
+        	{assign var="hasEditors" value=0}
+        	{foreach from=$sectionEditorEntriesBySection item=sectionEditorEntries key=key}
+        		{if $key == $section->getId()}
+        			{foreach from=$sectionEditorEntries item=sectionEditorEntry}
+        				{assign var=sectionEditor value=$sectionEditorEntry.user}
+        				{if 0 == $hasEditors++}
+        				{translate key="user.role.editors"}
+        				<ul>
+        				{/if}
+        				<li>{$sectionEditor->getFirstName()|escape} {$sectionEditor->getLastName()|escape}{if $sectionEditor->getLocalizedAffiliation()}, {$sectionEditor->getLocalizedAffiliation()|escape}{/if}</li>
+        			{/foreach}
+        		{/if}
+        	{/foreach}
+        	{if $hasEditors}</ul>{/if}
+
+        	<table width="60%">
+        		<tr>
+        			<td width="33%">{if !$section->getEditorRestricted()}{icon name="checked"}{else}{icon name="unchecked"}{/if} {translate key="manager.sections.open"}</td>
+        			<td width="33%">{if $section->getMetaIndexed()}{icon name="checked"}{else}{icon name="unchecked"}{/if} {translate key="manager.sections.indexed"}</td>
+        			<td width="34%">{if $section->getMetaReviewed()}{icon name="checked"}{else}{icon name="unchecked"}{/if} {translate key="manager.sections.reviewed"}</td>
+        		</tr>
+        	</table>
+          {/if}
+        </div>
+    {/foreach}
     </div>
 
     <div class="separator">&nbsp;</div>
@@ -175,6 +183,116 @@
     {/foreach}
   </div>
 </div>
+
+<script type="text/javascript">
+var sectionCounterNum = {$sectionCounter}
+{literal}
+//console.log(sectionCounterNum);
+// for(i = 0; i <= sectionCounterNum; i++){
+//   var hide = "#hideSection" + i;
+//   var section = "#section" + i;
+//   console.log(hide + " " + section);
+//   $(hide).on("click", section, function(sect){
+//     $(section).toggleClass("hidden");
+//     $(".toggleUpArrow" + i).toggle();
+//     $(".toggleDownArrow" + i).toggle();
+//   });
+// }
+// $("#hideSection2").on("click", function(){
+//   $("#section2").toggleClass("hidden");
+//
+// })
+$("#hideSection1").click(function(){
+  $("#section1").toggleClass("hidden");
+  $(".toggleUpArrow1").toggleClass("hidden");
+  $(".toggleDownArrow1").toggleClass("hidden");
+ })
+
+$("#hideSection2").click(function(){
+  $("#section2").toggleClass("hidden");
+  $(".toggleUpArrow2").toggleClass("hidden");
+  $(".toggleDownArrow2").toggleClass("hidden");
+ })
+
+ $("#hideSection3").click(function(){
+   $("#section3").toggleClass("hidden");
+   $(".toggleUpArrow3").toggleClass("hidden");
+   $(".toggleDownArrow3").toggleClass("hidden");
+  })
+
+  $("#hideSection4").click(function(){
+    $("#section4").toggleClass("hidden");
+    $(".toggleUpArrow4").toggleClass("hidden");
+    $(".toggleDownArrow4").toggleClass("hidden");
+   })
+
+   $("#hideSection5").click(function(){
+     $("#section5").toggleClass("hidden");
+     $(".toggleUpArrow5").toggleClass("hidden");
+     $(".toggleDownArrow5").toggleClass("hidden");
+    })
+
+    $("#hideSection6").click(function(){
+      $("#section6").toggleClass("hidden");
+      $(".toggleUpArrow6").toggleClass("hidden");
+      $(".toggleDownArrow6").toggleClass("hidden");
+     })
+
+     $("#hideSection7").click(function(){
+       $("#section7").toggleClass("hidden");
+       $(".toggleUpArrow7").toggleClass("hidden");
+       $(".toggleDownArrow7").toggleClass("hidden");
+      })
+
+      $("#hideSection8").click(function(){
+        $("#section8").toggleClass("hidden");
+        $(".toggleUpArrow8").toggleClass("hidden");
+        $(".toggleDownArrow8").toggleClass("hidden");
+       })
+
+       $("#hideSection9").click(function(){
+         $("#section9").toggleClass("hidden");
+         $(".toggleUpArrow9").toggleClass("hidden");
+         $(".toggleDownArrow9").toggleClass("hidden");
+        })
+
+        $("#hideSection10").click(function(){
+          $("#section10").toggleClass("hidden");
+          $(".toggleUpArrow10").toggleClass("hidden");
+          $(".toggleDownArrow10").toggleClass("hidden");
+         })
+
+         $("#hideSection11").click(function(){
+           $("#section11").toggleClass("hidden");
+           $(".toggleUpArrow11").toggleClass("hidden");
+           $(".toggleDownArrow11").toggleClass("hidden");
+          })
+
+          $("#hideSection12").click(function(){
+            $("#section12").toggleClass("hidden");
+            $(".toggleUpArrow12").toggleClass("hidden");
+            $(".toggleDownArrow12").toggleClass("hidden");
+           })
+
+           $("#hideSection13").click(function(){
+             $("#section13").toggleClass("hidden");
+             $(".toggleUpArrow13").toggleClass("hidden");
+             $(".toggleDownArrow13").toggleClass("hidden");
+            })
+
+            $("#hideSection14").click(function(){
+              $("#section14").toggleClass("hidden");
+              $(".toggleUpArrow14").toggleClass("hidden");
+              $(".toggleDownArrow14").toggleClass("hidden");
+             })
+
+             $("#hideSection15").click(function(){
+               $("#section15").toggleClass("hidden");
+               $(".toggleUpArrow15").toggleClass("hidden");
+               $(".toggleDownArrow15").toggleClass("hidden");
+              })
+{/literal}
+</script>
 
 
 {include file="common/footer.tpl"}

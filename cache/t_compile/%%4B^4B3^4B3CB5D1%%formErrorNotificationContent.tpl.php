@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-18 08:40:14
+<?php /* Smarty version 2.6.26, created on 2017-06-14 11:02:27
          compiled from controllers/notification/formErrorNotificationContent.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'controllers/notification/formErrorNotificationContent.tpl', 11, false),)), $this); ?>

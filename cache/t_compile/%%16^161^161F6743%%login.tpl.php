@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-25 10:09:06
+<?php /* Smarty version 2.6.26, created on 2017-06-12 22:11:18
          compiled from core:user/login.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'core:user/login.tpl', 24, false),array('function', 'url', 'core:user/login.tpl', 33, false),array('modifier', 'strip_unsafe_html', 'core:user/login.tpl', 48, false),array('modifier', 'escape', 'core:user/login.tpl', 48, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'core:user/login.tpl', 26, false),array('function', 'url', 'core:user/login.tpl', 35, false),array('modifier', 'escape', 'core:user/login.tpl', 52, false),array('modifier', 'strip_unsafe_html', 'core:user/login.tpl', 73, false),)), $this); ?>
 <?php echo ''; ?><?php $this->assign('pageTitle', "user.login"); ?><?php echo ''; ?><?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "common/header.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
@@ -15,6 +15,9 @@ unset($_smarty_tpl_vars);
 <?php if (! $this->_tpl_vars['registerLocaleKey']): ?>
 	<?php $this->assign('registerLocaleKey', "user.login.registerNewAccount"); ?>
 <?php endif; ?>
+<link rel="stylesheet" href="<?php echo $this->_tpl_vars['baseUrl']; ?>
+/lib/osu/osuHideSideBar.css" type="text/css">
+
 
 <?php if ($this->_tpl_vars['loginMessage']): ?>
 	<span class="instruct"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => ($this->_tpl_vars['loginMessage'])), $this);?>
@@ -47,46 +50,41 @@ unset($_smarty_tpl_vars);
 	<br />
 	<br />
 <?php endif; ?>
+<?php if (! $this->_tpl_vars['implicitAuth'] || $this->_tpl_vars['implicitAuth'] === @IMPLICIT_AUTH_OPTIONAL): ?>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 loginMarginBot">
+    <span class="underlineForm"><input type="text" id="loginUsername" name="username" value="<?php echo ((is_array($_tmp=$this->_tpl_vars['username'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
+" size="20" maxlength="32" class="textField" placeholder="Username" /></span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 loginMarginBot">
+    <span class="underlineForm"><input type="password" id="loginPassword" name="password" value="<?php echo ((is_array($_tmp=$this->_tpl_vars['password'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
+" size="20" class="textField" placeholder="Password" /></span>
 
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <?php if ($this->_tpl_vars['showRemember']): ?>
+    <input type="checkbox" id="loginRemember" name="remember" value="1"<?php if ($this->_tpl_vars['remember']): ?> checked="checked"<?php endif; ?> /> <label for="loginRemember"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "user.login.rememberUsernameAndPassword"), $this);?>
+</label>
+    <?php endif; ?>    <input type="submit" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "user.login"), $this);?>
+" class="btn btn-block" id="regSubmitBtn" />
+    <ul>
+  		<?php if (! $this->_tpl_vars['hideRegisterLink']): ?><li><a href="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'user','op' => $this->_tpl_vars['registerOp']), $this);?>
+"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => $this->_tpl_vars['registerLocaleKey']), $this);?>
+</a></li><?php endif; ?>
+  		<li><a href="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'login','op' => 'lostPassword'), $this);?>
+"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "user.login.forgotPassword"), $this);?>
+</a></li>
+  	</ul>
+  </div>
+</div>
 <input type="hidden" name="source" value="<?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['source'])) ? $this->_run_mod_handler('strip_unsafe_html', true, $_tmp) : String::stripUnsafeHtml($_tmp)))) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
 " />
 
-<?php if (! $this->_tpl_vars['implicitAuth'] || $this->_tpl_vars['implicitAuth'] === @IMPLICIT_AUTH_OPTIONAL): ?>
-	<table id="signinTable" class="data">
-	<tr>
-		<td class="label"><label for="loginUsername"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "user.username"), $this);?>
-</label></td>
-		<td class="value"><input type="text" id="loginUsername" name="username" value="<?php echo ((is_array($_tmp=$this->_tpl_vars['username'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
-" size="20" maxlength="32" class="textField" /></td>
-	</tr>
-	<tr>
-		<td class="label"><label for="loginPassword"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "user.password"), $this);?>
-</label></td>
-		<td class="value"><input type="password" id="loginPassword" name="password" value="<?php echo ((is_array($_tmp=$this->_tpl_vars['password'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
-" size="20" class="textField" /></td>
-	</tr>
-	<?php if ($this->_tpl_vars['showRemember']): ?>
-	<tr valign="middle">
-		<td></td>
-		<td class="value"><input type="checkbox" id="loginRemember" name="remember" value="1"<?php if ($this->_tpl_vars['remember']): ?> checked="checked"<?php endif; ?> /> <label for="loginRemember"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "user.login.rememberUsernameAndPassword"), $this);?>
-</label></td>
-	</tr>
-	<?php endif; ?>
-	<tr>
-		<td></td>
-		<td><input type="submit" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "user.login"), $this);?>
-" class="button" /></td>
-	</tr>
-	</table>
 
-	<ul>
-		<?php if (! $this->_tpl_vars['hideRegisterLink']): ?><li><a href="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'user','op' => $this->_tpl_vars['registerOp']), $this);?>
-"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => $this->_tpl_vars['registerLocaleKey']), $this);?>
-</a></li><?php endif; ?>
-		<li><a href="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'login','op' => 'lostPassword'), $this);?>
-"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "user.login.forgotPassword"), $this);?>
-</a></li>
-	</ul>
 
 <script type="text/javascript">
 <!--

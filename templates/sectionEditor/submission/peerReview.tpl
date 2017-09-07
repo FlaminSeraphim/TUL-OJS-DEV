@@ -159,7 +159,7 @@
 					<td class="heading" width="25%">{translate key="submission.request"}</td>
 					<td class="heading" width="25%">{translate key="submission.underway"}</td>
 					<td class="heading" width="25%">{translate key="submission.due"}</td>
-					<td class="heading" width="25%">{translate key="submission.acknowledge"}</td>
+					<td class="heading color-it-orange" width="25%">MAKE SURE TO <br>{translate key="submission.acknowledge"}</td>
 				</tr>
 				<tr valign="top">
 					<td>

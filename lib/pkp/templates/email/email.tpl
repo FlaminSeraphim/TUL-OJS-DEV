@@ -164,7 +164,7 @@ function deleteAttachment(fileId) {
     <input type="button" value="{translate key="common.cancel"}" class="btn btn-danger btn-block cancelBtn marginBot" onclick="history.go(-1)" />
   </div>
   <div class="col-xs-12">
-    {if !$disableSkipButton} <input name="send[skip]" type="submit" value="{translate key="email.skip"}" class="btn btn-danger btn-block cancelBtn" />{/if}
+    <!-- hid button so peopel can't accidently skip the email. {if !$disableSkipButton} <input name="send[skip]" type="submit" value="{translate key="email.skip"}" class="btn btn-danger btn-block cancelBtn" />{/if} -->
   </div>
 </div>
 

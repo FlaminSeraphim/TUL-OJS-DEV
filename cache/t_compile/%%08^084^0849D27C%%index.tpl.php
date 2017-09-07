@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-25 09:50:11
+<?php /* Smarty version 2.6.26, created on 2017-06-15 08:46:25
          compiled from author/index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'url', 'author/index.tpl', 17, false),array('function', 'translate', 'author/index.tpl', 17, false),array('function', 'call_hook', 'author/index.tpl', 30, false),array('modifier', 'assign', 'author/index.tpl', 26, false),)), $this); ?>
@@ -26,7 +26,7 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
 <div id="submitStart">
-<h4><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "author.submit.startHereTitle"), $this);?>
+<h4 id="authorSubmit"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "author.submit.startHereTitle"), $this);?>
 </h4>
 <?php echo ((is_array($_tmp=$this->_plugins['function']['url'][0][0]->smartyUrl(array('op' => 'submit'), $this))) ? $this->_run_mod_handler('assign', true, $_tmp, 'submitUrl') : $this->_plugins['modifier']['assign'][0][0]->smartyAssign($_tmp, 'submitUrl'));?>
 

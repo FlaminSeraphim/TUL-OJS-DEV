@@ -1,14 +1,18 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-25 09:41:46
+<?php /* Smarty version 2.6.26, created on 2017-06-20 08:53:07
          compiled from author/submit/step1.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'author/submit/step1.tpl', 20, false),array('function', 'url', 'author/submit/step1.tpl', 24, false),array('function', 'fieldLabel', 'author/submit/step1.tpl', 50, false),array('function', 'html_options', 'author/submit/step1.tpl', 51, false),array('modifier', 'escape', 'author/submit/step1.tpl', 26, false),array('modifier', 'assign', 'author/submit/step1.tpl', 43, false),array('modifier', 'nl2br', 'author/submit/step1.tpl', 124, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'author/submit/step1.tpl', 23, false),array('function', 'url', 'author/submit/step1.tpl', 27, false),array('function', 'fieldLabel', 'author/submit/step1.tpl', 53, false),array('function', 'html_options', 'author/submit/step1.tpl', 54, false),array('modifier', 'escape', 'author/submit/step1.tpl', 29, false),array('modifier', 'assign', 'author/submit/step1.tpl', 46, false),array('modifier', 'nl2br', 'author/submit/step1.tpl', 127, false),)), $this); ?>
+
+ <link rel="stylesheet" href="<?php echo $this->_tpl_vars['baseUrl']; ?>
+/lib/osu/submissionsstep1.css" type="text/css" />
+
 <?php $this->assign('pageTitle', "author.submit.step1"); ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "author/submit/submitHeader.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
-
+<div class="separator"></div>
 <?php if ($this->_tpl_vars['journalSettings']['supportPhone']): ?>
 	<?php $this->assign('howToKeyName', "author.submit.howToSubmit"); ?>
 <?php else: ?>
@@ -18,7 +22,7 @@ unset($_smarty_tpl_vars);
 <p><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => $this->_tpl_vars['howToKeyName'],'supportName' => $this->_tpl_vars['journalSettings']['supportName'],'supportEmail' => $this->_tpl_vars['journalSettings']['supportEmail'],'supportPhone' => $this->_tpl_vars['journalSettings']['supportPhone']), $this);?>
 </p>
 
-<div class="separator"></div>
+
 
 <form id="submit" method="post" action="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('op' => 'saveSubmit','path' => $this->_tpl_vars['submitStep']), $this);?>
 " onsubmit="return checkSubmissionChecklist()">
@@ -46,7 +50,7 @@ unset($_smarty_tpl_vars);
 
 <h3><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "author.submit.journalSection"), $this);?>
 </h3>
-
+<div class="separator"></div>
 <?php echo ((is_array($_tmp=$this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'about'), $this))) ? $this->_run_mod_handler('assign', true, $_tmp, 'url') : $this->_plugins['modifier']['assign'][0][0]->smartyAssign($_tmp, 'url'));?>
 
 <p><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "author.submit.journalSectionDescription",'aboutUrl' => $this->_tpl_vars['url']), $this);?>
@@ -64,7 +68,7 @@ unset($_smarty_tpl_vars);
 </table>
 
 </div>
-<div class="separator"></div>
+
 
 <?php endif; ?>
 <?php if (count ( $this->_tpl_vars['supportedSubmissionLocaleNames'] ) == 1): ?>
@@ -79,6 +83,7 @@ unset($_smarty_tpl_vars);
 
 	<h3><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "author.submit.submissionLocale"), $this);?>
 </h3>
+  	<div class="separator"></div>
 	<p><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "author.submit.submissionLocaleDescription"), $this);?>
 </p>
 
@@ -91,7 +96,7 @@ unset($_smarty_tpl_vars);
 		</tr>
 	</table>
 
-	<div class="separator"></div>
+
 
 	</div><?php endif; ?>
 <script type="text/javascript">
@@ -142,34 +147,35 @@ if ($this->_foreach['checklist']['total'] > 0):
 			<div id="checklist">
 			<h3><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "author.submit.submissionChecklist"), $this);?>
 </h3>
+      <div class="separator"></div>
 			<p><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "author.submit.submissionChecklistDescription"), $this);?>
 </p>
-			<table width="100%" class="data">
+
 		<?php endif; ?>
-		<tr valign="top">
-			<td width="5%"><input type="checkbox" id="checklist-<?php echo $this->_foreach['checklist']['iteration']; ?>
+		<label for="checklist-<?php echo $this->_foreach['checklist']['iteration']; ?>
+"><input class="checkbox-custom" type="checkbox" id="checklist-<?php echo $this->_foreach['checklist']['iteration']; ?>
 " name="checklist[]" value="<?php echo ((is_array($_tmp=$this->_tpl_vars['checklistId'])) ? $this->_run_mod_handler('escape', true, $_tmp) : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp)); ?>
-"<?php if ($this->_tpl_vars['articleId'] || $this->_tpl_vars['submissionChecklist']): ?> checked="checked"<?php endif; ?> /></td>
-			<td width="95%"><label for="checklist-<?php echo $this->_foreach['checklist']['iteration']; ?>
-"><?php echo ((is_array($_tmp=$this->_tpl_vars['checklistItem']['content'])) ? $this->_run_mod_handler('nl2br', true, $_tmp) : smarty_modifier_nl2br($_tmp)); ?>
-</label></td>
-		</tr>
+"<?php if ($this->_tpl_vars['articleId'] || $this->_tpl_vars['submissionChecklist']): ?> checked="checked"<?php endif; ?> /> <?php echo ((is_array($_tmp=$this->_tpl_vars['checklistItem']['content'])) ? $this->_run_mod_handler('nl2br', true, $_tmp) : smarty_modifier_nl2br($_tmp)); ?>
+</label> <br>
+
 	<?php endif; ?>
 <?php endforeach; endif; unset($_from); ?>
 <?php if ($this->_tpl_vars['notFirstChecklistItem']): ?>
-	</table>
-	</div>	<div class="separator"></div>
+
+	</div>
 <?php endif; ?>
 
 <?php endif; ?>
 <?php if ($this->_tpl_vars['currentJournal']->getLocalizedSetting('copyrightNotice') != ''): ?>
 <div id="copyrightNotice">
-<h3><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "about.copyrightNotice"), $this);?>
-</h3>
+<h3 id="hideSection1"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "about.copyrightNotice"), $this);?>
+ (click arrow for more details) <i class="fa fa-arrow-circle-down toggleDownArrow1" aria-hidden="true"></i> <i class="fa fa-arrow-circle-up toggleUpArrow1 hidden" aria-hidden="true"></i></h3>
 
+<div class="separator"></div>
+<div id="section1" class="hidden">
 <p><?php echo ((is_array($_tmp=$this->_tpl_vars['currentJournal']->getLocalizedSetting('copyrightNotice'))) ? $this->_run_mod_handler('nl2br', true, $_tmp) : smarty_modifier_nl2br($_tmp)); ?>
 </p>
-
+</div>
 <?php if ($this->_tpl_vars['journalSettings']['copyrightNoticeAgree']): ?>
 <table width="100%" class="data">
 	<tr valign="top">
@@ -179,23 +185,24 @@ if ($this->_foreach['checklist']['total'] > 0):
 	</tr>
 </table>
 <?php endif; ?></div>
-<div class="separator"></div>
+
 
 <?php endif; ?>
 <div id="privacyStatement">
 <h3><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "author.submit.privacyStatement"), $this);?>
 </h3>
+<div class="separator"></div>
 <br />
 <?php echo ((is_array($_tmp=$this->_tpl_vars['currentJournal']->getLocalizedSetting('privacyStatement'))) ? $this->_run_mod_handler('nl2br', true, $_tmp) : smarty_modifier_nl2br($_tmp)); ?>
 
 </div>
 
-<div class="separator"></div>
+
 
 <div id="commentsForEditor">
 <h3><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "author.submit.commentsForEditor"), $this);?>
 </h3>
-
+<div class="separator"></div>
 <table width="100%" class="data">
 <tr valign="top">
 	<td width="20%" class="label"><?php echo $this->_plugins['function']['fieldLabel'][0][0]->smartyFieldLabel(array('name' => 'commentsToEditor','key' => "author.submit.comments"), $this);?>
@@ -205,11 +212,11 @@ if ($this->_foreach['checklist']['total'] > 0):
 </tr>
 </table>
 </div>
-<div class="separator"></div>
+
 
 <p><input type="submit" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.saveAndContinue"), $this);?>
-" class="button defaultButton" /> <input type="button" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.cancel"), $this);?>
-" class="button" onclick="<?php if ($this->_tpl_vars['articleId']): ?>confirmAction('<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'author'), $this);?>
+" class="btn btn-block " id="regSubmitBtn" /> <input type="button" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.cancel"), $this);?>
+" class="btn btn-danger btn-block cancelBtn" onclick="<?php if ($this->_tpl_vars['articleId']): ?>confirmAction('<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'author'), $this);?>
 ', '<?php echo ((is_array($_tmp=$this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "author.submit.cancelSubmission"), $this))) ? $this->_run_mod_handler('escape', true, $_tmp, 'jsparam') : $this->_plugins['modifier']['escape'][0][0]->smartyEscape($_tmp, 'jsparam'));?>
 ')<?php else: ?>document.location.href='<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'author','escape' => false), $this);?>
 '<?php endif; ?>" /></p>
@@ -220,6 +227,35 @@ if ($this->_foreach['checklist']['total'] > 0):
 </form>
 
 <?php endif; ?>
+<script type="text/javascript">
+var sectionCounterNum = <?php echo $this->_tpl_vars['sectionCounter']; ?>
+
+<?php echo '
+//console.log(sectionCounterNum);
+// for(i = 0; i <= sectionCounterNum; i++){
+//   var hide = "#hideSection" + i;
+//   var section = "#section" + i;
+//   console.log(hide + " " + section);
+//   $(hide).on("click", section, function(sect){
+//     $(section).toggleClass("hidden");
+//     $(".toggleUpArrow" + i).toggle();
+//     $(".toggleDownArrow" + i).toggle();
+//   });
+// }
+// $("#hideSection2").on("click", function(){
+//   $("#section2").toggleClass("hidden");
+//
+// })
+$("#hideSection1").click(function(){
+  $("#section1").toggleClass("hidden");
+  $(".toggleUpArrow1").toggleClass("hidden");
+  $(".toggleDownArrow1").toggleClass("hidden");
+ })
+
+'; ?>
+
+</script>
+
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "common/footer.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;

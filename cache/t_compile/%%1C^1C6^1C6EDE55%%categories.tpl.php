@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-25 14:53:12
+<?php /* Smarty version 2.6.26, created on 2017-08-10 08:52:53
          compiled from admin/categories/categories.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'url', 'admin/categories/categories.tpl', 25, false),array('function', 'translate', 'admin/categories/categories.tpl', 26, false),array('function', 'page_info', 'admin/categories/categories.tpl', 66, false),array('function', 'page_links', 'admin/categories/categories.tpl', 67, false),array('block', 'iterate', 'admin/categories/categories.tpl', 47, false),array('modifier', 'escape', 'admin/categories/categories.tpl', 48, false),)), $this); ?>

@@ -143,7 +143,7 @@
 <table id="showReviewers" class="data" width="100%">
 <tr valign="top">
 	<td>&nbsp;</td>
-	<td class="value"><input type="checkbox" name="showReviewers" id="showReviewers" value="1"{if $showReviewers==1} checked="checked"{/if} />
+	<td class="value"><input type="checkbox" name="showReviewers" id="showReviewers" value="1"{if $showReviewers==1} checked="checked"{/if} checked/>
 	<label for="showReviewers">{translate key="author.submit.suppFile.availableToPeers"}</label></td>
 </tr>
 </table>

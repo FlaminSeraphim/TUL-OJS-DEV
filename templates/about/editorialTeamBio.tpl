@@ -61,6 +61,8 @@
 
 <div id="main">
 
+  
+
 {literal}
 <script type="text/javascript">
 <!--
@@ -102,4 +104,3 @@
 </div><!-- container -->
 </body>
 </html>
-

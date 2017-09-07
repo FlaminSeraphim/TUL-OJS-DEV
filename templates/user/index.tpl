@@ -202,6 +202,8 @@
 		</div>
 	{/if}{* $currentJournal *}
 {/if}{* !$hasRole *}
+<h3><a href='http://okstatemedicalproceedings.com/index.php/OSMP/pages/view/allhelpvideos'>Need Help? Here are some videos to help.</a></h3>
+<h3><a href="{url journal=$journalPath page="author" op="submit"}" >Click Here to start a new submission</a></h3>
 
 <div id="myAccount">
 <h3>{translate key="user.myAccount"}</h3>
@@ -243,4 +245,3 @@
 </div>
 
 {include file="common/footer.tpl"}
-

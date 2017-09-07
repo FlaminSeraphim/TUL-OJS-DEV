@@ -17,9 +17,12 @@
 <link rel="stylesheet" href="{$baseUrl}/lib/osu/osuHideSideBar.css" type="text/css" />
 
 <div class="row">
+  <p id="blurb">Oklahoma State Medical Proceedings is an online
+    open access peer reviewed journal with an emphasis
+    on articles by individuals in training. </p>
   <div class="col-xs-10 col-xs-offset-1">
     <div id="frontPageImage">
-      <a href="{$baseUrl}/index.php/medj/about">
+      <a href="{$baseUrl}/index.php/OSMP/about">
         <img
           sizes="(max-width: 1400px) 100vw, 1400px"
           srcset="
@@ -40,7 +43,7 @@
   </div>
  </div>
 <!-- <div id="frontPageImage">
-  <a href="{$baseUrl}/index.php/medj/about">
+  <a href="{$baseUrl}/index.php/OSMP/about">
     <img
       sizes="(max-width: 1400px) 100vw, 1400px"
       srcset="
@@ -115,7 +118,8 @@
 
     <div class="col-xs-4 col-lg-2 ">
       <div class="center-twitter">
-        <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/MedProceedings">Tweets by MedProceedings</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <a class="twitter-timeline" data-height="650" data-theme="dark" data-link-color="#FAB81E" href="https://twitter.com/MedProceedings">Tweets by MedProceedings</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <!-- <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/MedProceedings">Tweets by MedProceedings</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
       </div>
     </div>
 <!-- end of row div  -->

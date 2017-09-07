@@ -11,8 +11,20 @@
 {strip}
 {include file="common/header.tpl"}
 {/strip}
+<link rel="stylesheet" href="{$baseUrl}/lib/osu/help.css" type="text/css" />
+
 
 <div class="row" >
+  <div class="col-xs-12 col-md-4 marginTopSm">
+    <div id="helpSearch">
+      <form action="{url op="search"}" method="post" style="display: inline">
+      <!-- {translate key="help.searchFor"} &nbsp;&nbsp;--><input type="text" name="keyword" size="30" maxlength="60" value="{$helpSearchKeyword|escape}" class="textField" />
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-8">
+    <input type="submit" value="{translate key="common.search"}" class="btn changeRadius marginTop" />
+    </form>
+  </div>
   <div class="col-xs-12">
    	<h4>{$applicationHelpTranslated}</h4>
 
